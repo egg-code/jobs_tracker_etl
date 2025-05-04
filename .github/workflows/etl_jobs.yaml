@@ -14,6 +14,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      TZ: "Asia/Bangkok"
       JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
       JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
 
