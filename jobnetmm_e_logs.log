@@ -45,3 +45,25 @@
 2025-05-04 14:08:50,947:INFO:Get LATEST chromedriver version for google-chrome
 2025-05-04 14:08:50,973:INFO:Driver [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
 2025-05-04 14:09:01,254:INFO:Driver closed.
+2025-05-04 08:01:12,609:INFO:Initializing Extraction Process
+2025-05-04 08:01:12,609:INFO:====== WebDriver manager ======
+2025-05-04 08:01:15,887:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 08:01:15,919:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 08:01:15,942:INFO:There is no [linux64] chromedriver "135.0.7049.114" for browser google-chrome "135.0.7049" in cache
+2025-05-04 08:01:15,942:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 08:01:16,016:INFO:WebDriver version 135.0.7049.114 selected
+2025-05-04 08:01:16,019:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip
+2025-05-04 08:01:16,019:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip
+2025-05-04 08:01:16,045:INFO:Driver downloading response is 200
+2025-05-04 08:01:16,116:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 08:01:16,248:INFO:Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.114]
+2025-05-04 08:03:07,701:INFO:Login Successful! Dashboard loaded.
+2025-05-04 08:04:49,316:INFO:Redirected to jobs page
+2025-05-04 08:04:51,033:INFO:Page 1: Scraped. 30 jobs.
+2025-05-04 08:04:57,279:INFO:Page 2: Scraped. 60 jobs.
+2025-05-04 08:05:02,901:INFO:Page 3: Scraped. 90 jobs.
+2025-05-04 08:05:08,757:INFO:Page 4: Scraped. 120 jobs.
+2025-05-04 08:05:13,163:INFO:Page 5: Scraped. 136 jobs.
+2025-05-04 08:05:13,204:INFO:No more pages to scrape.
+2025-05-04 08:05:13,299:INFO:Driver closed.
+2025-05-04 08:05:13,300:INFO:Total jobs scraped: 136
