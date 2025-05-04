@@ -1,6 +1,9 @@
 name: Job Scraper
 
 on:
+  push:
+    branches:
+      - jobnetmm
   workflow_dispatch:
 
 permissions:
