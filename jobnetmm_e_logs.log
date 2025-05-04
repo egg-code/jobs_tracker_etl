@@ -1,0 +1,47 @@
+2025-05-04 13:25:35,398:INFO:====== WebDriver manager ======
+2025-05-04 13:25:37,520:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:25:37,815:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:25:37,866:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:25:37,992:INFO:WebDriver version 135.0.7049.114 selected
+2025-05-04 13:25:37,998:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-04 13:25:37,998:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-04 13:25:38,134:INFO:Driver downloading response is 200
+2025-05-04 13:25:39,268:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:25:39,502:INFO:Driver has been saved in cache [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-05-04 13:25:52,385:INFO:Login Successful! Dashboard loaded.
+2025-05-04 13:25:54,564:INFO:Redirected to jobs page
+2025-05-04 13:25:56,975:INFO:Page 1: Scraped. 30 jobs.
+2025-05-04 13:25:56,975:ERROR:Error navigating to next page: type object 'By' has no attribute 'CLASS_SELECTOR'
+2025-05-04 13:28:03,357:INFO:====== WebDriver manager ======
+2025-05-04 13:28:04,544:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:28:04,600:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:28:04,622:INFO:Driver [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-04 13:28:17,360:INFO:Login Successful! Dashboard loaded.
+2025-05-04 13:28:19,468:INFO:Redirected to jobs page
+2025-05-04 13:28:21,675:INFO:Page 1: Scraped. 30 jobs.
+2025-05-04 13:28:28,459:INFO:Page 2: Scraped. 60 jobs.
+2025-05-04 13:28:34,843:INFO:Page 3: Scraped. 90 jobs.
+2025-05-04 13:28:41,724:INFO:Page 4: Scraped. 120 jobs.
+2025-05-04 13:28:47,039:INFO:Page 5: Scraped. 136 jobs.
+2025-05-04 13:28:47,115:INFO:No more pages to scrape.
+2025-05-04 13:32:14,917:INFO:Initializing Extraction Process
+2025-05-04 13:32:14,917:INFO:====== WebDriver manager ======
+2025-05-04 13:32:16,078:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:32:16,121:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 13:32:16,149:INFO:Driver [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-04 13:32:28,377:INFO:Login Successful! Dashboard loaded.
+2025-05-04 13:32:29,914:INFO:Redirected to jobs page
+2025-05-04 13:32:32,231:INFO:Page 1: Scraped. 30 jobs.
+2025-05-04 13:32:37,648:INFO:Page 2: Scraped. 60 jobs.
+2025-05-04 13:32:43,292:INFO:Page 3: Scraped. 90 jobs.
+2025-05-04 13:32:48,562:INFO:Page 4: Scraped. 120 jobs.
+2025-05-04 13:32:52,733:INFO:Page 5: Scraped. 136 jobs.
+2025-05-04 13:32:52,807:INFO:No more pages to scrape.
+2025-05-04 13:32:55,074:INFO:Driver closed.
+2025-05-04 13:32:55,075:INFO:Total jobs scraped: 136
+2025-05-04 14:08:48,452:INFO:Initializing Extraction Process
+2025-05-04 14:08:48,452:INFO:====== WebDriver manager ======
+2025-05-04 14:08:50,901:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 14:08:50,947:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-04 14:08:50,973:INFO:Driver [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-04 14:09:01,254:INFO:Driver closed.
