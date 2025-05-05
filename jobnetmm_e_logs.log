@@ -1629,3 +1629,561 @@ Stacktrace:
 2025-05-05 18:38:31,867:INFO:Scraping page 10: https://sg.jobsdb.com/Software-Developer-jobs?page=10
 2025-05-05 18:38:42,017:INFO:Driver closed.
 2025-05-05 18:38:42,018:INFO:Scraping completed. Total jobs: 150
+2025-05-05 18:57:36,242:INFO:Initializing Extraction Process
+2025-05-05 18:57:36,243:INFO:====== WebDriver manager ======
+2025-05-05 18:57:36,721:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:57:36,747:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:57:36,768:INFO:There is no [linux64] chromedriver "135.0.7049.114" for browser google-chrome "135.0.7049" in cache
+2025-05-05 18:57:36,768:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:57:36,841:INFO:WebDriver version 135.0.7049.114 selected
+2025-05-05 18:57:36,844:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip
+2025-05-05 18:57:36,844:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/linux64/chromedriver-linux64.zip
+2025-05-05 18:57:36,871:INFO:Driver downloading response is 200
+2025-05-05 18:57:36,946:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:57:37,077:INFO:Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.114]
+2025-05-05 18:57:48,606:INFO:Login Successful! Dashboard loaded.
+2025-05-05 18:57:51,174:INFO:Redirected to jobs page
+2025-05-05 18:57:52,873:INFO:Page 1: Scraped. 30 jobs.
+2025-05-05 18:57:58,833:INFO:Page 2: Scraped. 60 jobs.
+2025-05-05 18:58:04,773:INFO:Page 3: Scraped. 90 jobs.
+2025-05-05 18:58:16,846:INFO:Page 4: Scraped. 120 jobs.
+2025-05-05 18:58:22,004:INFO:Page 5: Scraped. 137 jobs.
+2025-05-05 18:58:22,045:INFO:No more pages to scrape.
+2025-05-05 18:58:22,126:INFO:Driver closed.
+2025-05-05 18:58:22,126:INFO:Total jobs scraped: 137
+2025-05-05 18:58:22,133:INFO:====== WebDriver manager ======
+2025-05-05 18:58:22,239:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:58:22,262:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:58:22,284:INFO:Driver [/home/runner/.wdm/drivers/chromedriver/linux64/135.0.7049.114/chromedriver-linux64/chromedriver] found in cache
+2025-05-05 18:58:22,527:INFO:Scraping page 1: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-05 18:58:28,787:WARNING:Missing element in card on page 1: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:29,133:WARNING:Missing element in card on page 1: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:29,253:INFO:Scraping page 2: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-05 18:58:35,281:WARNING:Missing element in card on page 2: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:35,631:WARNING:Missing element in card on page 2: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:35,752:INFO:Scraping page 3: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-05 18:58:41,732:WARNING:Missing element in card on page 3: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:42,075:WARNING:Missing element in card on page 3: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:42,194:INFO:Scraping page 4: https://sg.jobsdb.com/Software-Developer-jobs?page=4
+2025-05-05 18:58:48,159:WARNING:Missing element in card on page 4: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:48,506:WARNING:Missing element in card on page 4: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:48,627:INFO:Scraping page 5: https://sg.jobsdb.com/Software-Developer-jobs?page=5
+2025-05-05 18:58:54,570:WARNING:Missing element in card on page 5: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:54,930:WARNING:Missing element in card on page 5: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:58:55,051:INFO:Scraping page 6: https://sg.jobsdb.com/Software-Developer-jobs?page=6
+2025-05-05 18:59:01,057:WARNING:Missing element in card on page 6: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:01,400:WARNING:Missing element in card on page 6: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:01,522:INFO:Scraping page 7: https://sg.jobsdb.com/Software-Developer-jobs?page=7
+2025-05-05 18:59:07,507:WARNING:Missing element in card on page 7: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:07,852:WARNING:Missing element in card on page 7: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:07,974:INFO:Scraping page 8: https://sg.jobsdb.com/Software-Developer-jobs?page=8
+2025-05-05 18:59:13,964:WARNING:Missing element in card on page 8: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:14,327:WARNING:Missing element in card on page 8: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:14,447:INFO:Scraping page 9: https://sg.jobsdb.com/Software-Developer-jobs?page=9
+2025-05-05 18:59:20,432:WARNING:Missing element in card on page 9: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:20,775:WARNING:Missing element in card on page 9: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:20,916:INFO:Scraping page 10: https://sg.jobsdb.com/Software-Developer-jobs?page=10
+2025-05-05 18:59:26,907:WARNING:Missing element in card on page 10: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:27,288:WARNING:Missing element in card on page 10: Message: no such element: Unable to locate element: {"method":"css selector","selector":"div.badges div.content"}
+  (Session info: chrome=135.0.7049.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x55b1080cb75a <unknown>
+#1 0x55b107b7e4b0 <unknown>
+#2 0x55b107bcf9b3 <unknown>
+#3 0x55b107bcfba1 <unknown>
+#4 0x55b107bc3476 <unknown>
+#5 0x55b107bf55bd <unknown>
+#6 0x55b107bc336a <unknown>
+#7 0x55b107bf575e <unknown>
+#8 0x55b107c1b5e0 <unknown>
+#9 0x55b107bf5363 <unknown>
+#10 0x55b107bc1d63 <unknown>
+#11 0x55b107bc29c1 <unknown>
+#12 0x55b108090a6b <unknown>
+#13 0x55b108094951 <unknown>
+#14 0x55b108078b62 <unknown>
+#15 0x55b1080954c4 <unknown>
+#16 0x55b10805d13f <unknown>
+#17 0x55b1080b96f8 <unknown>
+#18 0x55b1080b98d6 <unknown>
+#19 0x55b1080ca5a6 <unknown>
+#20 0x7fded209caa4 <unknown>
+#21 0x7fded2129c3c <unknown>
+
+2025-05-05 18:59:27,492:INFO:Driver closed.
+2025-05-05 18:59:27,492:INFO:Scraping completed. Total jobs: 130
