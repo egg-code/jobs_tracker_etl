@@ -9,7 +9,7 @@ import pandas as pd
 import logging
 
 # Setup logging
-logging.basicConfig(filename='jobsdb_scraper.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(filename='./jobnetmm_e_logs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
 
 class JobsDBScraper:
     def __init__(self, max_pages=5, headless=True):

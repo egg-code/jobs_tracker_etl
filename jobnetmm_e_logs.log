@@ -1606,3 +1606,26 @@ Stacktrace:
 
 2025-05-04 22:08:21,285:INFO:Driver closed.
 2025-05-04 22:08:21,286:INFO:Scraping completed. Total jobs: 90
+2025-05-05 18:37:06,669:INFO:Initializing Extraction Process
+2025-05-05 18:37:06,694:INFO:====== WebDriver manager ======
+2025-05-05 18:37:09,741:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:37:10,710:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:37:10,748:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:37:10,865:INFO:WebDriver version 135.0.7049.114 selected
+2025-05-05 18:37:10,871:INFO:Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-05 18:37:10,872:INFO:About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/135.0.7049.114/win32/chromedriver-win32.zip
+2025-05-05 18:37:11,462:INFO:Driver downloading response is 200
+2025-05-05 18:37:12,688:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-05 18:37:13,021:INFO:Driver has been saved in cache [C:\Users\kaung\.wdm\drivers\chromedriver\win64\135.0.7049.114]
+2025-05-05 18:37:15,304:INFO:Scraping page 1: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-05 18:37:28,393:INFO:Scraping page 2: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-05 18:37:36,164:INFO:Scraping page 3: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-05 18:37:43,954:INFO:Scraping page 4: https://sg.jobsdb.com/Software-Developer-jobs?page=4
+2025-05-05 18:37:51,708:INFO:Scraping page 5: https://sg.jobsdb.com/Software-Developer-jobs?page=5
+2025-05-05 18:37:59,708:INFO:Scraping page 6: https://sg.jobsdb.com/Software-Developer-jobs?page=6
+2025-05-05 18:38:07,603:INFO:Scraping page 7: https://sg.jobsdb.com/Software-Developer-jobs?page=7
+2025-05-05 18:38:15,726:INFO:Scraping page 8: https://sg.jobsdb.com/Software-Developer-jobs?page=8
+2025-05-05 18:38:23,854:INFO:Scraping page 9: https://sg.jobsdb.com/Software-Developer-jobs?page=9
+2025-05-05 18:38:31,867:INFO:Scraping page 10: https://sg.jobsdb.com/Software-Developer-jobs?page=10
+2025-05-05 18:38:42,017:INFO:Driver closed.
+2025-05-05 18:38:42,018:INFO:Scraping completed. Total jobs: 150
