@@ -14,7 +14,7 @@ options.add_argument("--start-maximized")  # Open browser in maximized mode
 # options.add_argument("--headless")  # Uncomment to run in headless mode
 
 # Start the driver
-print("🚀 Launching browser...")
+print(" Launching browser...")
 driver = webdriver.Chrome(service=ChromeService(), options=options)
 wait = WebDriverWait(driver, 15)
 
@@ -25,13 +25,13 @@ all_jobs = []
 
 while True:
     url = f"{base_url}&start={start}"
-    print(f"🌐 Navigating to page starting at {start}...")
+    print(f" Navigating to page starting at {start}...")
     driver.get(url)
 
     try:
         wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, ".srpResultCardContainer")))
     except TimeoutException:
-        print(f"❌ No job cards found on page starting at {start}. Ending scraping.")
+        print(f" No job cards found on page starting at {start}. Ending scraping.")
         break
 
     print("🔍 Scraping job data...")
@@ -80,10 +80,10 @@ while True:
                 "salary": salary
             })
 
-    print(f"✅ Page {start // limit + 1}: Scraped {len(jobs)} job(s).")
+    print(f" Page {start // limit + 1}: Scraped {len(jobs)} job(s).")
 
     if not jobs:
-        print("🚫 No jobs found. Ending scraping.")
+        print(" No jobs found. Ending scraping.")
         break
 
     all_jobs.extend(jobs)
@@ -91,9 +91,9 @@ while True:
     time.sleep(1)  # Avoid hammering the server too fast
 
 # Save to JSON
-print(f"💾 Saving total {len(all_jobs)} jobs to all-jobs.json...")
+print(f" Saving total {len(all_jobs)} jobs to all-jobs.json...")
 with open("foundit-jobs.json", "w", encoding="utf-8") as f:
     json.dump(all_jobs, f, indent=2, ensure_ascii=False)
 
-print("✅ Done. Output saved in foundit-jobs.json")
+print(" Done. Output saved in foundit-jobs.json")
 driver.quit()
