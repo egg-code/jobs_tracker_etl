@@ -2187,3 +2187,17 @@ Stacktrace:
 
 2025-05-05 18:59:27,492:INFO:Driver closed.
 2025-05-05 18:59:27,492:INFO:Scraping completed. Total jobs: 130
+2025-05-10 17:34:07,260:INFO:Initializing Extraction Process
+2025-05-10 17:34:25,975:INFO:Initializing Extraction Process
+2025-05-10 17:35:47,754:INFO:Initializing Extraction Process
+2025-05-10 17:35:47,770:INFO:====== WebDriver manager ======
+2025-05-10 17:35:48,587:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-10 17:35:48,718:INFO:Get LATEST chromedriver version for google-chrome
+2025-05-10 17:35:48,836:INFO:Driver [C:\Users\DELL\.wdm\drivers\chromedriver\win64\136.0.7103.92\chromedriver-win32/chromedriver.exe] found in cache
+2025-05-10 17:35:54,382:INFO:Driver closed.
+2025-05-10 17:37:05,946:INFO:Initializing Extraction Process
+2025-05-10 17:38:58,071:INFO:Initializing Extraction Process
+2025-05-10 17:41:07,660:INFO:Initializing Extraction Process
+2025-05-10 17:44:14,762:INFO:Initializing Extraction Process
+2025-05-10 17:47:41,338:INFO:Initializing Extraction Process
+2025-05-10 18:23:53,024:INFO:Initializing Extraction Process
