@@ -14,7 +14,7 @@ import logging
 ## Set up logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobnetmm_e_logs', mode='a')
+handler = logging.FileHandler('logs/jobnetmm_e_logs.log', mode='a')
 fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(fomatter)
 logger.addHandler(handler)
