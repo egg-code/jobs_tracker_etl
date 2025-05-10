@@ -1,5 +1,6 @@
 from jobnetmm import JobNetScraper
 from jobdbsg import JobsDBScraper
+from jobsdbth import JobsDBThScraper
 import os
 
 def main():
@@ -18,7 +19,14 @@ def main():
     print(jobdbsg_df.head())
     print("✅ JobsDB scraping complete.")
 
-    ## For foundit
+    ## For jobsdb_th
+    classification_id = '6281' # id for IT jobs
+    scraper = JobsDBThScraper(classification_id)
+    jobsdbth_df = scraper.scrape_jobs()
+    print(jobsdbth_df.head())
+    print(f"Duplicates found: {jobsdbth_df.duplicated().sum()}")
+    print(f"Dataframe shape: {jobsdbth_df.shape}")
+    print(f"Columns: {jobsdbth_df.columns.tolist()}")
 
 if __name__ == "__main__":
     main()
