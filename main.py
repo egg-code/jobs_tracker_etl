@@ -1,6 +1,6 @@
-from jobnetmm import JobNetScraper
-from jobdbsg import JobsDBScraper
-from jobsdbth import JobsDBThScraper
+from utils.jobnetmm import JobNetScraper
+from utils.jobdbsg import JobsDBScraper
+from utils.jobsdbth import JobsDBThScraper
 import os
 
 def main():
