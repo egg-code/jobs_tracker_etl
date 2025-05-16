@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
@@ -75,7 +75,7 @@ class JobsDBScraper:
                 logger.error(f"Error processing page {page}: {e}")
                 continue
 
-    def run(self):
+    def run(self) -> pd.DataFrame:
         self.start_driver()
         try:
             self.extract_jobs()
@@ -87,9 +87,3 @@ class JobsDBScraper:
         # df.to_csv("jobsdb_software_developer_jobs.csv", index=False)
         logger.info(f"Scraping completed. Total jobs: {len(self.jobs)}")
         return  pd.DataFrame(self.jobs)
-
-if __name__ == "__main__":
-    scraper = JobsDBScraper(max_pages=10, headless=True)
-    df = scraper.run()
-    df.to_csv("jobsdb_software_developer_jobs.csv", index=False)
-    print("✅ Scraping done. Check 'jobsdb_software_developer_jobs.csv' and logs for details.")
