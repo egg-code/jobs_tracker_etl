@@ -75,6 +75,47 @@ class JobsDBScraper:
                 logger.error(f"Error processing page {page}: {e}")
                 continue
 
+    def extract_jobs(self):
+        base_url = "https://sg.jobsdb.com/Software-Developer-jobs?page="
+
+        for page in range(1, self.max_pages + 1):
+            try:
+                url = base_url + str(page)
+                logger.info(f"Scraping page {page}: {url}")
+                self.driver.get(url)
+                time.sleep(5)  # Wait for JS to load
+                job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
+
+                if not job_cards:
+                    logger.info(f"No jobs found on page {page}. Ending scrape.")
+                    break
+
+                for card in job_cards:
+                    try:
+                        title = card.find_element(By.CSS_SELECTOR, 'h2.job-title').text.strip()
+                        company = card.find_element(By.CSS_SELECTOR, 'span.job-company').text.strip()
+                        location = card.find_element(By.CSS_SELECTOR, 'a.job-location').text.strip()
+                        job_type = card.find_element(By.CSS_SELECTOR, 'div.badges div.content').text.strip()
+                        link = card.find_element(By.CSS_SELECTOR, 'a.job-link').get_attribute('href').strip()
+                        date_posted = card.find_element(By.CSS_SELECTOR, 'span.job-listed-date').text.strip()
+
+                        self.jobs.append({
+                            "Title": title,
+                            "Company": company,
+                            "Location": location,
+                            "Job_Type": job_type,
+                            "Job_Link": link,
+                            "Date_Posted": date_posted
+                        })
+
+                    except NoSuchElementException as e:
+                        logger.warning(f"Missing element in card on page {page}: {e}")
+                        continue
+
+            except Exception as e:
+                logger.error(f"Error processing page {page}: {e}")
+                continue
+
     def run(self) -> pd.DataFrame:
         self.start_driver()
         try:
