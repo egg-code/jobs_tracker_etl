@@ -5988,3 +5988,49 @@ Stacktrace:
 
 2025-05-16 22:56:07,890 - utils.jobdbsg - INFO - Driver closed.
 2025-05-16 22:56:07,891 - utils.jobdbsg - INFO - Scraping completed. Total jobs: 280
+2025-05-17 17:32:45,841 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-17 17:33:03,634 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 2, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-17 17:33:12,093 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 3, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-17 17:33:19,927 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 4, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=4
+2025-05-17 17:33:27,707 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 5, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=5
+2025-05-17 17:33:35,399 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 6, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=6
+2025-05-17 17:33:43,492 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 7, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=7
+2025-05-17 17:33:51,795 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 8, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=8
+2025-05-17 17:33:59,161 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 9, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=9
+2025-05-17 17:34:14,665 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 10, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=10
+2025-05-17 17:34:22,723 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-17 17:34:30,991 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 2, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=2
+2025-05-17 17:34:40,155 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 3, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=3
+2025-05-17 17:34:47,677 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 4, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=4
+2025-05-17 17:34:55,850 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 5, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=5
+2025-05-17 17:35:03,549 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 6, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=6
+2025-05-17 17:35:11,720 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 7, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=7
+2025-05-17 17:35:19,662 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 8, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=8
+2025-05-17 17:35:28,133 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 9, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=9
+2025-05-17 17:35:35,511 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 10, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=10
+2025-05-17 17:35:43,286 - utils.jobdbsg - INFO - WebDriver closed.
+2025-05-17 17:35:43,287 - utils.jobdbsg - INFO - Scraping completed. Total jobs collected: 300
+2025-05-17 17:38:31,357 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-17 17:38:49,328 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 2, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-17 17:38:57,746 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 3, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-17 17:39:05,380 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 4, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=4
+2025-05-17 17:39:13,831 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 5, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=5
+2025-05-17 17:39:22,692 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 6, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=6
+2025-05-17 17:39:31,358 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 7, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=7
+2025-05-17 17:39:39,385 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 8, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=8
+2025-05-17 17:39:48,618 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 9, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=9
+2025-05-17 17:39:56,393 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 10, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=10
+2025-05-17 17:40:05,182 - utils.jobdbsg - INFO - WebDriver closed.
+2025-05-17 17:40:05,183 - utils.jobdbsg - INFO - Scraping completed. Total jobs collected: 150
+2025-05-17 17:40:53,259 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-17 17:41:37,150 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 2, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-17 17:41:48,747 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 3, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-17 17:41:56,624 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 4, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=4
+2025-05-17 17:42:04,206 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 5, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=5
+2025-05-17 17:42:21,528 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 6, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=6
+2025-05-17 17:42:38,898 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 7, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=7
+2025-05-17 17:42:48,046 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 8, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=8
+2025-05-17 17:42:56,073 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 9, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=9
+2025-05-17 17:43:03,347 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 10, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=10
+2025-05-17 17:43:10,919 - utils.jobdbsg - INFO - WebDriver closed.
+2025-05-17 17:43:10,919 - utils.jobdbsg - INFO - Scraping completed. Total jobs collected: 150

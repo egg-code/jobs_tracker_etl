@@ -8,3 +8,4 @@
 .venv
 *.csv
 logs\
+data\
