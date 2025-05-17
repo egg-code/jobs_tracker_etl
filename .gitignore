@@ -12,3 +12,4 @@ data\
 logs/
 output/
 .history/
+.log
