@@ -2,20 +2,21 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium.common.exceptions import NoSuchElementException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
 import logging
 import random
 
-## Set up logging
+# Setup logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.FileHandler('logs/jobsdbsg_e_logs.log', mode='a')
-fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(fomatter)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(formatter)
 logger.addHandler(handler)
+
 
 class JobsDBScraper:
     def __init__(self, max_pages=2, headless=True):
@@ -25,6 +26,7 @@ class JobsDBScraper:
         self.jobs = []
 
     def start_driver(self):
+        print("Starting WebDriver...")
         options = Options()
         if self.headless:
             options.add_argument("--headless")
@@ -35,11 +37,10 @@ class JobsDBScraper:
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
 
-
     def extract_jobs(self):
         roles = [
             "Software-Developer",
-            "Web-Developer",
+            "Web-Developer",            
             "Data-Scientist",
             "Data-Analyst",
             "AI-Engineer",
@@ -48,66 +49,68 @@ class JobsDBScraper:
             "Cloud-Engineer",
             "Cybersecurity"
         ]
-    
+
         for role in roles:
             for page in range(1, self.max_pages + 1):
                 try:
                     url = f"https://sg.jobsdb.com/{role}-jobs?page={page}"
-                    logging.info(f"Scraping role: {role}, page {page}: {url}")
+                    logger.info(f"Scraping role: {role}, page: {page}, URL: {url}")
                     self.driver.get(url)
-                    time.sleep(random.uniform(1, 4))  # Wait for JS to load
+                    time.sleep(5)
+
                     job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
-    
                     if not job_cards:
-                        logging.info(f"No jobs found for {role} on page {page}.")
+                        logger.info(f"No jobs found for {role} on page {page}")
                         break
-                    
+
                     for card in job_cards:
-                        try:
-                            title = card.find_element(By.CSS_SELECTOR, 'h2.job-title').text.strip()
-                            company = card.find_element(By.CSS_SELECTOR, 'span.job-company').text.strip()
-                            location = card.find_element(By.CSS_SELECTOR, 'a.job-location').text.strip()
-                            link = card.find_element(By.CSS_SELECTOR, 'a.job-link').get_attribute('href').strip()
-                            date_posted = card.find_element(By.CSS_SELECTOR, 'span.job-listed-date').text.strip()
-
-                            # For job type and salary
-                            badge_elements = card.find_elements(By.CSS_SELECTOR, 'div.badges div.content')
-                            badges_text = [badge.text.strip() for badge in badge_elements if badge.text.strip()]
-                            salary = ""
-                            job_type = ""
-                            work_arrangement = ""
-
-                            # Check conditions for salary and job type
-                            if len(badges_text) == 1:
-                                job_type = badges_text[0]
-                            elif len(badges_text) == 2:
-                                salary = badges_text[0]
-                                job_type = badges_text[1]
-                            elif len(badges_text) >= 3:
-                                salary = badges_text[0]
-                                job_type = badges_text[1]
-                                work_arrangement = badges_text[2]
-    
-                            self.jobs.append({
-                                "Role": role.replace("-", " "),
-                                "Title": title,
-                                "Company": company,
-                                "Location": location,
-                                "Salary": salary,
-                                "Job_Type": job_type,
-                                "Work_Arrangement": work_arrangement,
-                                "Country_Code": "SG",
-                                "Job_Link": link,
-                                "Date_Posted": date_posted
-                            })
-                            print(f"Scraped job for role '{role}' from page {page}: {len(self.jobs)} jobs collected.")
-
-                        except NoSuchElementException as e:
-                            logging.warning(f"Missing element in card for {role} on page {page}: {e}")
-                            continue
+                        elements = card.find_elements(By.CSS_SELECTOR, "h2.job-title")
+                        title = elements[0].text.strip() if elements else ""
                         
+                        elements = card.find_elements(By.CSS_SELECTOR, "span.job-company")
+                        company = elements[0].text.strip() if elements else ""
+                        
+                        elements = card.find_elements(By.CSS_SELECTOR, "a.job-location")
+                        location = elements[0].text.strip() if elements else ""
+                        
+                        elements = card.find_elements(By.CSS_SELECTOR, "a.job-link")
+                        link = elements[0].get_attribute("href").strip() if elements else ""
+                        
+                        elements = card.find_elements(By.CSS_SELECTOR, "span.job-listed-date")
+                        date_posted = elements[0].text.strip() if elements else ""
+
+                        salary = ""
+                        job_type = ""
+                        
+                        badges = card.find_elements(By.CSS_SELECTOR, "div.badges div.content")
+                        
+                        if badges:
+                            first = badges[0].text.strip().lower()
+                            if "$" in first or "per month" in first:
+                                salary = badges[0].text.strip()
+                                if len(badges) > 1:
+                                    job_type = badges[1].text.strip()
+                            else:
+                                job_type = badges[0].text.strip()
+                                if len(badges) > 1:
+                                    salary = badges[1].text.strip()
+                        else:
+                            logger.info("No badges found for this job card.")
+
+
+                        self.jobs.append({
+                            "Role": role.replace("-", " "),
+                            "Title": title,
+                            "Company": company,
+                            "Location": location,
+                            "Job_Type": job_type,
+                            "Salary": salary,
+                            "Job_Link": link,
+                            "Date_Posted": date_posted
+                        })
+
                 except Exception as e:
-                    logging.error(f"Error processing role {role} on page {page}: {e}")
+                    logger.error(f"Error processing role {role} on page {page}: {e}")
                     continue
 
     def run(self):
@@ -116,7 +119,7 @@ class JobsDBScraper:
             self.extract_jobs()
         finally:
             self.driver.quit()
-            logging.info("Driver closed.")
+            logger.info("WebDriver closed.")
 
-        logging.info(f"Scraping completed. Total jobs: {len(self.jobs)}")
-        return  pd.DataFrame(self.jobs)
+        logger.info(f"Scraping completed. Total jobs collected: {len(self.jobs)}")
+        return pd.DataFrame(self.jobs)

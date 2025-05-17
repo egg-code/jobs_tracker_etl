@@ -2091,6 +2091,9 @@ Stacktrace:
 2025-05-10 16:32:22,270:INFO:Total jobs found: 2764
 2025-05-10 16:32:22,270:INFO:No more jobs found on page 29. Ending scrape.
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 066e89323645222e4e228bcc24e9349d7e1b243e
 2025-05-10 16:32:22,271:INFO:Scraping completed. Total jobs scraped: 27642025-05-16 18:14:51,392 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
 2025-05-16 18:14:53,624 - utils.jobnetmm - INFO - Redirected to jobs page
 2025-05-16 18:14:56,383 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
@@ -6959,6 +6962,7 @@ Stacktrace:
 2025-05-17 15:33:21,250 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Driver closed.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Total jobs scraped: 133
+<<<<<<< HEAD
 =======
 2025-05-10 16:32:22,271:INFO:Scraping completed. Total jobs scraped: 27642025-05-10 23:03:28,064 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
 2025-05-10 23:03:30,959 - utils.jobnetmm - INFO - Redirected to jobs page
@@ -6971,3 +6975,41 @@ Stacktrace:
 2025-05-10 23:03:56,638 - utils.jobnetmm - INFO - Driver closed.
 2025-05-10 23:03:56,638 - utils.jobnetmm - INFO - Total jobs scraped: 134
 >>>>>>> 00b2d60b6f2818a66cca89cc015bd39981a8f04d
+=======
+2025-05-17 20:50:17,979 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 20:50:45,295 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-17 20:51:13,423 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-17 20:51:17,581 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-17 20:51:27,828 - utils.jobnetmm - WARNING - Error scraping on page 2: Message: no such element: Unable to locate element: {"method":"xpath","selector":".//a[@class='ClickTrack-EmpProfile']"}
+  (Session info: chrome=133.0.6943.126); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+#0 0x62cba5a3614a <unknown>
+#1 0x62cba54d3b80 <unknown>
+#2 0x62cba55250e9 <unknown>
+#3 0x62cba5525271 <unknown>
+#4 0x62cba5518b36 <unknown>
+#5 0x62cba554aefd <unknown>
+#6 0x62cba5518a2a <unknown>
+#7 0x62cba554b09e <unknown>
+#8 0x62cba557114a <unknown>
+#9 0x62cba554aca3 <unknown>
+#10 0x62cba5516f08 <unknown>
+#11 0x62cba5518071 <unknown>
+#12 0x62cba59ffb5b <unknown>
+#13 0x62cba5a03ae2 <unknown>
+#14 0x62cba59eb967 <unknown>
+#15 0x62cba5a046d4 <unknown>
+#16 0x62cba59cfc7f <unknown>
+#17 0x62cba5a24cd8 <unknown>
+#18 0x62cba5a24ea9 <unknown>
+#19 0x62cba5a34fc6 <unknown>
+#20 0x7c445c494ac3 <unknown>
+
+2025-05-17 20:51:29,351 - utils.jobnetmm - INFO - Page 2: Scraped. 59 jobs.
+2025-05-17 20:51:41,499 - utils.jobnetmm - INFO - Page 3: Scraped. 89 jobs.
+2025-05-17 20:51:50,491 - utils.jobnetmm - INFO - Page 4: Scraped. 119 jobs.
+2025-05-17 20:51:56,851 - utils.jobnetmm - INFO - Page 5: Scraped. 133 jobs.
+2025-05-17 20:51:56,901 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-17 20:51:56,973 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 20:51:56,973 - utils.jobnetmm - INFO - Total jobs scraped: 133
+>>>>>>> 066e89323645222e4e228bcc24e9349d7e1b243e
