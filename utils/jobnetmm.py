@@ -11,9 +11,13 @@ import time
 import pandas as pd
 import logging
 
-## Configure logging
-logging.basicConfig(filename='./jobnetmm_e_logs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
-logging.info("Initializing Extraction Process")
+## Set up logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('logs/jobnetmm_e_logs.log', mode='a')
+fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(fomatter)
+logger.addHandler(handler)
 
 ## Class for extracting jobs
 class JobNetScraper:
@@ -44,18 +48,18 @@ class JobNetScraper:
 
         try:
             self.wait.until(EC.url_contains("dashboard"))
-            logging.info("Login Successful! Dashboard loaded.")
+            logger.info("Login Successful! Dashboard loaded.")
         except TimeoutException:
-            logging.error("Login failed! Check credentials/captcha.")
+            logger.error("Login failed! Check credentials/captcha.")
             self.driver.quit()
             raise Exception("Login failed!")
         
     def scrape_jobs(self, job_function:int, location:int=0):
         try:
             self.driver.get(f"https://www.jobnet.com.mm/jobs?keyword=&jobfunction={job_function}&location")
-            logging.info("Redirected to jobs page")
+            logger.info("Redirected to jobs page")
         except Exception as e:
-            logging.error(f"Error navigating to jobs page: {e}")
+            logger.error(f"Error navigating to jobs page: {e}")
             self.driver.quit()
             raise
 
@@ -69,49 +73,51 @@ class JobNetScraper:
                 for job in job_cards:
                     try:
                         # Try to get the job title(handle both regular and top list jobs)
-                        try:
+                        if job.find_elements(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail"):
                             title = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail").text.strip()
-                        except NoSuchElementException:
-                            title = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-TopList").text.strip()
+                        else:
+                            title_element = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-TopList")
+                            title = title_element.text.strip() if title_element else None
 
-                        try:
-                            company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
-                        except NoSuchElementException:
-                            try:
-                                # Alternative way to find company element - sometimes the class is on the element without "a."
-                                company = job.find_element(By.XPATH, ".//a[@class='ClickTrack-EmpProfile']").text.strip() 
-                            except NoSuchElementException:
-                                company = None
+                        # Try to get the company name
                         
-                        try:
-                            location = job.find_element(By.CLASS_NAME, "p.search__job-location").text.strip()
-                        except NoSuchElementException:
-                            location = None
+                        if job.find_elements(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile"):
+                            company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
+                        else:
+                            company_element = job.find_element(By.XPATH, ".//a[@class='ClickTrack-EmpProfile']")
+                            company = company_element[0].text.strip() if company_element else None
 
-                        try:
-                            date = job.find_element(By.CLASS_NAME, "p.search__job-posted u").text.strip()
-                        except NoSuchElementException:
-                            date = None
+                        # Try to get the location
+                        location_element = job.find_element(By.CSS_SELECTOR, "p.search__job-location span")
+                        location = location_element.text.strip() if location_element else None
+                        
+                        # Try to get salary
+                        salary_element = job.find_element(By.CSS_SELECTOR, "a.search__job-sign.ClickTrack-JobDetail span")
+                        salary = salary_element.text.strip() if salary_element else None
 
-                        try:
-                            job_link = job.find_element(By.CSS_SELECTOR, "div.c-btn__wrapper a.c-btn").get_attribute("href")
-                        except NoSuchElementException:
-                            job_link = None
+                        # Try to get the date posted
+                        date_element = job.find_element(By.CSS_SELECTOR, "p.search__job-posted u")
+                        date = date_element.text.strip() if date_element else None
+
+                        # Try to get the job link
+                        job_link_element = job.find_element(By.CSS_SELECTOR, "div.c-btn__wrapper a.c-btn")
+                        job_link = job_link_element.get_attribute("href") if job_link_element else None
 
                         # Append job data to the list
                         self.jobs.append({
                             "Title": title,
                             "Company": company,
                             "Location": location,
+                            'Salary': salary,
                             "Date_Posted": date,
                             "Job_Link": job_link
                         })
 
-                    except exception as e:
-                        logging.warning(f"Error scraping on page {page}: {e}")
+                    except Exception as e:
+                        logger.warning(f"Error scraping on page {page}: {e}")
                         continue
                 
-                logging.info(f"Page {page}: Scraped. {len(self.jobs)} jobs.")
+                logger.info(f"Page {page}: Scraped. {len(self.jobs)} jobs.")
 
                 ## Go to next page
                 try:
@@ -123,7 +129,7 @@ class JobNetScraper:
                             break
                     
                     if not next_button:
-                        logging.info("No more pages to scrape.")
+                        logger.info("No more pages to scrape.")
                         break
 
                     page += 1
@@ -137,10 +143,10 @@ class JobNetScraper:
                     except (TimeoutException, StaleElementReferenceException):
                         pass
                 except Exception as e:
-                    logging.error(f"Error navigating to next page: {e}")
+                    logger.error(f"Error navigating to next page: {e}")
                     break
         except TimeoutException:
-            logging.error("Timeout while waiting for job cards to load.")
+            logger.error("Timeout while waiting for job cards to load.")
 
     def get_jobs(self, job_function:int):
         self.start_driver()
@@ -149,6 +155,6 @@ class JobNetScraper:
             self.scrape_jobs(job_function)
         finally:
             self.driver.quit()
-            logging.info("Driver closed.")
-        logging.info(f"Total jobs scraped: {len(self.jobs)}")
+            logger.info("Driver closed.")
+        logger.info(f"Total jobs scraped: {len(self.jobs)}")
         return pd.DataFrame(self.jobs)

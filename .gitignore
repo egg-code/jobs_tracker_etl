@@ -6,5 +6,5 @@
 .env.production.local
 .env
 .venv
-*.log
 *.csv
+logs\
