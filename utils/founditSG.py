@@ -90,7 +90,7 @@ class FounditScraper:
 
             "industries", "roles", "jobTypes", "qualifications",
 
-            "companyId", "companyName", "salary", "seoCompanyUrl"
+            "companyId", "companyName", "salary", "seoCompanyUrl", "seoJdUrl"
 
         ]
 
