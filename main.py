@@ -2,6 +2,7 @@ from utils.jobnetmm import JobNetScraper
 from utils.jobdbsg import JobsDBScraper
 from utils.jobsdbth import JobsDBThScraper
 from utils.jobstreetmalay import JobStreetMalaysia
+from utils.founditSG import FounditScraper
 import os
 
 def main():
@@ -30,6 +31,13 @@ def main():
     print(f"Duplicates found: {jobsdbth_df.duplicated().sum()}")
     print(f"Dataframe shape: {jobsdbth_df.shape}")
     print(f"Columns: {jobsdbth_df.columns.tolist()}")
+
+    # For foundit
+    print("Scraping IT jobs from Foundit Singapore...")
+    foundit_scraper = FounditScraper(headless=True)
+    foundit_df = foundit_scraper.extract_jobs()
+    print(foundit_df.head())
+    print("Foundit scraping complete.")
 
     ## For jobstreetmalay
     classification_id = '6281' # id for IT jobs

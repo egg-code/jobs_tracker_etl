@@ -9,3 +9,6 @@
 *.csv
 logs\
 data\
+logs/
+output/
+.history/
