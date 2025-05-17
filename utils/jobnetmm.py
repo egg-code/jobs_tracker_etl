@@ -11,9 +11,13 @@ import time
 import pandas as pd
 import logging
 
-## Configure logging
-logging.basicConfig(filename='./jobnetmm_e_logs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
-logging.info("Initializing Extraction Process")
+## Set up logging
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('logs/jobnetmm_e_logs.log', mode='a')
+fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(fomatter)
+logger.addHandler(handler)
 
 ## Class for extracting jobs
 class JobNetScraper:
@@ -44,18 +48,18 @@ class JobNetScraper:
 
         try:
             self.wait.until(EC.url_contains("dashboard"))
-            logging.info("Login Successful! Dashboard loaded.")
+            logger.info("Login Successful! Dashboard loaded.")
         except TimeoutException:
-            logging.error("Login failed! Check credentials/captcha.")
+            logger.error("Login failed! Check credentials/captcha.")
             self.driver.quit()
             raise Exception("Login failed!")
         
     def scrape_jobs(self, job_function:int, location:int=0):
         try:
             self.driver.get(f"https://www.jobnet.com.mm/jobs?keyword=&jobfunction={job_function}&location")
-            logging.info("Redirected to jobs page")
+            logger.info("Redirected to jobs page")
         except Exception as e:
-            logging.error(f"Error navigating to jobs page: {e}")
+            logger.error(f"Error navigating to jobs page: {e}")
             self.driver.quit()
             raise
 
@@ -108,10 +112,10 @@ class JobNetScraper:
                         })
 
                     except exception as e:
-                        logging.warning(f"Error scraping on page {page}: {e}")
+                        logger.warning(f"Error scraping on page {page}: {e}")
                         continue
                 
-                logging.info(f"Page {page}: Scraped. {len(self.jobs)} jobs.")
+                logger.info(f"Page {page}: Scraped. {len(self.jobs)} jobs.")
 
                 ## Go to next page
                 try:
@@ -123,7 +127,7 @@ class JobNetScraper:
                             break
                     
                     if not next_button:
-                        logging.info("No more pages to scrape.")
+                        logger.info("No more pages to scrape.")
                         break
 
                     page += 1
@@ -137,10 +141,10 @@ class JobNetScraper:
                     except (TimeoutException, StaleElementReferenceException):
                         pass
                 except Exception as e:
-                    logging.error(f"Error navigating to next page: {e}")
+                    logger.error(f"Error navigating to next page: {e}")
                     break
         except TimeoutException:
-            logging.error("Timeout while waiting for job cards to load.")
+            logger.error("Timeout while waiting for job cards to load.")
 
     def get_jobs(self, job_function:int):
         self.start_driver()
@@ -149,6 +153,6 @@ class JobNetScraper:
             self.scrape_jobs(job_function)
         finally:
             self.driver.quit()
-            logging.info("Driver closed.")
-        logging.info(f"Total jobs scraped: {len(self.jobs)}")
+            logger.info("Driver closed.")
+        logger.info(f"Total jobs scraped: {len(self.jobs)}")
         return pd.DataFrame(self.jobs)

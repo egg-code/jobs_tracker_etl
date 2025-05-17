@@ -9,7 +9,12 @@ import pandas as pd
 import logging
 
 # Setup logging
-logging.basicConfig(filename='./jobnetmm_e_logs.log', level=logging.INFO, format='%(asctime)s:%(levelname)s:%(message)s')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler('logs/jobsdbsg_e_logs.log', mode='a')
+fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(fomatter)
+logger.addHandler(handler)
 
 class JobsDBScraper:
     def __init__(self, max_pages=5, headless=True):
@@ -35,13 +40,13 @@ class JobsDBScraper:
         for page in range(1, self.max_pages + 1):
             try:
                 url = base_url + str(page)
-                logging.info(f"Scraping page {page}: {url}")
+                logger.info(f"Scraping page {page}: {url}")
                 self.driver.get(url)
                 time.sleep(5)  # Wait for JS to load
                 job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
 
                 if not job_cards:
-                    logging.info(f"No jobs found on page {page}. Ending scrape.")
+                    logger.info(f"No jobs found on page {page}. Ending scrape.")
                     break
 
                 for card in job_cards:
@@ -63,11 +68,11 @@ class JobsDBScraper:
                         })
 
                     except NoSuchElementException as e:
-                        logging.warning(f"Missing element in card on page {page}: {e}")
+                        logger.warning(f"Missing element in card on page {page}: {e}")
                         continue
 
             except Exception as e:
-                logging.error(f"Error processing page {page}: {e}")
+                logger.error(f"Error processing page {page}: {e}")
                 continue
 
     def run(self):
@@ -76,11 +81,11 @@ class JobsDBScraper:
             self.extract_jobs()
         finally:
             self.driver.quit()
-            logging.info("Driver closed.")
+            logger.info("Driver closed.")
 
         # df = pd.DataFrame(self.jobs)
         # df.to_csv("jobsdb_software_developer_jobs.csv", index=False)
-        logging.info(f"Scraping completed. Total jobs: {len(self.jobs)}")
+        logger.info(f"Scraping completed. Total jobs: {len(self.jobs)}")
         return  pd.DataFrame(self.jobs)
 
 if __name__ == "__main__":
