@@ -31,10 +31,11 @@ def main():
     # print(f"Dataframe shape: {jobsdbth_df.shape}")
     # print(f"Columns: {jobsdbth_df.columns.tolist()}")
     
+
     # For foundit
     print("Scraping IT jobs from Foundit Singapore...")
     foundit_scraper = FounditScraper(headless=True)
-    foundit_df = foundit_scraper.run()
+    foundit_df = foundit_scraper.extract_jobs()
     print(foundit_df.head())
     print("Foundit scraping complete.")
 
