@@ -7,17 +7,17 @@ import os
 
 def main():
     # For jobnetmm
-    email = os.getenv("JOBNET_EMAIL")
-    password = os.getenv("JOBNET_PASSWORD")
-    job_function = 17 # 17 for IT jobs
-    extract = JobNetScraper(email, password)
-    jobnet_df = extract.get_jobs(job_function=job_function)
-    print(jobnet_df.head())
-    print(f"Dataframe shape: {jobnet_df.shape}")
+    # email = os.getenv("JOBNET_EMAIL")
+    # password = os.getenv("JOBNET_PASSWORD")
+    # job_function = 17 # 17 for IT jobs
+    # extract = JobNetScraper(email, password)
+    # jobnet_df = extract.get_jobs(job_function=job_function)
+    # print(jobnet_df.head())
+    # print(f"Dataframe shape: {jobnet_df.shape}")
 
     ## For jobsdb_sg
     print("🔍 Scraping job from JobsDB Singapore...")
-    jobsdb_scraper = JobsDBScraper(max_pages=10, headless=True)
+    jobsdb_scraper = JobsDBScraper(max_pages=1, headless=True)
     jobdbsg_df = jobsdb_scraper.run()
     print(jobdbsg_df.head())
     print(f"Dataframe shape: {jobdbsg_df.shape}")

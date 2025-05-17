@@ -6958,3 +6958,7 @@ Stacktrace:
 2025-05-17 15:33:21,250 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Driver closed.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Total jobs scraped: 133
+2025-05-17 20:45:17,035 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 20:49:10,614 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 20:49:44,618 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 20:55:10,203 - utils.jobnetmm - INFO - Driver closed.
