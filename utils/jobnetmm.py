@@ -73,45 +73,47 @@ class JobNetScraper:
                 for job in job_cards:
                     try:
                         # Try to get the job title(handle both regular and top list jobs)
-                        try:
+                        if job.find_elements(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail"):
                             title = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail").text.strip()
-                        except NoSuchElementException:
-                            title = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-TopList").text.strip()
+                        else:
+                            title_element = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-TopList")
+                            title = title_element.text.strip() if title_element else None
 
-                        try:
-                            company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
-                        except NoSuchElementException:
-                            try:
-                                # Alternative way to find company element - sometimes the class is on the element without "a."
-                                company = job.find_element(By.XPATH, ".//a[@class='ClickTrack-EmpProfile']").text.strip() 
-                            except NoSuchElementException:
-                                company = None
+                        # Try to get the company name
                         
-                        try:
-                            location = job.find_element(By.CLASS_NAME, "p.search__job-location").text.strip()
-                        except NoSuchElementException:
-                            location = None
+                        if job.find_elements(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile"):
+                            company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
+                        else:
+                            company_element = job.find_element(By.XPATH, ".//a[@class='ClickTrack-EmpProfile']")
+                            company = company_element[0].text.strip() if company_element else None
 
-                        try:
-                            date = job.find_element(By.CLASS_NAME, "p.search__job-posted u").text.strip()
-                        except NoSuchElementException:
-                            date = None
+                        # Try to get the location
+                        location_element = job.find_element(By.CSS_SELECTOR, "p.search__job-location span")
+                        location = location_element.text.strip() if location_element else None
+                        
+                        # Try to get salary
+                        salary_element = job.find_element(By.CSS_SELECTOR, "a.search__job-sign.ClickTrack-JobDetail span")
+                        salary = salary_element.text.strip() if salary_element else None
 
-                        try:
-                            job_link = job.find_element(By.CSS_SELECTOR, "div.c-btn__wrapper a.c-btn").get_attribute("href")
-                        except NoSuchElementException:
-                            job_link = None
+                        # Try to get the date posted
+                        date_element = job.find_element(By.CSS_SELECTOR, "p.search__job-posted u")
+                        date = date_element.text.strip() if date_element else None
+
+                        # Try to get the job link
+                        job_link_element = job.find_element(By.CSS_SELECTOR, "div.c-btn__wrapper a.c-btn")
+                        job_link = job_link_element.get_attribute("href") if job_link_element else None
 
                         # Append job data to the list
                         self.jobs.append({
                             "Title": title,
                             "Company": company,
                             "Location": location,
+                            'Salary': salary,
                             "Date_Posted": date,
                             "Job_Link": job_link
                         })
 
-                    except exception as e:
+                    except Exception as e:
                         logger.warning(f"Error scraping on page {page}: {e}")
                         continue
                 
