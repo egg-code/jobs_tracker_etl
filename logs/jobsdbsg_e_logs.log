@@ -7216,3 +7216,14 @@ Stacktrace:
 2025-05-18 17:59:57,039 - utils.jobdbsg - INFO - Scraping role: Cybersecurity, page: 1, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=1
 2025-05-18 18:00:08,387 - utils.jobdbsg - INFO - WebDriver closed.
 2025-05-18 18:00:08,389 - utils.jobdbsg - INFO - Scraping completed. Total jobs collected: 135
+2025-05-18 18:30:01,400 - utils.jobdbsg - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-18 18:30:08,792 - utils.jobdbsg - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-18 18:30:15,444 - utils.jobdbsg - INFO - Scraping role: Data-Scientist, page: 1, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=1
+2025-05-18 18:30:21,911 - utils.jobdbsg - INFO - Scraping role: Data-Analyst, page: 1, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=1
+2025-05-18 18:30:28,473 - utils.jobdbsg - INFO - Scraping role: AI-Engineer, page: 1, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=1
+2025-05-18 18:30:35,173 - utils.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 1, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=1
+2025-05-18 18:30:41,743 - utils.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 1, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=1
+2025-05-18 18:30:48,525 - utils.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 1, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=1
+2025-05-18 18:30:55,247 - utils.jobdbsg - INFO - Scraping role: Cybersecurity, page: 1, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=1
+2025-05-18 18:31:02,085 - utils.jobdbsg - INFO - WebDriver closed.
+2025-05-18 18:31:02,085 - utils.jobdbsg - INFO - Scraping completed. Total jobs collected: 135
