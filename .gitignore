@@ -7,6 +7,5 @@
 .env
 .venv
 *.csv
-logs/
 /__pycache__/
 *.py[cod]
