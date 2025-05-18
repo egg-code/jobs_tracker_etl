@@ -7166,3 +7166,14 @@ Stacktrace:
 2025-05-18 18:30:00,924 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-18 18:30:01,008 - utils.jobnetmm - INFO - Driver closed.
 2025-05-18 18:30:01,008 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 20:37:13,032 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 20:37:15,424 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 20:37:17,543 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 20:37:23,534 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 20:37:24,322 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 20:37:31,196 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 20:37:38,274 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 20:37:42,237 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 20:37:42,277 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 20:37:42,365 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 20:37:42,365 - utils.jobnetmm - INFO - Total jobs scraped: 130
