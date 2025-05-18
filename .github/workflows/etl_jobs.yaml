@@ -1,4 +1,4 @@
-name: Job Scraper
+name: Job Tracker
 
 on:
   push:
@@ -10,8 +10,11 @@ permissions:
   contents: write
     
 jobs:
-  build:
+  extract:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        source: [jobnetmm, jobsdbsg, jobsdbth, jobstreetmalay, founditsg]
 
     env:
       TZ: "Asia/Bangkok"
@@ -32,14 +35,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Script
+      - name: Run extractor for ${{ matrix.source }}
         run: |
-          python3 main.py
+          python3 main.py --source ${{ matrix.source }}
 
-      - name: Commit and push changes in log file
+      - name: Commit and push changes in log file and csvs
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add logs/*.log
-          git commit -m "Update log files" || echo "No changes to commit"
+          git add logs/*.log output/*.csv
+          git commit -m "Update log files and CSVs" || echo "No changes to commit"
           git push
