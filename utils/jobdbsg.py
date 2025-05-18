@@ -79,38 +79,41 @@ class JobsDBScraper:
                         elements = card.find_elements(By.CSS_SELECTOR, "span.job-listed-date")
                         date_posted = elements[0].text.strip() if elements else ""
 
-                        salary = ""
-                        job_type = ""
-                        
-                        badges = card.find_elements(By.CSS_SELECTOR, "div.badges div.content")
-                        
-                        if badges:
-                            first = badges[0].text.strip().lower()
-                            if "$" in first or "per month" in first:
-                                salary = badges[0].text.strip()
-                                if len(badges) > 1:
-                                    job_type = badges[1].text.strip()
-                            else:
-                                job_type = badges[0].text.strip()
-                                if len(badges) > 1:
-                                    salary = badges[1].text.strip()
-                        else:
-                            logger.info("No badges found for this job card.")
+                        # Initialize fields
+                        salary = ''
+                        job_type = ''
+                        work_arrangements = []
 
+                        # Extract all badge elements
+                        badges = card.find_elements(By.CSS_SELECTOR, 'div.badges div.badge')
+
+                        for badge in badges:
+                            content = badge.find_element(By.CSS_SELECTOR, 'div.content').text.strip()
+                            class_name = badge.get_attribute('class')
+
+                            if '-default-badge' in class_name:
+                                # Heuristics for identifying salary vs job type
+                                if any(x in content.lower() for x in ['$', '฿', 'per hour', 'per month', 'per year']):
+                                    salary = content
+                                else:
+                                    job_type = content
+                            elif '-work-arrangement-badge' in class_name:
+                                work_arrangements.append(content)
 
                         self.jobs.append({
                             "Role": role.replace("-", " "),
                             "Title": title,
                             "Company": company,
                             "Location": location,
-                            "Job_Type": job_type,
                             "Salary": salary,
+                            "Job_Type": job_type,
+                            "Work_Arrangement": ', '.join(work_arrangements),
                             "Job_Link": link,
                             "Date_Posted": date_posted
                         })
 
-                except Exception as e:
-                    logger.error(f"Error processing role {role} on page {page}: {e}")
+                except NoSuchElementException as e:
+                    logger.warning(f"Missing element in card for {role} on page {page}: {e}")
                     continue
 
     def run(self):

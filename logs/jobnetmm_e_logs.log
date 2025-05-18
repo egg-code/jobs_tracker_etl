@@ -7013,3 +7013,145 @@ Stacktrace:
 2025-05-17 20:51:56,973 - utils.jobnetmm - INFO - Driver closed.
 2025-05-17 20:51:56,973 - utils.jobnetmm - INFO - Total jobs scraped: 133
 >>>>>>> 066e89323645222e4e228bcc24e9349d7e1b243e
+2025-05-17 23:47:19,518 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-17 23:47:21,345 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-17 23:47:25,797 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-17 23:47:32,260 - utils.jobnetmm - WARNING - Error scraping on page 2: Message: no such element: Unable to locate element: {"method":"xpath","selector":".//a[@class='ClickTrack-EmpProfile']"}
+  (Session info: chrome=136.0.7103.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0070FC83+61635]
+	GetHandleVerifier [0x0070FCC4+61700]
+	(No symbol) [0x005305D3]
+	(No symbol) [0x0057899E]
+	(No symbol) [0x00578D3B]
+	(No symbol) [0x0056E111]
+	(No symbol) [0x0059D2E4]
+	(No symbol) [0x0056E034]
+	(No symbol) [0x0059D514]
+	(No symbol) [0x005BE61B]
+	(No symbol) [0x0059D096]
+	(No symbol) [0x0056C840]
+	(No symbol) [0x0056D6A4]
+	GetHandleVerifier [0x009945A3+2701795]
+	GetHandleVerifier [0x0098FD26+2683238]
+	GetHandleVerifier [0x009AAA6E+2793134]
+	GetHandleVerifier [0x00726945+155013]
+	GetHandleVerifier [0x0072D02D+181357]
+	GetHandleVerifier [0x007174D8+92440]
+	GetHandleVerifier [0x00717680+92864]
+	GetHandleVerifier [0x00702070+5296]
+	BaseThreadInitThunk [0x771DFCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x773282AE+286]
+	RtlGetAppContainerNamedObjectPath [0x7732827E+238]
+
+2025-05-17 23:47:33,895 - utils.jobnetmm - INFO - Page 2: Scraped. 59 jobs.
+2025-05-17 23:47:41,982 - utils.jobnetmm - INFO - Page 3: Scraped. 89 jobs.
+2025-05-17 23:47:50,100 - utils.jobnetmm - INFO - Page 4: Scraped. 119 jobs.
+2025-05-17 23:47:55,414 - utils.jobnetmm - INFO - Page 5: Scraped. 133 jobs.
+2025-05-17 23:47:55,516 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-17 23:47:57,829 - utils.jobnetmm - INFO - Driver closed.
+2025-05-17 23:47:57,829 - utils.jobnetmm - INFO - Total jobs scraped: 133
+2025-05-18 15:14:22,803 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 15:14:25,052 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 15:14:29,341 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 15:14:35,861 - utils.jobnetmm - WARNING - Error scraping on page 2: Message: no such element: Unable to locate element: {"method":"css selector","selector":"p.search__job-subtitle a.ClickTrack-EmpProfile"}
+  (Session info: chrome=136.0.7103.114); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x0063FC83+61635]
+	GetHandleVerifier [0x0063FCC4+61700]
+	(No symbol) [0x004605D3]
+	(No symbol) [0x004A899E]
+	(No symbol) [0x004A8D3B]
+	(No symbol) [0x0049E111]
+	(No symbol) [0x004CD2E4]
+	(No symbol) [0x0049E034]
+	(No symbol) [0x004CD514]
+	(No symbol) [0x004EE61B]
+	(No symbol) [0x004CD096]
+	(No symbol) [0x0049C840]
+	(No symbol) [0x0049D6A4]
+	GetHandleVerifier [0x008C45A3+2701795]
+	GetHandleVerifier [0x008BFD26+2683238]
+	GetHandleVerifier [0x008DAA6E+2793134]
+	GetHandleVerifier [0x00656945+155013]
+	GetHandleVerifier [0x0065D02D+181357]
+	GetHandleVerifier [0x006474D8+92440]
+	GetHandleVerifier [0x00647680+92864]
+	GetHandleVerifier [0x00632070+5296]
+	BaseThreadInitThunk [0x7651FCC9+25]
+	RtlGetAppContainerNamedObjectPath [0x776A82AE+286]
+	RtlGetAppContainerNamedObjectPath [0x776A827E+238]
+
+2025-05-18 15:14:37,321 - utils.jobnetmm - INFO - Page 2: Scraped. 59 jobs.
+2025-05-18 15:14:45,567 - utils.jobnetmm - INFO - Page 3: Scraped. 89 jobs.
+2025-05-18 15:14:53,581 - utils.jobnetmm - INFO - Page 4: Scraped. 119 jobs.
+2025-05-18 15:14:58,164 - utils.jobnetmm - INFO - Page 5: Scraped. 129 jobs.
+2025-05-18 15:14:58,243 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 15:15:00,536 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 15:15:00,537 - utils.jobnetmm - INFO - Total jobs scraped: 129
+2025-05-18 15:45:12,159 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 15:45:14,443 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 15:45:18,612 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 15:45:25,101 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 15:45:26,667 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 15:45:35,039 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 15:45:43,701 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 15:45:48,199 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 15:45:48,276 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 15:45:50,561 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 15:45:50,562 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 16:08:41,624 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 16:08:44,272 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 16:08:48,411 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 16:08:55,040 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 16:08:56,573 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 16:09:04,621 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 16:09:15,582 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 16:09:20,279 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 16:09:20,357 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 16:09:22,678 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 16:09:22,680 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 16:18:29,898 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 16:18:31,902 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 16:18:36,071 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 16:18:42,758 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 16:18:44,286 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 16:18:52,512 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 16:19:00,462 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 16:19:04,857 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 16:19:04,936 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 16:19:07,245 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 16:19:07,247 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 16:23:23,578 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 16:23:25,426 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 16:23:29,608 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 16:23:36,106 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 16:23:37,633 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 16:23:45,810 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 16:23:53,756 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 16:23:58,409 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 16:23:58,487 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 16:24:00,780 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 16:24:00,782 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 17:45:38,366 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 17:45:41,414 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 17:45:45,411 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 17:45:51,913 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 17:45:53,332 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 17:46:01,099 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 17:46:08,989 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 17:46:13,712 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 17:46:13,787 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 17:46:16,088 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 17:46:16,090 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-18 17:58:06,959 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-18 17:58:09,380 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-18 17:58:13,431 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 17:58:19,863 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-18 17:58:21,319 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 17:58:29,187 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 17:58:36,798 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 17:58:41,318 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 17:58:41,395 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-18 17:58:43,689 - utils.jobnetmm - INFO - Driver closed.
+2025-05-18 17:58:43,691 - utils.jobnetmm - INFO - Total jobs scraped: 130

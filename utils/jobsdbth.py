@@ -60,8 +60,8 @@ class JobsDBThScraper:
                     'location': job.get('locations', [{}])[0].get('label', ''),
                     'country_code': job.get('locations', [{}])[0].get('countryCode', ''),
                     'salary': job.get('salaryLabel', ''),
-                    'work_time': ', '.join(map(str, job.get('workTypes', []))),
-                    'job_type': job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', ''),
+                    'job_type': ', '.join(map(str, job.get('workTypes', []))),
+                    'work_arrangement': job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', ''),
                     'date_posted': job.get('listingDate'),
                     'job_link': f"https://th.jobsdb.com/job/{job.get('id')}"
                 }
