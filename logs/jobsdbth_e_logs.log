@@ -1203,3 +1203,121 @@
 2025-05-18 18:32:24,907 - utils.jobsdbth - INFO - Total jobs found: 2764
 2025-05-18 18:32:24,907 - utils.jobsdbth - INFO - No more jobs found on page 29. Ending scrape.
 2025-05-18 18:32:24,907 - utils.jobsdbth - INFO - Scraping completed. Total jobs scraped: 2764
+2025-05-18 20:58:56,602 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:58:56,602 - utils.jobsdbth - INFO - Scraped job from page 1: 100 jobs collected.
+2025-05-18 20:58:59,338 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:58:59,338 - utils.jobsdbth - INFO - Scraped job from page 2: 200 jobs collected.
+2025-05-18 20:59:01,884 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:01,885 - utils.jobsdbth - INFO - Scraped job from page 3: 300 jobs collected.
+2025-05-18 20:59:04,271 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:04,272 - utils.jobsdbth - INFO - Scraped job from page 4: 400 jobs collected.
+2025-05-18 20:59:06,929 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:06,929 - utils.jobsdbth - INFO - Scraped job from page 5: 500 jobs collected.
+2025-05-18 20:59:10,989 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:10,989 - utils.jobsdbth - INFO - Scraped job from page 6: 600 jobs collected.
+2025-05-18 20:59:12,502 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:12,502 - utils.jobsdbth - INFO - Scraped job from page 7: 700 jobs collected.
+2025-05-18 20:59:16,052 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:16,053 - utils.jobsdbth - INFO - Scraped job from page 8: 800 jobs collected.
+2025-05-18 20:59:19,534 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:19,534 - utils.jobsdbth - INFO - Scraped job from page 9: 900 jobs collected.
+2025-05-18 20:59:22,608 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:22,608 - utils.jobsdbth - INFO - Scraped job from page 10: 1000 jobs collected.
+2025-05-18 20:59:26,463 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:26,463 - utils.jobsdbth - INFO - Scraped job from page 11: 1100 jobs collected.
+2025-05-18 20:59:29,170 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:29,170 - utils.jobsdbth - INFO - Scraped job from page 12: 1200 jobs collected.
+2025-05-18 20:59:31,638 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:31,638 - utils.jobsdbth - INFO - Scraped job from page 13: 1300 jobs collected.
+2025-05-18 20:59:33,866 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:33,866 - utils.jobsdbth - INFO - Scraped job from page 14: 1400 jobs collected.
+2025-05-18 20:59:37,141 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:37,142 - utils.jobsdbth - INFO - Scraped job from page 15: 1500 jobs collected.
+2025-05-18 20:59:41,567 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:41,568 - utils.jobsdbth - INFO - Scraped job from page 16: 1600 jobs collected.
+2025-05-18 20:59:45,655 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:45,655 - utils.jobsdbth - INFO - Scraped job from page 17: 1700 jobs collected.
+2025-05-18 20:59:49,291 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:49,292 - utils.jobsdbth - INFO - Scraped job from page 18: 1800 jobs collected.
+2025-05-18 20:59:52,774 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:52,774 - utils.jobsdbth - INFO - Scraped job from page 19: 1900 jobs collected.
+2025-05-18 20:59:54,289 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:54,290 - utils.jobsdbth - INFO - Scraped job from page 20: 2000 jobs collected.
+2025-05-18 20:59:57,302 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:57,303 - utils.jobsdbth - INFO - Scraped job from page 21: 2100 jobs collected.
+2025-05-18 20:59:59,200 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 20:59:59,200 - utils.jobsdbth - INFO - Scraped job from page 22: 2200 jobs collected.
+2025-05-18 21:00:03,438 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:03,438 - utils.jobsdbth - INFO - Scraped job from page 23: 2300 jobs collected.
+2025-05-18 21:00:07,330 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:07,331 - utils.jobsdbth - INFO - Scraped job from page 24: 2400 jobs collected.
+2025-05-18 21:00:10,841 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:10,841 - utils.jobsdbth - INFO - Scraped job from page 25: 2500 jobs collected.
+2025-05-18 21:00:14,700 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:14,700 - utils.jobsdbth - INFO - Scraped job from page 26: 2600 jobs collected.
+2025-05-18 21:00:16,890 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:16,890 - utils.jobsdbth - INFO - Scraped job from page 27: 2700 jobs collected.
+2025-05-18 21:00:18,879 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:18,880 - utils.jobsdbth - INFO - Scraped job from page 28: 2766 jobs collected.
+2025-05-18 21:00:20,259 - utils.jobsdbth - INFO - Total jobs found: 2766
+2025-05-18 21:00:20,259 - utils.jobsdbth - INFO - No more jobs found on page 29. Ending scrape.
+2025-05-18 21:00:20,259 - utils.jobsdbth - INFO - Scraping completed. Total jobs scraped: 2766
+2025-05-19 14:21:37,977 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:37,977 - utils.jobsdbth - INFO - Scraped job from page 1: 100 jobs collected.
+2025-05-19 14:21:40,806 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:40,806 - utils.jobsdbth - INFO - Scraped job from page 2: 200 jobs collected.
+2025-05-19 14:21:45,249 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:45,250 - utils.jobsdbth - INFO - Scraped job from page 3: 300 jobs collected.
+2025-05-19 14:21:48,036 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:48,037 - utils.jobsdbth - INFO - Scraped job from page 4: 400 jobs collected.
+2025-05-19 14:21:51,249 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:51,249 - utils.jobsdbth - INFO - Scraped job from page 5: 500 jobs collected.
+2025-05-19 14:21:54,410 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:54,410 - utils.jobsdbth - INFO - Scraped job from page 6: 600 jobs collected.
+2025-05-19 14:21:58,497 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:21:58,497 - utils.jobsdbth - INFO - Scraped job from page 7: 700 jobs collected.
+2025-05-19 14:22:02,689 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:02,689 - utils.jobsdbth - INFO - Scraped job from page 8: 800 jobs collected.
+2025-05-19 14:22:05,472 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:05,473 - utils.jobsdbth - INFO - Scraped job from page 9: 900 jobs collected.
+2025-05-19 14:22:08,665 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:08,665 - utils.jobsdbth - INFO - Scraped job from page 10: 1000 jobs collected.
+2025-05-19 14:22:10,564 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:10,564 - utils.jobsdbth - INFO - Scraped job from page 11: 1100 jobs collected.
+2025-05-19 14:22:12,464 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:12,464 - utils.jobsdbth - INFO - Scraped job from page 12: 1200 jobs collected.
+2025-05-19 14:22:14,129 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:14,130 - utils.jobsdbth - INFO - Scraped job from page 13: 1300 jobs collected.
+2025-05-19 14:22:16,491 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:16,492 - utils.jobsdbth - INFO - Scraped job from page 14: 1400 jobs collected.
+2025-05-19 14:22:19,903 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:19,904 - utils.jobsdbth - INFO - Scraped job from page 15: 1500 jobs collected.
+2025-05-19 14:22:24,016 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:24,017 - utils.jobsdbth - INFO - Scraped job from page 16: 1600 jobs collected.
+2025-05-19 14:22:26,775 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:26,776 - utils.jobsdbth - INFO - Scraped job from page 17: 1700 jobs collected.
+2025-05-19 14:22:29,315 - utils.jobsdbth - INFO - Total jobs found: 2750
+2025-05-19 14:22:29,315 - utils.jobsdbth - INFO - Scraped job from page 18: 1800 jobs collected.
+2025-05-19 14:22:33,546 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:33,546 - utils.jobsdbth - INFO - Scraped job from page 19: 1900 jobs collected.
+2025-05-19 14:22:35,301 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:35,301 - utils.jobsdbth - INFO - Scraped job from page 20: 2000 jobs collected.
+2025-05-19 14:22:39,437 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:39,437 - utils.jobsdbth - INFO - Scraped job from page 21: 2100 jobs collected.
+2025-05-19 14:22:42,210 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:42,210 - utils.jobsdbth - INFO - Scraped job from page 22: 2200 jobs collected.
+2025-05-19 14:22:44,577 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:44,578 - utils.jobsdbth - INFO - Scraped job from page 23: 2300 jobs collected.
+2025-05-19 14:22:46,129 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:46,129 - utils.jobsdbth - INFO - Scraped job from page 24: 2400 jobs collected.
+2025-05-19 14:22:49,145 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:49,145 - utils.jobsdbth - INFO - Scraped job from page 25: 2500 jobs collected.
+2025-05-19 14:22:51,707 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:51,708 - utils.jobsdbth - INFO - Scraped job from page 26: 2600 jobs collected.
+2025-05-19 14:22:54,703 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:54,703 - utils.jobsdbth - INFO - Scraped job from page 27: 2700 jobs collected.
+2025-05-19 14:22:57,590 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:22:57,590 - utils.jobsdbth - INFO - Scraped job from page 28: 2751 jobs collected.
+2025-05-19 14:23:01,117 - utils.jobsdbth - INFO - Total jobs found: 2751
+2025-05-19 14:23:01,117 - utils.jobsdbth - INFO - No more jobs found on page 29. Ending scrape.
+2025-05-19 14:23:01,117 - utils.jobsdbth - INFO - Scraping completed. Total jobs scraped: 2751

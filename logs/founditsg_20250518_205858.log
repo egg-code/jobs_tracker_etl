@@ -1,0 +1,22 @@
+2025-05-18 20:58:58,509 - INFO - ====== WebDriver manager ======
+2025-05-18 20:59:01,612 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-18 20:59:01,649 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-18 20:59:01,673 - INFO - There is no [linux64] chromedriver "136.0.7103.94" for browser google-chrome "136.0.7103" in cache
+2025-05-18 20:59:01,673 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-18 20:59:01,744 - INFO - WebDriver version 136.0.7103.94 selected
+2025-05-18 20:59:01,746 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/linux64/chromedriver-linux64.zip
+2025-05-18 20:59:01,746 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/linux64/chromedriver-linux64.zip
+2025-05-18 20:59:01,774 - INFO - Driver downloading response is 200
+2025-05-18 20:59:01,849 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-18 20:59:01,980 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/136.0.7103.94]
+2025-05-18 20:59:23,042 - INFO - Login Successful! Dashboard loaded.
+2025-05-18 20:59:25,359 - INFO - Redirected to jobs page
+2025-05-18 20:59:27,487 - INFO - Page 1: Scraped. 30 jobs.
+2025-05-18 20:59:33,006 - WARNING - Company name not found.
+2025-05-18 20:59:33,822 - INFO - Page 2: Scraped. 60 jobs.
+2025-05-18 20:59:40,249 - INFO - Page 3: Scraped. 90 jobs.
+2025-05-18 20:59:46,356 - INFO - Page 4: Scraped. 120 jobs.
+2025-05-18 20:59:51,519 - INFO - Page 5: Scraped. 130 jobs.
+2025-05-18 20:59:51,559 - INFO - No more pages to scrape.
+2025-05-18 20:59:51,647 - INFO - Driver closed.
+2025-05-18 20:59:51,647 - INFO - Total jobs scraped: 130

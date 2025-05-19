@@ -1,0 +1,59 @@
+2025-05-18 20:58:56,602 - INFO - Total jobs found: 2766
+2025-05-18 20:58:56,602 - INFO - Scraped job from page 1: 100 jobs collected.
+2025-05-18 20:58:59,338 - INFO - Total jobs found: 2766
+2025-05-18 20:58:59,338 - INFO - Scraped job from page 2: 200 jobs collected.
+2025-05-18 20:59:01,884 - INFO - Total jobs found: 2766
+2025-05-18 20:59:01,885 - INFO - Scraped job from page 3: 300 jobs collected.
+2025-05-18 20:59:04,271 - INFO - Total jobs found: 2766
+2025-05-18 20:59:04,272 - INFO - Scraped job from page 4: 400 jobs collected.
+2025-05-18 20:59:06,929 - INFO - Total jobs found: 2766
+2025-05-18 20:59:06,929 - INFO - Scraped job from page 5: 500 jobs collected.
+2025-05-18 20:59:10,989 - INFO - Total jobs found: 2766
+2025-05-18 20:59:10,989 - INFO - Scraped job from page 6: 600 jobs collected.
+2025-05-18 20:59:12,502 - INFO - Total jobs found: 2766
+2025-05-18 20:59:12,502 - INFO - Scraped job from page 7: 700 jobs collected.
+2025-05-18 20:59:16,052 - INFO - Total jobs found: 2766
+2025-05-18 20:59:16,053 - INFO - Scraped job from page 8: 800 jobs collected.
+2025-05-18 20:59:19,534 - INFO - Total jobs found: 2766
+2025-05-18 20:59:19,534 - INFO - Scraped job from page 9: 900 jobs collected.
+2025-05-18 20:59:22,608 - INFO - Total jobs found: 2766
+2025-05-18 20:59:22,608 - INFO - Scraped job from page 10: 1000 jobs collected.
+2025-05-18 20:59:26,463 - INFO - Total jobs found: 2766
+2025-05-18 20:59:26,463 - INFO - Scraped job from page 11: 1100 jobs collected.
+2025-05-18 20:59:29,170 - INFO - Total jobs found: 2766
+2025-05-18 20:59:29,170 - INFO - Scraped job from page 12: 1200 jobs collected.
+2025-05-18 20:59:31,638 - INFO - Total jobs found: 2766
+2025-05-18 20:59:31,638 - INFO - Scraped job from page 13: 1300 jobs collected.
+2025-05-18 20:59:33,866 - INFO - Total jobs found: 2766
+2025-05-18 20:59:33,866 - INFO - Scraped job from page 14: 1400 jobs collected.
+2025-05-18 20:59:37,141 - INFO - Total jobs found: 2766
+2025-05-18 20:59:37,142 - INFO - Scraped job from page 15: 1500 jobs collected.
+2025-05-18 20:59:41,567 - INFO - Total jobs found: 2766
+2025-05-18 20:59:41,568 - INFO - Scraped job from page 16: 1600 jobs collected.
+2025-05-18 20:59:45,655 - INFO - Total jobs found: 2766
+2025-05-18 20:59:45,655 - INFO - Scraped job from page 17: 1700 jobs collected.
+2025-05-18 20:59:49,291 - INFO - Total jobs found: 2766
+2025-05-18 20:59:49,292 - INFO - Scraped job from page 18: 1800 jobs collected.
+2025-05-18 20:59:52,774 - INFO - Total jobs found: 2766
+2025-05-18 20:59:52,774 - INFO - Scraped job from page 19: 1900 jobs collected.
+2025-05-18 20:59:54,289 - INFO - Total jobs found: 2766
+2025-05-18 20:59:54,290 - INFO - Scraped job from page 20: 2000 jobs collected.
+2025-05-18 20:59:57,302 - INFO - Total jobs found: 2766
+2025-05-18 20:59:57,303 - INFO - Scraped job from page 21: 2100 jobs collected.
+2025-05-18 20:59:59,200 - INFO - Total jobs found: 2766
+2025-05-18 20:59:59,200 - INFO - Scraped job from page 22: 2200 jobs collected.
+2025-05-18 21:00:03,438 - INFO - Total jobs found: 2766
+2025-05-18 21:00:03,438 - INFO - Scraped job from page 23: 2300 jobs collected.
+2025-05-18 21:00:07,330 - INFO - Total jobs found: 2766
+2025-05-18 21:00:07,331 - INFO - Scraped job from page 24: 2400 jobs collected.
+2025-05-18 21:00:10,841 - INFO - Total jobs found: 2766
+2025-05-18 21:00:10,841 - INFO - Scraped job from page 25: 2500 jobs collected.
+2025-05-18 21:00:14,700 - INFO - Total jobs found: 2766
+2025-05-18 21:00:14,700 - INFO - Scraped job from page 26: 2600 jobs collected.
+2025-05-18 21:00:16,890 - INFO - Total jobs found: 2766
+2025-05-18 21:00:16,890 - INFO - Scraped job from page 27: 2700 jobs collected.
+2025-05-18 21:00:18,879 - INFO - Total jobs found: 2766
+2025-05-18 21:00:18,880 - INFO - Scraped job from page 28: 2766 jobs collected.
+2025-05-18 21:00:20,259 - INFO - Total jobs found: 2766
+2025-05-18 21:00:20,259 - INFO - No more jobs found on page 29. Ending scrape.
+2025-05-18 21:00:20,259 - INFO - Scraping completed. Total jobs scraped: 2766
