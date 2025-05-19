@@ -1,52 +1,62 @@
+import argparse
 from utils.jobnetmm import JobNetScraper
 from utils.jobdbsg import JobsDBScraper
 from utils.jobsdbth import JobsDBThScraper
 from utils.jobstreetmalay import JobStreetMalaysia
 from utils.founditSG import FounditScraper
+from utils.data_normalizer import JobDataNormalizer
 import os
 
-def main():
-    # For jobnetmm
-    # email = os.getenv("JOBNET_EMAIL")
-    # password = os.getenv("JOBNET_PASSWORD")
-    # job_function = 17 # 17 for IT jobs
-    # extract = JobNetScraper(email, password)
-    # jobnet_df = extract.get_jobs(job_function=job_function)
-    # print(jobnet_df.head())
-    # print(f"Dataframe shape: {jobnet_df.shape}")
+def extract_jobnetmm():
+    email = os.getenv("JOBNET_EMAIL")
+    password = os.getenv("JOBNET_PASSWORD")
+    raw = JobNetScraper(email, password).get_jobs(job_function=17)
+    df = JobDataNormalizer().jobnetmm(raw)
+    df.to_csv("output/jobnetmm.csv", index=False, encoding='utf-8-sig')
+    return df
 
-    ## For jobsdb_sg
-    print("🔍 Scraping job from JobsDB Singapore...")
-    jobsdb_scraper = JobsDBScraper(max_pages=1, headless=True)
-    jobdbsg_df = jobsdb_scraper.run()
-    print(jobdbsg_df.head())
-    print(f"Dataframe shape: {jobdbsg_df.shape}")
-    print("✅ JobsDB scraping complete.")
+def extract_jobsdbsg():
+    raw = JobsDBScraper(max_pages=1, headless=True).run()
+    df = JobDataNormalizer().jobsdbsg(raw)
+    df.to_csv("output/jobsdbsg.csv", index=False, encoding='utf-8-sig')
+    return df
 
-    # For jobsdb_th
-    classification_id = '6281' # id for IT jobs
-    scraper = JobsDBThScraper(classification_id)
-    jobsdbth_df = scraper.scrape_jobs()
-    print(jobsdbth_df.head())
-    print(f"Duplicates found: {jobsdbth_df.duplicated().sum()}")
-    print(f"Dataframe shape: {jobsdbth_df.shape}")
-    print(f"Columns: {jobsdbth_df.columns.tolist()}")
+def extract_jobsdbth():
+    raw = JobsDBThScraper(classification_id='6281').scrape_jobs()
+    df = JobDataNormalizer().jobsdbth(raw)
+    df.to_csv("output/jobsdbth.csv", index=False, encoding='utf-8-sig')
+    return df
 
-    # For foundit
-    print("Scraping IT jobs from Foundit Singapore...")
-    foundit_scraper = FounditScraper(headless=True)
-    foundit_df = foundit_scraper.extract_jobs()
-    print(foundit_df.head())
-    print("Foundit scraping complete.")
+def extract_founditsg():
+    raw = FounditScraper(headless=True).extract_jobs()
+    df = JobDataNormalizer().founditsg(raw)
+    df.to_csv("output/foundit.csv", index=False, encoding='utf-8-sig')
+    return df
 
-    ## For jobstreetmalay
-    classification_id = '6281' # id for IT jobs
-    scraper = JobStreetMalaysia()
-    jobstreetmalay_df = scraper.fetch_jobs(classification_id)
-    print(jobstreetmalay_df.head())
-    print(f"Duplicates found: {jobstreetmalay_df.duplicated().sum()}")
-    print(f"Dataframe shape: {jobstreetmalay_df.shape}")
-    print(f"Columns: {jobstreetmalay_df.columns.tolist()}")
+def extract_jobstreetmalay():
+    raw = JobStreetMalaysia().fetch_jobs(classification_id='6281')
+    df = JobDataNormalizer().jobstreetmalay(raw)
+    df.to_csv("output/jobstreetmalay.csv", index=False, encoding='utf-8-sig')
+    return df
+
+def main(source):
+    dispatch = {
+        "jobnetmm": extract_jobnetmm,
+        "jobsdbsg": extract_jobsdbsg,
+        "jobsdbth": extract_jobsdbth,
+        "founditsg": extract_founditsg,
+        "jobstreetmalay": extract_jobstreetmalay,
+    }
+    if source not in dispatch:
+        raise ValueError(f"Unknown source: {source}")
+    
+    df = dispatch[source]()
+    print(f"Data extraction for {source} completed.")
+    print(df.head())
+    print(f"Data extraction for {source} completed.")
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source", required=True)
+    args = parser.parse_args()
+    main(args.source)

@@ -84,8 +84,8 @@ class JobNetScraper:
                         if job.find_elements(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile"):
                             company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
                         else:
-                            company_element = job.find_element(By.XPATH, ".//a[@class='ClickTrack-EmpProfile']")
-                            company = company_element[0].text.strip() if company_element else None
+                            logger.warning("Company name not found.")
+                            company = None
 
                         # Try to get the location
                         location_element = job.find_element(By.CSS_SELECTOR, "p.search__job-location span")

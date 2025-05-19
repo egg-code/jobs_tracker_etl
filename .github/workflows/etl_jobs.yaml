@@ -1,4 +1,4 @@
-name: Job Scraper
+name: Job Tracker
 
 on:
   push:
@@ -8,10 +8,13 @@ on:
 
 permissions:
   contents: write
-    
+
 jobs:
-  build:
+  extract:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        source: [jobnetmm, jobsdbsg, jobsdbth, jobstreetmalay, founditsg]
 
     env:
       TZ: "Asia/Bangkok"
@@ -32,14 +35,41 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Script
+      - name: Run extractor for ${{ matrix.source }}
         run: |
-          python3 main.py
+          python3 main.py --source ${{ matrix.source }}
 
-      - name: Commit and push changes in log file
+      - name: Upload output CSVs and logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.source }}-artifact
+          path: |
+            output/*.csv
+            logs/*.log
+
+  commit:
+    runs-on: ubuntu-latest
+    needs: extract
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Download artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: ./artifacts
+
+      - name: Move files into proper folders
+        run: |
+          mkdir -p output logs
+          find ./artifacts -name "*.csv" -exec mv {} output/ \;
+          find ./artifacts -name "*.log" -exec mv {} logs/ \;
+
+      - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add logs/*.log
-          git commit -m "Update log files" || echo "No changes to commit"
+          git add output/*.csv logs/*.log
+          git commit -m "Update all logs and CSVs" || echo "No changes to commit"
           git push
