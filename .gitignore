@@ -6,7 +6,11 @@
 .env.production.local
 .env
 .venv
+/__pycache__/
+*.py[cod]
+.log
 *.csv
 logs/
 output/
 .history/
+venv/
