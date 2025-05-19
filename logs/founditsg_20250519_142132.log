@@ -1,0 +1,22 @@
+2025-05-19 14:21:32,932 - INFO - ====== WebDriver manager ======
+2025-05-19 14:21:33,829 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-19 14:21:33,873 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-19 14:21:33,885 - INFO - There is no [linux64] chromedriver "136.0.7103.94" for browser google-chrome "136.0.7103" in cache
+2025-05-19 14:21:33,885 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-19 14:21:33,932 - INFO - WebDriver version 136.0.7103.94 selected
+2025-05-19 14:21:33,936 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/linux64/chromedriver-linux64.zip
+2025-05-19 14:21:33,936 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/136.0.7103.94/linux64/chromedriver-linux64.zip
+2025-05-19 14:21:33,956 - INFO - Driver downloading response is 200
+2025-05-19 14:21:33,997 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-19 14:21:34,118 - INFO - Driver has been saved in cache [/home/runner/.wdm/drivers/chromedriver/linux64/136.0.7103.94]
+2025-05-19 14:21:38,653 - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-19 14:21:47,516 - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-19 14:21:54,408 - INFO - Scraping role: Data-Scientist, page: 1, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=1
+2025-05-19 14:22:00,895 - INFO - Scraping role: Data-Analyst, page: 1, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=1
+2025-05-19 14:22:07,674 - INFO - Scraping role: AI-Engineer, page: 1, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=1
+2025-05-19 14:22:14,390 - INFO - Scraping role: Machine-Learning-Engineer, page: 1, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=1
+2025-05-19 14:22:21,012 - INFO - Scraping role: DevOps-Engineer, page: 1, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=1
+2025-05-19 14:22:27,953 - INFO - Scraping role: Cloud-Engineer, page: 1, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=1
+2025-05-19 14:22:34,702 - INFO - Scraping role: Cybersecurity, page: 1, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=1
+2025-05-19 14:22:41,528 - INFO - WebDriver closed.
+2025-05-19 14:22:41,528 - INFO - Scraping completed. Total jobs collected: 135
