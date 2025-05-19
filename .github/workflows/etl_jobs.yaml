@@ -45,7 +45,8 @@ jobs:
           name: ${{ matrix.source }}-artifact
           path: |
             output/*.csv
-            logs/*.log
+            logs/*.
+          retention-days: 1
 
   commit:
     runs-on: ubuntu-latest
@@ -58,13 +59,23 @@ jobs:
       - name: Download artifacts
         uses: actions/download-artifact@v4
         with:
-          path: ./artifacts
+          path: downloaded-artifacts
+
+      - name: Debug artifact contents
+        run: |
+          ls -la downloaded-artifacts
+          find downloaded-artifacts -type f | sort
 
       - name: Move files into proper folders
         run: |
           mkdir -p output logs
-          find ./artifacts -name "*.csv" -exec mv {} output/ \;
-          find ./artifacts -name "*.log" -exec mv {} logs/ \;
+          find ./artifacts -name "*.csv" -exec cp {} output/ \;
+          find ./artifacts -name "*.log" -exec cp {} logs/ \;
+
+          echo "Output dir contents":
+          ls -la output/
+          echo "Logs dir contents":
+          ls -la logs/
 
       - name: Commit and push changes
         run: |
