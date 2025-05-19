@@ -11,6 +11,64 @@ class JobDataNormalizer:
             'job_link', 'country', 'source'
         ]
 
+    # Convert "X days ago" to datetime in UTC+6:30
+    def convert_to_utc_plus_630(self, text):
+        yangon_tz = pytz.timezone('Asia/Yangon')
+        today = datetime.now(pytz.utc)
+        if isinstance(text, str) and "day" in text:
+            try:
+                days_ago = int(text.strip().split()[0])
+                converted = today - timedelta(days=days_ago)
+                return converted.astimezone(yangon_tz).strftime('%Y-%m-%d')
+            except:
+                return None
+        return None
+
+    # Handel missing values
+    def fill_missing_foundit_fields(self, df: pd.DataFrame) -> pd.DataFrame:
+        # Replace empty strings with NaN-equivalent (so they can be filled)
+        df.replace('', pd.NA, inplace=True)
+
+        # Fill all NaN/NA values with 'N/A' regardless of type
+        df.fillna('N/A', inplace=True)
+
+        return df
+
+
+    ## Foundit Singapore
+    def founditsg(self, df: pd.DataFrame) -> pd.DataFrame:
+        df = df.rename(columns={
+            'title': 'title',
+            'companyName': 'company',
+            'locations': 'location',
+            'salary': 'salary',
+            'jobTypes': 'job_type',
+            'postedBy': 'date_posted',
+            'seoJdUrl': 'job_link'
+        })
+
+        # Convert job_type list to string
+        df['job_type'] = df['job_type'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)
+
+        # Convert "X days ago" to datetime in UTC+6:30
+        df['date_posted'] = df['date_posted'].apply(self.convert_to_utc_plus_630)
+
+        # Add full URL to job_link
+        df['job_link'] = df['job_link'].apply(
+            lambda x: f"https://www.foundit.sg{x}" if isinstance(x, str) and not x.startswith("http") else x
+        )
+
+        # Add fixed values
+        df['country'] = 'SG'
+        df['work_arrangement'] = None
+        df['source'] = 'founditsg'
+
+        # Apply missing value filler
+        df = self.fill_missing_foundit_fields(df)
+
+        return df[self.standard_cols]
+
+
     ## Jobnet Myanmar
     def jobnetmm(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -68,44 +126,6 @@ class JobDataNormalizer:
         df['source'] = 'jobsdbth'
         return df[self.standard_cols]
     
-    ## Foundit Singapore
-    def founditsg(self, df: pd.DataFrame) -> pd.DataFrame:
-        df = df.rename(columns={
-            'title': 'title',
-            'companyName': 'company',
-            'locations': 'location',
-            'salary': 'salary',
-            'jobTypes': 'job_type',
-            'postedBy': 'date_posted',
-            'seoJdUrl': 'job_link'
-        })
-
-        # Convert job_type list to string
-        df['job_type'] = df['job_type'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)
-
-        # Convert "X days ago" to datetime in UTC+6:30
-        yangon_tz = pytz.timezone('Asia/Yangon')
-        def convert_to_utc_plus_630(text):
-            today = datetime.now(pytz.utc)
-            if isinstance(text, str) and "day" in text:
-                try:
-                    days_ago = int(text.strip().split()[0])
-                    converted = today - timedelta(days=days_ago)
-                    return converted.astimezone(yangon_tz).strftime('%Y-%m-%d %H:%M:%S')
-                except:
-                    return None
-            return None
-        df['date_posted'] = df['date_posted'].apply(convert_to_utc_plus_630)
-
-        # Add full URL to job_link
-        df['job_link'] = df['job_link'].apply(lambda x: f"https://www.foundit.sg{x}" if isinstance(x, str) and not x.startswith("http") else x)
-
-        # Add fixed values
-        df['country'] = 'SG'
-        df['work_arrangement'] = None
-        df['source'] = 'founditsg'
-
-        return df[self.standard_cols]
 
   
     ## JobStreet Malaysia

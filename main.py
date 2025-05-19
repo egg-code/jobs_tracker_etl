@@ -33,6 +33,7 @@ def extract_founditsg():
     df.to_csv("output/foundit.csv", index=False, encoding='utf-8-sig')
     return df
 
+
 def extract_jobstreetmalay():
     raw = JobStreetMalaysia().fetch_jobs(classification_id='6281')
     df = JobDataNormalizer().jobstreetmalay(raw)
