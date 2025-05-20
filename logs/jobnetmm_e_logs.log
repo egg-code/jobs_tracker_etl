@@ -7177,3 +7177,36 @@ Stacktrace:
 2025-05-18 20:37:42,277 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-18 20:37:42,365 - utils.jobnetmm - INFO - Driver closed.
 2025-05-18 20:37:42,365 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-19 18:25:06,770 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-19 18:25:09,302 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-19 18:25:13,598 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-19 18:25:20,419 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-19 18:25:22,079 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-19 18:25:30,259 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-19 18:25:38,516 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-19 18:25:42,889 - utils.jobnetmm - INFO - Page 5: Scraped. 129 jobs.
+2025-05-19 18:25:42,962 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-19 18:25:45,271 - utils.jobnetmm - INFO - Driver closed.
+2025-05-19 18:25:45,273 - utils.jobnetmm - INFO - Total jobs scraped: 129
+2025-05-20 19:18:32,265 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-20 19:18:34,120 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-20 19:18:38,633 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-20 19:18:46,247 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-20 19:18:47,264 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-20 19:18:55,432 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-20 19:19:03,415 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-20 19:19:07,970 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-20 19:19:08,048 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-20 19:19:10,395 - utils.jobnetmm - INFO - Driver closed.
+2025-05-20 19:19:10,397 - utils.jobnetmm - INFO - Total jobs scraped: 130
+2025-05-20 19:25:26,116 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-20 19:25:28,922 - utils.jobnetmm - INFO - Redirected to jobs page
+2025-05-20 19:25:33,188 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-20 19:25:43,600 - utils.jobnetmm - WARNING - Company name not found.
+2025-05-20 19:25:44,673 - utils.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-20 19:25:53,370 - utils.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-20 19:26:01,326 - utils.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-20 19:26:05,986 - utils.jobnetmm - INFO - Page 5: Scraped. 130 jobs.
+2025-05-20 19:26:06,058 - utils.jobnetmm - INFO - No more pages to scrape.
+2025-05-20 19:26:08,357 - utils.jobnetmm - INFO - Driver closed.
+2025-05-20 19:26:08,358 - utils.jobnetmm - INFO - Total jobs scraped: 130

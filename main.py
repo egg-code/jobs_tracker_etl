@@ -5,6 +5,7 @@ from utils.jobsdbth import JobsDBThScraper
 from utils.jobstreetmalay import JobStreetMalaysia
 from utils.founditSG import FounditScraper
 from utils.data_normalizer import JobDataNormalizer
+from utils.transform import JobNetTransform, JobsDBSGTransform, JobsDBTHTransform, FounditTransform, JobStreetMalayTransform
 import os
 
 def extract_jobnetmm():
@@ -40,20 +41,39 @@ def extract_jobstreetmalay():
     return df
 
 def main(source):
-    dispatch = {
+    # Map the source to the corresponding extraction function
+    extract_dispatch = {
         "jobnetmm": extract_jobnetmm,
         "jobsdbsg": extract_jobsdbsg,
         "jobsdbth": extract_jobsdbth,
         "founditsg": extract_founditsg,
         "jobstreetmalay": extract_jobstreetmalay,
     }
-    if source not in dispatch:
+
+    # Map the source to the corresponding transformation function
+    transform_dispatch = {
+        "jobnetmm": JobNetTransform,
+        "jobsdbsg": JobsDBSGTransform,
+        "jobsdbth": JobsDBTHTransform,
+        "founditsg": FounditTransform,
+        "jobstreetmalay": JobStreetMalayTransform,
+    }
+    if source not in extract_dispatch:
         raise ValueError(f"Unknown source: {source}")
     
-    df = dispatch[source]()
+    df = extract_dispatch[source]()
     print(f"Data extraction for {source} completed.")
     print(df.head())
-    print(f"Data extraction for {source} completed.")
+
+    ## Transform the data
+    if source in transform_dispatch:
+        transformer = transform_dispatch[source](df)
+        transformed_df = transformer.transform()
+        print(f"Data transformation for {source} completed.")
+        print(transformed_df.head())
+
+    df.to_csv(f"output/{source}_cleaned.csv", index=False, encoding='utf-8-sig')
+    print(f"Data saved to output/{source}_cleaned.csv")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

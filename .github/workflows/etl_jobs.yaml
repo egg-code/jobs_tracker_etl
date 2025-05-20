@@ -17,7 +17,7 @@ jobs:
         source: [jobnetmm, jobsdbsg, jobsdbth, jobstreetmalay, founditsg]
 
     env:
-      TZ: "Asia/Bangkok"
+      TZ: "Asia/Yangon"
       JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
       JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
 
