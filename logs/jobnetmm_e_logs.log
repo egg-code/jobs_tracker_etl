@@ -2090,10 +2090,6 @@ Stacktrace:
 2025-05-10 16:32:19,506:INFO:Scraped job from page 28: 2764 jobs collected.
 2025-05-10 16:32:22,270:INFO:Total jobs found: 2764
 2025-05-10 16:32:22,270:INFO:No more jobs found on page 29. Ending scrape.
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 066e89323645222e4e228bcc24e9349d7e1b243e
 2025-05-10 16:32:22,271:INFO:Scraping completed. Total jobs scraped: 27642025-05-16 18:14:51,392 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
 2025-05-16 18:14:53,624 - utils.jobnetmm - INFO - Redirected to jobs page
 2025-05-16 18:14:56,383 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
@@ -6962,8 +6958,6 @@ Stacktrace:
 2025-05-17 15:33:21,250 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Driver closed.
 2025-05-17 15:33:23,530 - utils.jobnetmm - INFO - Total jobs scraped: 133
-<<<<<<< HEAD
-=======
 2025-05-10 16:32:22,271:INFO:Scraping completed. Total jobs scraped: 27642025-05-10 23:03:28,064 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
 2025-05-10 23:03:30,959 - utils.jobnetmm - INFO - Redirected to jobs page
 2025-05-10 23:03:32,688 - utils.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
@@ -6974,8 +6968,6 @@ Stacktrace:
 2025-05-10 23:03:55,550 - utils.jobnetmm - INFO - No more pages to scrape.
 2025-05-10 23:03:56,638 - utils.jobnetmm - INFO - Driver closed.
 2025-05-10 23:03:56,638 - utils.jobnetmm - INFO - Total jobs scraped: 134
->>>>>>> 00b2d60b6f2818a66cca89cc015bd39981a8f04d
-=======
 2025-05-17 20:50:17,979 - utils.jobnetmm - INFO - Driver closed.
 2025-05-17 20:50:45,295 - utils.jobnetmm - INFO - Login Successful! Dashboard loaded.
 2025-05-17 20:51:13,423 - utils.jobnetmm - INFO - Redirected to jobs page

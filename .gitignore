@@ -1,10 +1,23 @@
-# misc
+# Misc
 .DS_Store
+
+# Environment Files
+.env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-.env
-.venv
-/__pycache__/
+
+# Python
+.venv/
+__pycache__/
 *.py[cod]
+venv
+# Logs and Output
+*.log
+logs/
+output/
+
+# Other
+*.csv
+.history/
