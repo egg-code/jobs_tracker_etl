@@ -1,7 +1,8 @@
 import pandas as pd
 from datetime import datetime, timedelta
 import pytz
-
+import re
+from datetime import datetime, timedelta
 class JobDataNormalizer:
 
     def __init__(self):
@@ -88,11 +89,15 @@ class JobDataNormalizer:
         df['source'] = 'jobnetmm'
         return df[self.standard_cols]
     
-    ## JobsDB Singapore
+    ## Job db sg
     def jobsdbsg(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         Normalize the job data from JobsDB Singapore.
         """
+        import re
+        from datetime import datetime, timedelta
+
+        # Rename columns to standard format
         df = df.rename(columns={
             'Title': 'title',
             'Company': 'company',
@@ -103,8 +108,44 @@ class JobDataNormalizer:
             'Job_Link': 'job_link',
             'Date_Posted': 'date_posted'
         })
+
         df['country'] = 'SG'
         df['source'] = 'jobsdbsg'
+
+        # Fill missing salary and job_type
+        df['salary'] = df['salary'].replace('', pd.NA).fillna('N/A')
+        df['job_type'] = df['job_type'].replace('', pd.NA).fillna('N/A')
+        df['company'] = df['job_type'].replace('', pd.NA).fillna('N/A')
+        # Fill missing or empty work_arrangement
+        df['work_arrangement'] = df['work_arrangement'].replace('', pd.NA)
+        # df.loc[(df['work_arrangement'].isna()) & (df['job_type'] == 'Full time'), 'work_arrangement'] = 'On-site'
+        df['work_arrangement'] = df['work_arrangement'].fillna('N/A')
+
+        # Parse 'date_posted' and convert to full UTC datetime
+        def parse_date_posted(text):
+            try:
+                match = re.search(r'(\d+)([a-z]+)', text.lower())
+                if not match:
+                    return None
+                value, unit = int(match.group(1)), match.group(2)
+                now = datetime.utcnow()
+                if unit == 's':  # seconds
+                    return (now - timedelta(seconds=value)).isoformat() + 'Z'
+                elif unit == 'm':  # minutes
+                    return (now - timedelta(minutes=value)).isoformat() + 'Z'
+                elif unit == 'h':  # hours
+                    return (now - timedelta(hours=value)).isoformat() + 'Z'
+                elif unit == 'd':  # days
+                    return (now - timedelta(days=value)).isoformat() + 'Z'
+                elif unit == 'mo':  # months (approximate)
+                    return (now - timedelta(days=30 * value)).isoformat() + 'Z'
+                else:
+                    return None
+            except Exception:
+                return None
+
+        df['date_posted'] = df['date_posted'].apply(parse_date_posted)
+
         return df[self.standard_cols]
     
     ## JobsDB Thailand
@@ -143,6 +184,11 @@ class JobDataNormalizer:
             'date_posted': 'date_posted',
             'job_link': 'job_link'
         })
+    
         df['country'] = df['country_code']
         df['source'] = 'jobstreetmalay'
+    
+        # Replace empty strings with NaN, then fill all NaNs with 'N/A'
+        df = df.replace('', pd.NA).fillna('N/A')
+    
         return df[self.standard_cols]

@@ -16,8 +16,8 @@ venv
 # Logs and Output
 *.log
 logs/
-output/
+# output/
 
 # Other
-*.csv
+# *.csv
 .history/
