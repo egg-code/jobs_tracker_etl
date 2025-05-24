@@ -375,7 +375,7 @@ class JobStreetMalayTransform:
             s_clean = s.replace('–', '-').replace('—', '-').replace('\xa0', ' ')
             currency_match = re.match(r'^([A-Za-z]+)', s_clean.strip())
             currency = currency_match.group(1) if currency_match else pd.NA
-    
+
             # Match range like "RM 3,388 – RM 4,752 per month"
             range_match = re.search(r'([\d,]+)\s*-\s*([\d,]+)', s_clean)
             if range_match:
@@ -384,16 +384,16 @@ class JobStreetMalayTransform:
                 max_salary = int(max_str.replace(',', ''))
                 avg_salary = (min_salary + max_salary) // 2
                 return (avg_salary, min_salary, max_salary, currency)
-    
+
             # Match single value like "RM 4,500 per month"
             single_match = re.search(r'([\d,]+)', s_clean)
             if single_match:
                 salary = int(single_match.group(1).replace(',', ''))
                 return (salary, salary, salary, currency)
-    
+
         except Exception as e:
             logger.warning(f"Failed to parse salary: {s} -> {e}")
-    
+
         return (pd.NA, pd.NA, pd.NA, pd.NA)
 
 
@@ -470,6 +470,6 @@ class JobStreetMalayTransform:
         self._fill_na()
         self._enrich_with_title_features()
         logger.info("Transformation JobStreet MY complete")
-        self.df.to_csv("output/jobstreet_transform.csv", index=False)
+        # self.df.to_csv("output/jobstreet_transform.csv", index=False)
         
         return self.df.reindex(columns=expected_columns)
