@@ -2,6 +2,8 @@ import pandas as pd
 from datetime import datetime, timedelta
 import pytz
 import numpy as np
+from utils.job_categorizer import categorize_job_role
+
 
 def parse_salary_founditSG(s):
     if not isinstance(s, str) or not s.strip():
@@ -27,7 +29,7 @@ class JobDataNormalizer:
 
     def __init__(self):
         self.standard_cols = [
-            'title', 'company', 'location', 'role', 'functions', 'salary',
+            'title', 'category', 'company', 'location', 'role', 'salary',
             'minimum_salary', 'maximum_salary', 'currency',
             'job_type', 'work_arrangement', 'date_posted',
             'job_link', 'country', 'source'
@@ -75,7 +77,6 @@ class JobDataNormalizer:
             'companyName': 'company',
             'locations': 'location',
             'roles': 'role',
-            'functions': 'functions',
             'salary': 'salary',
             'jobTypes': 'job_type',
             'postedBy': 'date_posted',
@@ -87,7 +88,6 @@ class JobDataNormalizer:
         df['role'] = df['role'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)
 
          # Convert job_type list to string
-        df['functions'] = df['functions'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)       
 
         # Convert job_type list to string
         df['job_type'] = df['job_type'].apply(lambda x: ', '.join(x) if isinstance(x, list) else x)
@@ -109,6 +109,9 @@ class JobDataNormalizer:
         df['country'] = 'SG'
         df['work_arrangement'] = None
         df['source'] = 'founditsg'
+
+        # Role normalization using practical hybrid flow
+        df['category'] = df['role'].apply(categorize_job_role)
 
         # Apply missing value filler
         df = self.fill_missing_foundit_fields(df)

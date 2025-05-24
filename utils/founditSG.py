@@ -91,7 +91,7 @@ class FounditScraper:
 
             "industries", "roles", "jobTypes", "qualifications",
 
-            "companyId", "companyName", "salary", "seoCompanyUrl", "seoJdUrl", "roles", "functions"
+            "companyId", "companyName", "salary", "seoCompanyUrl", "seoJdUrl", "roles"
 
         ]
 
@@ -146,7 +146,7 @@ class FounditScraper:
                 start += 15
 
 # start >= 600:
-                if start >= 300: #Hard limit to break early for safety
+                if start >= 600: #Hard limit to break early for safety
                     logging.info(" Reached start=600. Stopping to avoid scraping too much.")
                     break
 
