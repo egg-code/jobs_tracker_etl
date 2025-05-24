@@ -1,0 +1,15 @@
+2025-05-20 12:23:26,151 - INFO - ====== WebDriver manager ======
+2025-05-20 12:23:26,292 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-20 12:23:27,875 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-20 12:23:29,397 - INFO - Driver [/home/may/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver] found in cache
+2025-05-20 12:23:30,295 - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-20 12:23:53,252 - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-20 12:24:02,724 - INFO - Scraping role: Data-Scientist, page: 1, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=1
+2025-05-20 12:24:14,387 - INFO - Scraping role: Data-Analyst, page: 1, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=1
+2025-05-20 12:24:27,364 - INFO - Scraping role: AI-Engineer, page: 1, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=1
+2025-05-20 12:24:37,481 - INFO - Scraping role: Machine-Learning-Engineer, page: 1, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=1
+2025-05-20 12:24:46,681 - INFO - Scraping role: DevOps-Engineer, page: 1, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=1
+2025-05-20 12:24:57,064 - INFO - Scraping role: Cloud-Engineer, page: 1, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=1
+2025-05-20 12:25:08,145 - INFO - Scraping role: Cybersecurity, page: 1, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=1
+2025-05-20 12:25:18,934 - INFO - WebDriver closed.
+2025-05-20 12:25:18,935 - INFO - Scraping completed. Total jobs collected: 135

@@ -1,0 +1,9 @@
+2025-05-24 18:38:29,674 - INFO - ====== WebDriver manager ======
+2025-05-24 18:38:29,807 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:38:31,383 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:38:32,815 - INFO - Driver [/home/may/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver] found in cache
+2025-05-24 18:38:33,747 - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-24 18:38:53,595 - INFO - WebDriver closed.
+2025-05-24 18:38:53,595 - INFO - Scraping completed. Total jobs collected: 15
+2025-05-24 18:38:53,638 - INFO - Transforming JobsDBSG DataFrame
+2025-05-24 18:38:53,648 - INFO - Transformation JobsDBSG complete

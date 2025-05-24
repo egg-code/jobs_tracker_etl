@@ -1,0 +1,11 @@
+2025-05-20 12:29:04,396 - INFO - ====== WebDriver manager ======
+2025-05-20 12:29:04,531 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-20 12:29:05,849 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-20 12:29:07,456 - INFO - Driver [/home/may/.wdm/drivers/chromedriver/linux64/133.0.6943.141/chromedriver-linux64/chromedriver] found in cache
+2025-05-20 12:29:08,343 - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-20 12:29:29,264 - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-20 12:29:42,271 - INFO - Scraping role: Data-Scientist, page: 1, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=1
+2025-05-20 12:29:49,331 - WARNING - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ConnectionResetError(104, 'Connection reset by peer')': /session/64e89f4cc2e99cf831dd77c0f5564f35
+2025-05-20 12:29:49,334 - WARNING - Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x724a0cf6e7d0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/64e89f4cc2e99cf831dd77c0f5564f35
+2025-05-20 12:29:49,338 - WARNING - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x724a0cf6e8c0>: Failed to establish a new connection: [Errno 111] Connection refused')': /session/64e89f4cc2e99cf831dd77c0f5564f35
+2025-05-20 12:29:49,341 - INFO - WebDriver closed.

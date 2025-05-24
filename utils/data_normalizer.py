@@ -100,6 +100,7 @@ class JobDataNormalizer:
         # Rename columns to standard format
         df = df.rename(columns={
             'Title': 'title',
+            'Category': 'category',
             'Company': 'company',
             'Location': 'location',
             'Salary': 'salary',
@@ -146,7 +147,7 @@ class JobDataNormalizer:
 
         df['date_posted'] = df['date_posted'].apply(parse_date_posted)
 
-        return df[self.standard_cols]
+        return df[self.standard_cols + ['category']]
     
     ## JobsDB Thailand
     def jobsdbth(self, df: pd.DataFrame) -> pd.DataFrame:

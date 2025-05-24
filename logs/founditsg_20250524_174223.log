@@ -1,0 +1,47 @@
+2025-05-24 17:42:24,626 - INFO - Fetched page 1 with 100 jobs.
+2025-05-24 17:42:27,469 - INFO - Fetched page 2 with 100 jobs.
+2025-05-24 17:42:30,563 - INFO - Fetched page 3 with 100 jobs.
+2025-05-24 17:42:33,429 - INFO - Fetched page 4 with 100 jobs.
+2025-05-24 17:42:37,005 - INFO - Fetched page 5 with 100 jobs.
+2025-05-24 17:42:40,290 - INFO - Fetched page 6 with 100 jobs.
+2025-05-24 17:42:42,460 - INFO - Fetched page 7 with 100 jobs.
+2025-05-24 17:42:45,612 - INFO - Fetched page 8 with 100 jobs.
+2025-05-24 17:42:47,427 - INFO - Fetched page 9 with 100 jobs.
+2025-05-24 17:42:49,377 - INFO - Fetched page 10 with 100 jobs.
+2025-05-24 17:42:51,134 - INFO - Fetched page 11 with 100 jobs.
+2025-05-24 17:42:54,523 - INFO - Fetched page 12 with 100 jobs.
+2025-05-24 17:42:56,980 - INFO - Fetched page 13 with 100 jobs.
+2025-05-24 17:42:59,847 - INFO - Fetched page 14 with 100 jobs.
+2025-05-24 17:43:02,816 - INFO - Fetched page 15 with 100 jobs.
+2025-05-24 17:43:06,198 - INFO - Fetched page 16 with 100 jobs.
+2025-05-24 17:43:08,040 - INFO - Fetched page 17 with 100 jobs.
+2025-05-24 17:43:10,151 - INFO - Fetched page 18 with 100 jobs.
+2025-05-24 17:43:12,965 - INFO - Fetched page 19 with 100 jobs.
+2025-05-24 17:43:15,513 - INFO - Fetched page 20 with 100 jobs.
+2025-05-24 17:43:17,889 - INFO - Fetched page 21 with 100 jobs.
+2025-05-24 17:43:20,530 - INFO - Fetched page 22 with 100 jobs.
+2025-05-24 17:43:23,404 - INFO - Fetched page 23 with 100 jobs.
+2025-05-24 17:43:26,780 - INFO - Fetched page 24 with 100 jobs.
+2025-05-24 17:43:29,746 - INFO - Fetched page 25 with 100 jobs.
+2025-05-24 17:43:32,084 - INFO - Fetched page 26 with 100 jobs.
+2025-05-24 17:43:35,322 - INFO - Fetched page 27 with 100 jobs.
+2025-05-24 17:43:37,581 - INFO - Fetched page 28 with 100 jobs.
+2025-05-24 17:43:40,910 - INFO - Fetched page 29 with 100 jobs.
+2025-05-24 17:43:43,980 - INFO - Fetched page 30 with 100 jobs.
+2025-05-24 17:43:46,641 - INFO - Fetched page 31 with 100 jobs.
+2025-05-24 17:43:48,282 - INFO - Fetched page 32 with 100 jobs.
+2025-05-24 17:43:50,037 - INFO - Fetched page 33 with 100 jobs.
+2025-05-24 17:43:53,606 - INFO - Fetched page 34 with 100 jobs.
+2025-05-24 17:43:56,908 - INFO - Fetched page 35 with 100 jobs.
+2025-05-24 17:43:59,879 - INFO - Fetched page 36 with 100 jobs.
+2025-05-24 17:44:02,518 - INFO - Fetched page 37 with 100 jobs.
+2025-05-24 17:44:04,562 - INFO - Fetched page 38 with 100 jobs.
+2025-05-24 17:44:08,051 - INFO - Fetched page 39 with 100 jobs.
+2025-05-24 17:44:10,613 - INFO - Fetched page 40 with 100 jobs.
+2025-05-24 17:44:12,960 - INFO - Fetched page 41 with 100 jobs.
+2025-05-24 17:44:15,417 - INFO - Fetched page 42 with 100 jobs.
+2025-05-24 17:44:18,178 - INFO - Fetched page 43 with 52 jobs.
+2025-05-24 17:44:20,220 - INFO - No more jobs found.
+2025-05-24 17:44:20,270 - INFO - Scraping completed. Total jobs scraped: 4252
+2025-05-24 17:44:20,390 - INFO - Transforming JobsDBTH DataFrame
+2025-05-24 17:44:20,411 - INFO - Transformation JobsDBTH complete

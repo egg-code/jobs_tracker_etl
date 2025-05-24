@@ -103,6 +103,7 @@ class JobsDBScraper:
                         self.jobs.append({
                             "Role": role.replace("-", " "),
                             "Title": title,
+                            "Category": role,
                             "Company": company,
                             "Location": location,
                             "Salary": salary,

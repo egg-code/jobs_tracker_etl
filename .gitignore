@@ -12,12 +12,5 @@
 .venv/
 __pycache__/
 *.py[cod]
-venv
-# Logs and Output
-*.log
-logs/
-# output/
-
-# Other
-# *.csv
-.history/
+output/
+*.csv

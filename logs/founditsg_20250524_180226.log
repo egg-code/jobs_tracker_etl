@@ -1,0 +1,12 @@
+2025-05-24 18:02:26,395 - INFO - ====== WebDriver manager ======
+2025-05-24 18:02:26,530 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:02:27,237 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:02:27,552 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:02:28,800 - INFO - WebDriver version 133.0.6943.141 selected
+2025-05-24 18:02:28,809 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.141/linux64/chromedriver-linux64.zip
+2025-05-24 18:02:28,809 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.141/linux64/chromedriver-linux64.zip
+2025-05-24 18:02:29,072 - INFO - Driver downloading response is 200
+2025-05-24 18:03:00,712 - INFO - Get LATEST chromedriver version for google-chrome
+2025-05-24 18:03:01,602 - INFO - Driver has been saved in cache [/home/may/.wdm/drivers/chromedriver/linux64/133.0.6943.141]
+2025-05-24 18:03:02,539 - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-24 18:05:17,741 - INFO - WebDriver closed.

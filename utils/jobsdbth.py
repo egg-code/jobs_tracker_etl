@@ -54,6 +54,11 @@ class JobsDBThScraper:
                 break
 
             for job in jobs:
+                data_list = job.get('workArrangements', {}).get('data', [])
+                if data_list and isinstance(data_list, list) and len(data_list) > 0:
+                    work_arrangement = data_list[0].get('label', {}).get('text', '')
+                else:
+                    work_arrangement = ''
                 job_data = {
                     'job_title': job.get('title'),
                     'company': job.get('companyName', ''),
@@ -61,7 +66,7 @@ class JobsDBThScraper:
                     'country_code': job.get('locations', [{}])[0].get('countryCode', ''),
                     'salary': job.get('salaryLabel', ''),
                     'job_type': ', '.join(map(str, job.get('workTypes', []))),
-                    'work_arrangement': job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', ''),
+                    'work_arrangement': work_arrangement,
                     'date_posted': job.get('listingDate'),
                     'job_link': f"https://th.jobsdb.com/job/{job.get('id')}"
                 }
