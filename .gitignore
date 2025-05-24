@@ -8,3 +8,7 @@
 .venv
 /__pycache__/
 *.py[cod]
+logs/
+*.log
+output/
+*.csv

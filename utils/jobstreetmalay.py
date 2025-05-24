@@ -62,6 +62,13 @@ class JobStreetMalaysia:
             page += 1
             time.sleep(random.uniform(1, 3))
 
+        def extract_work_arrangement(job):
+            try:
+                return job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', '')
+            except Exception:
+                return ''
+
+
         df = pd.DataFrame([
             {
                     'job_title': job.get('title'),
@@ -70,7 +77,7 @@ class JobStreetMalaysia:
                     'country_code': job.get('locations', [{}])[0].get('countryCode', ''),
                     'salary': job.get('salaryLabel', ''),
                     'job_type': ', '.join(map(str, job.get('workTypes', []))),
-                    'work_arrangement': job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', ''),
+                    'work_arrangement': extract_work_arrangement(job),
                     'date_posted': job.get('listingDate'),
                     'job_link': f"https://my.jobstreet.com/job/{job.get('id')}"
                 }
