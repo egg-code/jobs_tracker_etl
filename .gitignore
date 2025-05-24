@@ -10,3 +10,5 @@
 *.py[cod]
 output/
 *.csv
+logs/
+*.log
