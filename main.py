@@ -18,7 +18,7 @@ def extract_jobnetmm():
     return df
 
 def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=50, headless=True).run()
+    raw = JobsDBScraper(max_pages=10, headless=True).run()
     df = JobDataNormalizer().jobsdbsg(raw)
     return df
 
