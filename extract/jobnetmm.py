@@ -9,7 +9,6 @@ from selenium.common.exceptions import StaleElementReferenceException, TimeoutEx
 from datetime import datetime
 import time
 import pandas as pd
-import logging
 
 ## Set up logging
 from utils.logger import get_module_logger

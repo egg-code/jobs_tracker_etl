@@ -6,7 +6,6 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
-import logging
 import random
 from datetime import datetime
 
