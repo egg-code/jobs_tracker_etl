@@ -1,0 +1,17 @@
+2025-05-27 00:21:16,427 - extract.jobnetmm - INFO - Login Successful! Dashboard loaded.
+2025-05-27 00:21:18,833 - extract.jobnetmm - INFO - Redirected to jobs page
+2025-05-27 00:21:18,895 - extract.jobnetmm - WARNING - Company name not found.
+2025-05-27 00:21:20,534 - extract.jobnetmm - WARNING - Company name not found.
+2025-05-27 00:21:21,260 - extract.jobnetmm - INFO - Page 1: Scraped. 30 jobs.
+2025-05-27 00:21:27,840 - extract.jobnetmm - INFO - Page 2: Scraped. 60 jobs.
+2025-05-27 00:21:33,584 - extract.jobnetmm - WARNING - Company name not found.
+2025-05-27 00:21:34,487 - extract.jobnetmm - INFO - Page 3: Scraped. 90 jobs.
+2025-05-27 00:21:41,232 - extract.jobnetmm - INFO - Page 4: Scraped. 120 jobs.
+2025-05-27 00:21:47,987 - extract.jobnetmm - INFO - Page 5: Scraped. 150 jobs.
+2025-05-27 00:21:54,482 - extract.jobnetmm - INFO - Page 6: Scraped. 180 jobs.
+2025-05-27 00:21:58,822 - extract.jobnetmm - WARNING - Company name not found.
+2025-05-27 00:22:00,892 - extract.jobnetmm - INFO - Page 7: Scraped. 210 jobs.
+2025-05-27 00:22:05,940 - extract.jobnetmm - INFO - Page 8: Scraped. 226 jobs.
+2025-05-27 00:22:05,978 - extract.jobnetmm - INFO - No more pages to scrape.
+2025-05-27 00:22:06,071 - extract.jobnetmm - INFO - Driver closed.
+2025-05-27 00:22:06,072 - extract.jobnetmm - INFO - Total jobs scraped: 226
