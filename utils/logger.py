@@ -12,10 +12,12 @@ def get_module_logger(module_name: str, group: str = None):
     logger = logging.getLogger(module_name)
     logger.setLevel(logging.INFO)
 
-    if not logger.handlers:
-        handler = logging.FileHandler(logfile_name)
-        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
+    if logger.hasHandlers():
+        return logger
+    
+    file_handler = logging.FileHandler(logfile_name)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
     return logger
