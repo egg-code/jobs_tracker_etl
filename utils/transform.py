@@ -358,7 +358,7 @@ class JobsDBSGTransform:
         self._parse_date()
         self._fill_na()
         logger.info("Transformation JobsDBSG complete")
-        # self.df.to_csv("output/jobsdbsg_transform.csv", index=False)
+        self.df.to_csv("output/jobsdbsg_transform.csv", index=False)
         return self.df.reindex(columns=expected_columns)
     
 ## Class for transforming jobstreetmalay df

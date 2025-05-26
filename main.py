@@ -18,8 +18,9 @@ def extract_jobnetmm():
     return df
 
 def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=30, headless=True).run()
+    raw = JobsDBScraper(max_pages=50, headless=True).run()
     df = JobDataNormalizer().jobsdbsg(raw)
+    df.to_csv("output/jobdbsg.csv", index=False)
     return df
 
 
@@ -72,19 +73,19 @@ def main(source):
         print(f"Data transformation for {source} completed.")
         print(transformed_df.head())
 
-    # ## Load the data
-    # database_url = os.getenv("DATABASE_URL")
-    # def upload_to_database(df: pd.DataFrame, table_name: str, database_url: str = database_url):
-    #     engine = create_engine(database_url)
-    #     try:
-    #         with engine.connect() as connection:
-    #             df.to_sql(table_name, con=connection, if_exists='replace', index=False)
-    #             print(f"Data loaded into {table_name} table.")
-    #     except Exception as e:
-    #         print(f"Error loading data into {table_name}: {e}")
+    ## Load the data
+    database_url = os.getenv("DATABASE_URL")
+    def upload_to_database(df: pd.DataFrame, table_name: str, database_url: str = database_url):
+        engine = create_engine(database_url)
+        try:
+            with engine.connect() as connection:
+                df.to_sql(table_name, con=connection, if_exists='replace', index=False)
+                print(f"Data loaded into {table_name} table.")
+        except Exception as e:
+            print(f"Error loading data into {table_name}: {e}")
 
-    # upload_to_database(extracted_df, f"{source}_raw")
-    # upload_to_database(transformed_df, f"{source}_transformed")
+    upload_to_database(extracted_df, f"{source}_raw")
+    upload_to_database(transformed_df, f"{source}_transformed")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

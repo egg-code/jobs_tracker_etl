@@ -671,3 +671,9 @@
 2025-05-24 18:43:01,149 - utils.transform - INFO - Transformation JobsDBSG complete
 2025-05-24 18:50:33,329 - utils.transform - INFO - Transforming JobStreet MY DataFrame
 2025-05-24 18:50:34,402 - utils.transform - INFO - Transformation JobStreet MY complete
+2025-05-24 18:59:44,647 - utils.transform - INFO - Transforming JobStreet MY DataFrame
+2025-05-24 18:59:45,865 - utils.transform - INFO - Transformation JobStreet MY complete
+2025-05-26 10:37:47,867 - utils.transform - INFO - Transforming JobsDBSG DataFrame
+2025-05-26 10:37:48,125 - utils.transform - INFO - Transformation JobsDBSG complete
+2025-05-26 13:02:25,074 - utils.transform - INFO - Transforming JobsDBSG DataFrame
+2025-05-26 13:02:25,328 - utils.transform - INFO - Transformation JobsDBSG complete
