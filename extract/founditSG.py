@@ -1,5 +1,5 @@
 import requests
-import datetime
+from datetime import datetime
 import os
 from urllib.parse import urlencode #To safely encode query parameters in the URL.
 import json
@@ -9,16 +9,16 @@ import pandas as pd
 
 
 #  Ensure logs folder exists
-os.makedirs("logs", exist_ok=True)
+os.makedirs("e_logs", exist_ok=True)
 
 #  Configure logging (custom filename: founditsg_YYYYMMDD_HHMMSS.log)
-log_filename = datetime.datetime.now().strftime("logs/founditsg_%Y%m%d_%H%M%S.log")
-logging.basicConfig(
-    filename=log_filename,
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    encoding="utf-8"
-)
+logfile_name = datetime.now().strftime('founditsg_e_%Y%m%d_%H%M%S.log')
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = logging.FileHandler(logfile_name)
+fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+handler.setFormatter(fomatter)
+logger.addHandler(handler)
 
 #  Also print logs to console
 console = logging.StreamHandler()

@@ -3,13 +3,15 @@ import pandas as pd
 import time
 import logging
 import random
+from datetime import datetime
 
 # Ensure the logs directory exists
 
 # Setup logging
+logfile_name = datetime.now().strftime('jobstreetmalaysia_e_%Y%m%d_%H%M%S.log')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobstreetmalay_e_logs.log', mode='a')
+handler = logging.FileHandler(logfile_name)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)

@@ -2,17 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
 import logging
 import random
+from datetime import datetime
 
 # Setup logging
+logfile_name = datetime.now().strftime('jobsdbsg_e_%Y%m%d_%H%M%S.log')
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobsdbsg_e_logs.log', mode='a')
+handler = logging.FileHandler(logfile_name)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -53,10 +55,11 @@ class JobsDBScraper:
         for role in roles:
             for page in range(1, self.max_pages + 1):
                 try:
+                    logger.info(f"Scraping role: {role}, page: {page}")
                     url = f"https://sg.jobsdb.com/{role}-jobs?page={page}"
                     logger.info(f"Scraping role: {role}, page: {page}, URL: {url}")
                     self.driver.get(url)
-                    time.sleep(5)
+                    time.sleep(random.uniform(1, 4))  # Random sleep to avoid detection
 
                     job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
                     if not job_cards:
@@ -112,9 +115,10 @@ class JobsDBScraper:
                             "Date_Posted": date_posted
                         })
 
-                except NoSuchElementException as e:
-                    logger.warning(f"Missing element in card for {role} on page {page}: {e}")
-                    continue
+                except (WebDriverException, NoSuchElementException) as e:
+                    logger.warning(f"Error scraping {role} on page {page}: {e}")
+                    logger.info(f"Skipping to next role or page due to error.")
+                    break
 
     def run(self):
         self.start_driver()

@@ -1,14 +1,20 @@
 import argparse
 from sqlalchemy import create_engine
-from utils.jobnetmm import JobNetScraper
-from utils.jobdbsg import JobsDBScraper
-from utils.jobsdbth import JobsDBThScraper
-from utils.jobstreetmalay import JobStreetMalaysia
-from utils.founditSG import FounditScraper
-from utils.data_normalizer import JobDataNormalizer
-from utils.transform import JobNetTransform, JobsDBSGTransform, JobsDBTHTransform, FounditTransform, JobStreetMalayTransform
-import os
+from extract.jobnetmm import JobNetScraper
+from extract.jobdbsg import JobsDBScraper
+from extract.jobsdbth import JobsDBThScraper
+from extract.jobstreetmalay import JobStreetMalaysia
+from extract.founditSG import FounditScraper
+from data_normalizer import JobDataNormalizer
+
+from transform.founditsg_t import FounditTransform
+from transform.jobnetmm_t import JobNetTransform
+from transform.jobsdbsg_t import JobsDBSGTransform
+from transform.jobsdbth_t import JobsDBTHTransform
+from transform.jobstreetmalay_t import JobStreetMalayTransform
+
 import pandas as pd
+import os
 
 def extract_jobnetmm():
     email = os.getenv("JOBNET_EMAIL")
@@ -18,7 +24,7 @@ def extract_jobnetmm():
     return df
 
 def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=10, headless=True).run()
+    raw = JobsDBScraper(max_pages=3, headless=True).run()
     df = JobDataNormalizer().jobsdbsg(raw)
     return df
 
