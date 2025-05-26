@@ -11,13 +11,8 @@ import random
 from datetime import datetime
 
 # Setup logging
-logfile_name = datetime.now().strftime('jobsdbsg_e_%Y%m%d_%H%M%S.log')
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler(logfile_name)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 
 class JobsDBScraper:
