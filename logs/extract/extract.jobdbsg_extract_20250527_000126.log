@@ -1,0 +1,56 @@
+2025-05-27 00:01:31,907 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 1
+2025-05-27 00:01:31,907 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 1, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=1
+2025-05-27 00:01:37,425 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 2
+2025-05-27 00:01:37,425 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 2, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=2
+2025-05-27 00:01:41,039 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 3
+2025-05-27 00:01:41,039 - extract.jobdbsg - INFO - Scraping role: Software-Developer, page: 3, URL: https://sg.jobsdb.com/Software-Developer-jobs?page=3
+2025-05-27 00:01:45,791 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 1
+2025-05-27 00:01:45,791 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 1, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=1
+2025-05-27 00:01:51,498 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 2
+2025-05-27 00:01:51,498 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 2, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=2
+2025-05-27 00:01:55,873 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 3
+2025-05-27 00:01:55,873 - extract.jobdbsg - INFO - Scraping role: Web-Developer, page: 3, URL: https://sg.jobsdb.com/Web-Developer-jobs?page=3
+2025-05-27 00:02:00,114 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 1
+2025-05-27 00:02:00,114 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 1, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=1
+2025-05-27 00:02:05,616 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 2
+2025-05-27 00:02:05,616 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 2, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=2
+2025-05-27 00:02:10,549 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 3
+2025-05-27 00:02:10,549 - extract.jobdbsg - INFO - Scraping role: Data-Scientist, page: 3, URL: https://sg.jobsdb.com/Data-Scientist-jobs?page=3
+2025-05-27 00:02:15,212 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 1
+2025-05-27 00:02:15,212 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 1, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=1
+2025-05-27 00:02:20,406 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 2
+2025-05-27 00:02:20,406 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 2, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=2
+2025-05-27 00:02:25,684 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 3
+2025-05-27 00:02:25,684 - extract.jobdbsg - INFO - Scraping role: Data-Analyst, page: 3, URL: https://sg.jobsdb.com/Data-Analyst-jobs?page=3
+2025-05-27 00:02:31,118 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 1
+2025-05-27 00:02:31,118 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 1, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=1
+2025-05-27 00:02:34,577 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 2
+2025-05-27 00:02:34,577 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 2, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=2
+2025-05-27 00:02:39,977 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 3
+2025-05-27 00:02:39,977 - extract.jobdbsg - INFO - Scraping role: AI-Engineer, page: 3, URL: https://sg.jobsdb.com/AI-Engineer-jobs?page=3
+2025-05-27 00:02:44,021 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 1
+2025-05-27 00:02:44,021 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 1, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=1
+2025-05-27 00:02:48,853 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 2
+2025-05-27 00:02:48,854 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 2, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=2
+2025-05-27 00:02:54,585 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 3
+2025-05-27 00:02:54,585 - extract.jobdbsg - INFO - Scraping role: Machine-Learning-Engineer, page: 3, URL: https://sg.jobsdb.com/Machine-Learning-Engineer-jobs?page=3
+2025-05-27 00:02:57,773 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 1
+2025-05-27 00:02:57,773 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 1, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=1
+2025-05-27 00:03:01,463 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 2
+2025-05-27 00:03:01,463 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 2, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=2
+2025-05-27 00:03:05,202 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 3
+2025-05-27 00:03:05,202 - extract.jobdbsg - INFO - Scraping role: DevOps-Engineer, page: 3, URL: https://sg.jobsdb.com/DevOps-Engineer-jobs?page=3
+2025-05-27 00:03:10,643 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 1
+2025-05-27 00:03:10,644 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 1, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=1
+2025-05-27 00:03:16,199 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 2
+2025-05-27 00:03:16,199 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 2, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=2
+2025-05-27 00:03:20,729 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 3
+2025-05-27 00:03:20,729 - extract.jobdbsg - INFO - Scraping role: Cloud-Engineer, page: 3, URL: https://sg.jobsdb.com/Cloud-Engineer-jobs?page=3
+2025-05-27 00:03:24,158 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 1
+2025-05-27 00:03:24,158 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 1, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=1
+2025-05-27 00:03:29,187 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 2
+2025-05-27 00:03:29,188 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 2, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=2
+2025-05-27 00:03:34,046 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 3
+2025-05-27 00:03:34,046 - extract.jobdbsg - INFO - Scraping role: Cybersecurity, page: 3, URL: https://sg.jobsdb.com/Cybersecurity-jobs?page=3
+2025-05-27 00:03:38,004 - extract.jobdbsg - INFO - WebDriver closed.
+2025-05-27 00:03:38,004 - extract.jobdbsg - INFO - Scraping completed. Total jobs collected: 405
