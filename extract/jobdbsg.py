@@ -32,28 +32,31 @@ class JobsDBScraper:
 
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
+        self.driver.set_page_load_timeout(20)
 
     def extract_jobs(self):
         roles = [
             "Software-Developer",
-            "Web-Developer",            
-            "Data-Scientist",
-            "Data-Analyst",
-            "AI-Engineer",
-            "Machine-Learning-Engineer",
-            "DevOps-Engineer",
-            "Cloud-Engineer",
-            "Cybersecurity"
+            # "Web-Developer",            
+            # "Data-Scientist",
+            # "Data-Analyst",
+            # "AI-Engineer",
+            # "Machine-Learning-Engineer",
+            # "DevOps-Engineer",
+            # "Cloud-Engineer",
+            # "Cybersecurity"
         ]
 
         for role in roles:
+            print(f"Role {role}")
             for page in range(1, self.max_pages + 1):
                 try:
-                    logger.info(f"Scraping role: {role}, page: {page}")
                     url = f"https://sg.jobsdb.com/{role}-jobs?page={page}"
+                    print(f"URL {url}")
+                    
                     logger.info(f"Scraping role: {role}, page: {page}, URL: {url}")
                     self.driver.get(url)
-                    time.sleep(random.uniform(1, 4))  # Random sleep to avoid detection
+                    time.sleep(5)
 
                     job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
                     if not job_cards:
@@ -100,6 +103,7 @@ class JobsDBScraper:
                         self.jobs.append({
                             "Role": role.replace("-", " "),
                             "Title": title,
+                            "Category": role,
                             "Company": company,
                             "Location": location,
                             "Salary": salary,
@@ -109,10 +113,9 @@ class JobsDBScraper:
                             "Date_Posted": date_posted
                         })
 
-                except (WebDriverException, NoSuchElementException) as e:
-                    logger.warning(f"Error scraping {role} on page {page}: {e}")
-                    logger.info(f"Skipping to next role or page due to error.")
-                    break
+                except NoSuchElementException as e:
+                    logger.warning(f"Missing element in card for {role} on page {page}: {e}")
+                    continue
 
     def run(self):
         self.start_driver()
