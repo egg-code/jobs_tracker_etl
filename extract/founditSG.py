@@ -1,31 +1,11 @@
 import requests
-import datetime
-import os
 from urllib.parse import urlencode #To safely encode query parameters in the URL.
-import json
 import time  
-import logging
 import pandas as pd
 
-
-#  Ensure logs folder exists
-os.makedirs("logs", exist_ok=True)
-
-#  Configure logging (custom filename: founditsg_YYYYMMDD_HHMMSS.log)
-log_filename = datetime.datetime.now().strftime("logs/founditsg_%Y%m%d_%H%M%S.log")
-logging.basicConfig(
-    filename=log_filename,
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    encoding="utf-8"
-)
-
-#  Also print logs to console
-console = logging.StreamHandler()
-console.setLevel(logging.INFO)
-formatter = logging.Formatter("%(levelname)s - %(message)s")
-console.setFormatter(formatter)
-logging.getLogger().addHandler(console)
+#  Configure logger (custom filename: founditsg_YYYYMMDD_HHMMSS.log)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 #1. Class Initialization
 class FounditScraper:
@@ -56,8 +36,7 @@ class FounditScraper:
                 "cloud computing",
                 "enterprise software",
                 "data center",
-                "cloud data services"                
-
+                "cloud data services"
             ],
 
       }
@@ -87,23 +66,22 @@ class FounditScraper:
         
         desired_fields = [
 
-            "jobId", "title", "locations", "exp", "updatedAt", "postedBy",
+            "title", "companyName", "locations", "salary",
+            "jobTypes", "updatedAt", "seoJdUrl", 'roles'
 
-            "industries", "roles", "jobTypes", "qualifications",
-
-            "companyId", "companyName", "salary", "seoCompanyUrl", "seoJdUrl", "roles"
+            # 'exp', "qualifications","jobId"
 
         ]
 
         while True:
-            logging.info(f" Fetching jobs at start={start}...")
+            logger.info(f" Fetching jobs at start={start}...")
 
             url = self.build_url(start)
             
             # Parse JSON safely.
             response = requests.get(url, headers=self.headers)
             if response.status_code != 200:
-                logging.error(f" Failed to fetch jobs. Status code: {response.status_code}")
+                logger.error(f" Failed to fetch jobs. Status code: {response.status_code}")
 
                 break
 
@@ -113,7 +91,7 @@ class FounditScraper:
                 jobs = data.get("jobSearchResponse", {}).get("data", [])
 
                 if not jobs:
-                    logging.info(" No job data returned. Ending.")
+                    logger.info(" No job data returned. Ending.")
                     break
                 
 
@@ -125,32 +103,30 @@ class FounditScraper:
                         seen_job_ids.add(job_id)
                         
                         filtered_job = {field: job.get(field) for field in desired_fields}
-                        
-                        if any(filtered_job.values()):  # Only add if there's at least some data
-                            new_jobs.append(filtered_job)
 
+                        new_jobs.append(filtered_job)
 
                 #Loop exit conditions
                 if not new_jobs:
                     pages_without_new_jobs += 1
-                    logging.info(f" No new unique jobs found on this page. Skipped pages so far: {pages_without_new_jobs}")
+                    logger.info(f" No new unique jobs found on this page. Skipped pages so far: {pages_without_new_jobs}")
                     if pages_without_new_jobs >= max_pages_without_new_jobs:
-                        logging.info(" Too many skipped pages. Assuming end of data. Ending.")
+                        logger.info(" Too many skipped pages. Assuming end of data. Ending.")
                         break
                 else:
                     pages_without_new_jobs = 0  # reset if new jobs found
 
                 all_jobs.extend(new_jobs)
-                logging.info(f" Total unique jobs collected so far: {len(all_jobs)}")
+                logger.info(f" Total unique jobs collected so far: {len(all_jobs)}")
                 time.sleep(1) #Sleep between requests
                 start += 15
 
                 if start >= 600: #Hard limit to break early for safety
-                    logging.info(" Reached start=600. Stopping to avoid scraping too much.")
+                    logger.info(" Reached start=600. Stopping to avoid scraping too much.")
                     break
 
             except Exception as e:
-                logging.info(f" Error parsing response: {e}")
+                logger.info(f" Error parsing response: {e}")
                 break
 
 
@@ -158,12 +134,14 @@ class FounditScraper:
         if all_jobs:
 
             unique_job_ids = {str(job.get("jobId") or job.get("id")) for job in all_jobs}
-            logging.info(f" Total jobs scraped: {len(all_jobs)}")
-            logging.info(f" Total unique jobs scraped: {len(unique_job_ids)}")
+            logger.info(f" Total jobs scraped: {len(all_jobs)}")
+            logger.info(f" Total unique jobs scraped: {len(unique_job_ids)}")
             
+            # self.save_to_json(all_jobs)
+
             foundit_df = pd.DataFrame(all_jobs)
             return foundit_df
 
         else:
-            logging.info(" No jobs were scraped.")
+            logger.info(" No jobs were scraped.")
             return pd.DataFrame()  #  Return empty DataFrame
