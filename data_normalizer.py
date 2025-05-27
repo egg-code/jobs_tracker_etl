@@ -66,6 +66,7 @@ class JobDataNormalizer:
         df['source'] = 'jobsdbth'
         return df[self.standard_cols]
     
+        
     ## Foundit Singapore
     def founditsg(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -78,12 +79,15 @@ class JobDataNormalizer:
             'salary': 'salary',
             'jobTypes': 'job_type',
             'updatedAt': 'date_posted',
-            'seoJdUrl': 'job_link'
+            'seoJdUrl': 'job_link',
+            'roles': 'category'
         })
+        
         df['country'] = 'SG'
         df['work_arrangement'] = None
         df['source'] = 'founditsg'
-        return df[self.standard_cols]
+        return df[self.standard_cols+ ['category']]
+
     
     ## JobStreet Malaysia
     def jobstreetmalay(self, df: pd.DataFrame) -> pd.DataFrame:

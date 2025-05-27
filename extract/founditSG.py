@@ -66,11 +66,10 @@ class FounditScraper:
         
         desired_fields = [
 
-            "jobId", "title", "locations", "exp", "updatedAt", "postedBy",
+            "title", "companyName", "locations", "salary",
+            "jobTypes", "updatedAt", "seoJdUrl", 'roles'
 
-            "industries", "roles", "jobTypes", "qualifications",
-
-            "companyId", "companyName", "salary", "seoCompanyUrl", "seoJdUrl"
+            # 'exp', "qualifications","jobId"
 
         ]
 
@@ -146,22 +145,3 @@ class FounditScraper:
         else:
             logger.info(" No jobs were scraped.")
             return pd.DataFrame()  #  Return empty DataFrame
-
-
-
-
-# # 4. Saving to File – save_to_json()
-#     def save_to_json(self, jobs):
-
-#         now = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-#         filename = f"foundit_jobs_{now}.json" #Creates a file with timestamp to avoid overwriting previous results.
-#         output_dir = "output"
-#         os.makedirs(output_dir, exist_ok=True) #to create "output" folder if not present.
-#         output_path = os.path.join(output_dir, filename)
-
-#         with open(output_path, "w", encoding="utf-8") as f:
-#             json.dump(jobs, f, indent=4, ensure_ascii=False)
-#             #Uses ensure_ascii=False to preserve Unicode (like company names in other languages).
-#             #Uses indent=4 for human-readable formatting.
-
-#         logger.info(f" Saved {len(jobs)} jobs: {output_path}")
