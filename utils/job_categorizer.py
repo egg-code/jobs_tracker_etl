@@ -8,7 +8,7 @@ def tokenize_ngrams(text):
     bigrams = [' '.join(pair) for pair in zip(tokens, tokens[1:])]
     return tokens + bigrams
 
-# Manual dictionary for exact title/role matches
+# Manual dictionary for exact role matches
 manual_role_lookup = {
     "UI/UX": ["ui", "ux", "designer", "ui/ux", "user experience", "user interface"],
     "Database": ["dba", "database", "datawarehousing", "data warehouse"],
@@ -23,7 +23,7 @@ manual_role_lookup = {
     "Quality Assurance & Testing": ["qa", "qc", "tester", "sdet"],
     "Infra & System": ["systems engineer", "system integrator", "infrastructure"],
     "SAP/ERP/CRM": ["sap", "erp", "crm", "abap", "fico", "functional consultant"],
-    "Devops & Devops": ["devops", "ci/cd", "automation","aws", "azure", "cloud", "gcp"],
+    "Cloud & Devops": ["devops", "ci/cd", "automation","aws", "azure", "cloud", "gcp"],
     "It consulting & Solutions": ["consultant", "solutions", "solution architect", "presales"],
     "AI / Data science": ["ai", "artificial intelligence", "machine learning", "ml", "nlp", "computer vision"]
 }
@@ -45,14 +45,14 @@ def match_manual_lookup(text):
 
 # Score-based fallback
 def categorize_title_score(title, threshold=1.5):
-    tokens = tokenize_ngrams(title)
-    scores = defaultdict(float)
+    tokens = tokenize_ngrams(title) # breaks the job title into a list of keywords or phrases
+    scores = defaultdict(float) #Prepares a score tracker for each category.
 
     for category, keywords in categories.items():
         for token in tokens:
-            scores[category] += keywords.get(token, 0)
+            scores[category] += keywords.get(token, 0) #If the token exists in the category's keyword list, it's score is added to that category's total score.
 
-    best_category = max(scores, key=scores.get, default=None)
+    best_category = max(scores, key=scores.get, default=None) #Selects the category with the highest score
     return best_category if scores[best_category] >= threshold else "Other"
 
 # Weight-based category dictionary for fallback
@@ -123,14 +123,15 @@ categories = {
 }
 
 # Practical Hybrid Flow
-def categorize_job_role(title_or_role):
-    if not isinstance(title_or_role, str):
+def categorize_job_role(role):
+    if not isinstance(role, str):
         return "Other"
 
     # Try manual match first
-    manual_result = match_manual_lookup(title_or_role)
+    manual_result = match_manual_lookup(role)
     if manual_result:
         return manual_result
 
     # Fallback to score method
-    return categorize_title_score(title_or_role)
+    #choose the category with the highest score based on token matches and their associated weights.
+    return categorize_title_score(role)

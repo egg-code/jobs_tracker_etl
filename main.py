@@ -31,6 +31,7 @@ def extract_founditsg():
     raw = FounditScraper(headless=True).extract_jobs()
     df = JobDataNormalizer().founditsg(raw)
     df.to_csv("output/foundit.csv", index=False, encoding='utf-8-sig')
+
     return df
 
 

@@ -5,7 +5,7 @@
 .env.test.local
 .env.production.local
 .env
-.venv
+venv/
 /__pycache__/
 *.py[cod]
 .log

@@ -3,6 +3,11 @@ from datetime import datetime, timedelta
 import pytz
 import numpy as np
 from utils.job_categorizer import categorize_job_role
+from sqlalchemy import create_engine
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
+import os
+
 
 
 def parse_salary_founditSG(s):
@@ -116,9 +121,25 @@ class JobDataNormalizer:
         # Apply missing value filler
         df = self.fill_missing_foundit_fields(df)
 
+        # Fetch actual value from env
+        DATABASE_URL = os.getenv("DATABASE_URL")
 
+        # Debug print (optional)
+        if not DATABASE_URL:
+            raise ValueError("DATABASE_URL not found in .env")
+
+        # Create engine
+        engine = create_engine(DATABASE_URL)
+
+        def save_to_database(df, table_name="job_data"):
+            df.to_sql(table_name, engine, if_exists='append', index=False)
+
+        # Save cleaned data to database
+        save_to_database(df[self.standard_cols])
 
         return df[self.standard_cols]
+
+
 
 
     ## Jobnet Myanmar
