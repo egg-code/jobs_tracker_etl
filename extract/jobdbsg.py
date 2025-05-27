@@ -32,19 +32,19 @@ class JobsDBScraper:
 
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
-        self.driver.set_page_load_timeout(20)
+        # self.driver.set_page_load_timeout(20)
 
     def extract_jobs(self):
         roles = [
             "Software-Developer",
-            # "Web-Developer",            
-            # "Data-Scientist",
-            # "Data-Analyst",
-            # "AI-Engineer",
-            # "Machine-Learning-Engineer",
-            # "DevOps-Engineer",
-            # "Cloud-Engineer",
-            # "Cybersecurity"
+            "Web-Developer",            
+            "Data-Scientist",
+            "Data-Analyst",
+            "AI-Engineer",
+            "Machine-Learning-Engineer",
+            "DevOps-Engineer",
+            "Cloud-Engineer",
+            "Cybersecurity"
         ]
 
         for role in roles:
