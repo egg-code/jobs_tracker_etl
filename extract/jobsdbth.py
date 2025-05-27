@@ -2,16 +2,13 @@ import requests
 import pandas as pd
 import time
 import random
+from datetime import datetime
 
 import logging
 
 ## Set up logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobsdbth_e_logs.log', mode='a')
-fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(fomatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 class JobsDBThScraper:
     def __init__(self, classification_id, page_size=100):

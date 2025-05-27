@@ -3,16 +3,13 @@ import pandas as pd
 import time
 import logging
 import random
+from datetime import datetime
 
 # Ensure the logs directory exists
 
 # Setup logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobstreetmalay_e_logs.log', mode='a')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 class JobStreetMalaysia:
     def __init__(self):

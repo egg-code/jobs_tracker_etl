@@ -1,8 +1,0 @@
-2025-05-24 17:59:24,789 - INFO - ====== WebDriver manager ======
-2025-05-24 17:59:24,928 - INFO - Get LATEST chromedriver version for google-chrome
-2025-05-24 17:59:25,538 - INFO - Get LATEST chromedriver version for google-chrome
-2025-05-24 17:59:27,139 - INFO - Get LATEST chromedriver version for google-chrome
-2025-05-24 17:59:28,511 - INFO - WebDriver version 133.0.6943.141 selected
-2025-05-24 17:59:28,519 - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.141/linux64/chromedriver-linux64.zip
-2025-05-24 17:59:28,520 - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.141/linux64/chromedriver-linux64.zip
-2025-05-24 17:59:28,995 - INFO - Driver downloading response is 200

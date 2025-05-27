@@ -6,18 +6,13 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException, TimeoutException, NoSuchElementException
-
+from datetime import datetime
 import time
 import pandas as pd
-import logging
 
 ## Set up logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobnetmm_e_logs.log', mode='a')
-fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(fomatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 ## Class for extracting jobs
 class JobNetScraper:
@@ -72,12 +67,18 @@ class JobNetScraper:
 
                 for job in job_cards:
                     try:
-                        # Try to get the job title(handle both regular and top list jobs)
-                        if job.find_elements(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail"):
-                            title = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-JobDetail").text.strip()
-                        else:
-                            title_element = job.find_element(By.CSS_SELECTOR, "a.search__job-title.ClickTrack-TopList")
-                            title = title_element.text.strip() if title_element else None
+                        headings = job.find_elements(By.CLASS_NAME, "search__job-heading")
+                        title = ""
+                        if len(headings) >= 1:
+                            primary_anchor = headings[0].find_element(By.TAG_NAME, "a")
+                            primary_title = primary_anchor.text.strip()
+                            title = primary_title if primary_title else logger.warning("Title not found.")
+
+                        if len(headings) >= 2:
+                            secondary_anchor = headings[1].find_element(By.TAG_NAME, "a")
+                            secondary_title = secondary_anchor.text.strip("()")
+                            if secondary_title:
+                                title += f" ({secondary_title})"
 
                         # Try to get the company name
                         

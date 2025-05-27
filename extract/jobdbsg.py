@@ -2,20 +2,16 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException, WebDriverException
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
-import logging
 import random
+from datetime import datetime
 
 # Setup logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobsdbsg_e_logs.log', mode='a')
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 
 class JobsDBScraper:
@@ -36,6 +32,7 @@ class JobsDBScraper:
 
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
+        # self.driver.set_page_load_timeout(20)
 
     def extract_jobs(self):
         roles = [
@@ -51,9 +48,12 @@ class JobsDBScraper:
         ]
 
         for role in roles:
+            print(f"Role {role}")
             for page in range(1, self.max_pages + 1):
                 try:
                     url = f"https://sg.jobsdb.com/{role}-jobs?page={page}"
+                    print(f"URL {url}")
+                    
                     logger.info(f"Scraping role: {role}, page: {page}, URL: {url}")
                     self.driver.get(url)
                     time.sleep(5)

@@ -50,6 +50,8 @@
     },
     "Infra & System": {
         "infrastructure": 2,
+        "database administrator": 1.5,
+        "infra": 1.7,
         "server": 1.5,
         "data center": 1.5,
         "storage": 1.5,
@@ -63,6 +65,7 @@
         "administrator": 1.5,
         "system engineer": 1.5,
         "system analyst": 1.5,
+        "solution architect": 2,
         "it support": 1.5,
         "helpdesk": 1.5,
         "desktop support": 1.5,
@@ -70,6 +73,8 @@
         "unix": 1.5,
         "windows server": 1.5,
         "operations": 1,
+        "technician": 1,
+        "technical": 1,
         "engineer": 0.5
     },
     "Cloud & Devops": {
@@ -126,7 +131,8 @@
         "android": 1.5,
         "ios": 1.5,
         "mobile": 1.2,
-        "flutter": 1
+        "flutter": 1,
+        "application": 1
     },
     "Project & Product Management": {
         "project manager": 2,
