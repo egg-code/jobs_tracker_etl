@@ -2,16 +2,13 @@ import requests
 import pandas as pd
 import time
 import random
+from datetime import datetime
 
 import logging
 
 ## Set up logging
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.INFO)
-handler = logging.FileHandler('logs/jobsdbth_e_logs.log', mode='a')
-fomatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-handler.setFormatter(fomatter)
-logger.addHandler(handler)
+from utils.logger import get_module_logger
+logger = get_module_logger(__name__, group='extract')
 
 class JobsDBThScraper:
     def __init__(self, classification_id, page_size=100):
@@ -54,6 +51,11 @@ class JobsDBThScraper:
                 break
 
             for job in jobs:
+                data_list = job.get('workArrangements', {}).get('data', [])
+                if data_list and isinstance(data_list, list) and len(data_list) > 0:
+                    work_arrangement = data_list[0].get('label', {}).get('text', '')
+                else:
+                    work_arrangement = ''
                 job_data = {
                     'job_title': job.get('title'),
                     'company': job.get('companyName', ''),
@@ -61,7 +63,7 @@ class JobsDBThScraper:
                     'country_code': job.get('locations', [{}])[0].get('countryCode', ''),
                     'salary': job.get('salaryLabel', ''),
                     'job_type': ', '.join(map(str, job.get('workTypes', []))),
-                    'work_arrangement': job.get('workArrangements', {}).get('data', [{}])[0].get('label', {}).get('text', ''),
+                    'work_arrangement': work_arrangement,
                     'date_posted': job.get('listingDate'),
                     'job_link': f"https://th.jobsdb.com/job/{job.get('id')}"
                 }
