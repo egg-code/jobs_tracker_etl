@@ -65,7 +65,7 @@ def main(source):
         raise ValueError(f"Unknown source: {source}")
     
     extracted_df = extract_dispatch[source]()
-    extracted_df.to_csv(f"output/{source}_raw.csv", index=False)
+    # extracted_df.to_csv(f"output/{source}_raw.csv", index=False)
     print(f"Data extraction for {source} completed.")
     print(extracted_df.head())
 
@@ -73,7 +73,7 @@ def main(source):
     if source in transform_dispatch:
         transformer = transform_dispatch[source](extracted_df)
         transformed_df = transformer.transform()
-        transformed_df.to_csv(f"output/{source}_transform.csv", index=False)
+        # transformed_df.to_csv(f"output/{source}_transform.csv", index=False)
         print(f"Data transformation for {source} completed.")
         print(transformed_df.head())
 
