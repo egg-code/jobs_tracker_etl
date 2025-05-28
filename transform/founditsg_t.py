@@ -1,7 +1,7 @@
 import pandas as pd
 import json, re
 from datetime import datetime, timedelta
-from foundit_job_categorizer import categorize_founditJob_role
+# from foundit_job_categorizer import categorize_founditJob_role
 import pytz
 import logging
 import os

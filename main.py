@@ -24,7 +24,7 @@ def extract_jobnetmm():
     return df
 
 def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=50, headless=True).run()
+    raw = JobsDBScraper(max_pages=3, headless=True).run()
     df = JobDataNormalizer().jobsdbsg(raw)
     return df
 
@@ -65,7 +65,7 @@ def main(source):
         raise ValueError(f"Unknown source: {source}")
     
     extracted_df = extract_dispatch[source]()
-    extracted_df.to_csv(f"output/{source}_transform.csv", index=False)
+    extracted_df.to_csv(f"output/{source}_raw.csv", index=False)
     print(f"Data extraction for {source} completed.")
     print(extracted_df.head())
 
