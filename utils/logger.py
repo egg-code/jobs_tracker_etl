@@ -3,10 +3,10 @@ from datetime import datetime
 import os
 import sys
 
-def get_module_logger(module_name: str, group: str = None):
+def get_module_logger(module_name: str, group: str = None, log_dir: str = 'logs'):
     """Create a logger for the specified module and group."""
     timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-    log_dir = os.path.join('logs', group)
+    log_dir = os.path.join(log_dir, group)
     os.makedirs(log_dir, exist_ok=True)
 
     logfile_name = os.path.join(log_dir, f"{module_name}_{group}_{timestamp}.log" if group else f"{module_name}_{timestamp}.log")

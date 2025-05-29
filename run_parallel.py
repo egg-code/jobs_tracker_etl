@@ -22,7 +22,7 @@ for proc in procs:
 print("Combining data from all sources...")
 
 dfs = []
-url = os.getenv("DATABASE_URL", "postgresql://IT_DB_owner:")
+url = os.getenv("DATABASE_URL")
 engine = create_engine(url)
 
 for source in sources:
