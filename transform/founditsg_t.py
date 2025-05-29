@@ -35,6 +35,19 @@ class FounditTransform:
     def __init__(self, df: pd.DataFrame):
         self.df = df
 
+    def _extract_job_level(self, title):
+        title_lower = title.lower()
+        if 'intern' in title_lower or 'internship' in title_lower:
+            return 'Intern'
+        elif 'fresher' in title_lower:
+            return 'Entry'
+        elif 'junior' in title_lower:
+            return 'Junior'
+        elif 'senior' in title_lower:
+            return 'Senior'
+        elif 'lead' in title_lower or 'manager' in title_lower or 'head' in title_lower:
+            return 'Manager'
+
     def parse_salary_founditSG(self, s):
         if not isinstance(s, str) or not s.strip():
             return (pd.NA, pd.NA, pd.NA, pd.NA)
@@ -81,6 +94,10 @@ class FounditTransform:
                 logger.error(f"Date Conversion error: {text} -> {e}")
         return pd.NA
 
+
+    def _job_level(self):
+        self.df['level'] = self.df['title'].apply(self._extract_job_level)
+        
     def _convert_job_type(self):
         self.df['job_type'] = self.df['job_type'].apply(
             lambda x: ', '.join(x) if isinstance(x, list) else x
@@ -159,6 +176,7 @@ class FounditTransform:
 
     def transform(self):
         logger.info("Transforming Foundit DataFrame")
+        self._job_level()
         self._convert_job_type()
         self._convert_category_type()
         self._convert_date_posted()

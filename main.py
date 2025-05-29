@@ -36,6 +36,10 @@ def extract_jobsdbth():
 def extract_founditsg():
     raw = FounditScraper(headless=True).extract_jobs()
     df = JobDataNormalizer().founditsg(raw)
+
+    required_fields = ['title', 'category', 'company', 'location', 'date_posted', 'job_link']
+    df = df.dropna(subset=required_fields)
+    
     return df
 
 def extract_jobstreetmalay():
@@ -44,6 +48,18 @@ def extract_jobstreetmalay():
     return df
 
 def main(source):
+
+    ## Load the data
+    database_url = os.getenv("DATABASE_URL")
+    def upload_to_database(df: pd.DataFrame, table_name: str, database_url: str = database_url):
+        engine = create_engine(database_url)
+        try:
+            with engine.connect() as connection:
+                df.to_sql(table_name, con=connection, if_exists='replace', index=False)
+                print(f"Data loaded into {table_name} table.")
+        except Exception as e:
+            print(f"Error loading data into {table_name}: {e}")
+
     # Map the source to the corresponding extraction function
     extract_dispatch = {
         "jobnetmm": extract_jobnetmm,
@@ -61,38 +77,26 @@ def main(source):
         "founditsg": FounditTransform,
         "jobstreetmalay": JobStreetMalayTransform,
     }
+
+
     if source not in extract_dispatch:
         raise ValueError(f"Unknown source: {source}")
     
     extracted_df = extract_dispatch[source]()
     print(f"Data extraction for {source} completed.")
     print(extracted_df.head())
+    upload_to_database(extracted_df, f"{source}_raw")
+
 
     ## Transform the data
     if source in transform_dispatch:
         transformer = transform_dispatch[source](extracted_df)
         transformed_df = transformer.transform()
         print(f"Data transformation for {source} completed.")
-
-        required_fields = ['title', 'category', 'company', 'location', 'date_posted', 'job_link']
-        transformed_df = transformed_df.dropna(subset=required_fields)
-        
         transformed_df.to_csv("output/foundit.csv", index=False, encoding='utf-8-sig')
         print(transformed_df.head())
 
 
-    ## Load the data
-    database_url = os.getenv("DATABASE_URL")
-    def upload_to_database(df: pd.DataFrame, table_name: str, database_url: str = database_url):
-        engine = create_engine(database_url)
-        try:
-            with engine.connect() as connection:
-                df.to_sql(table_name, con=connection, if_exists='replace', index=False)
-                print(f"Data loaded into {table_name} table.")
-        except Exception as e:
-            print(f"Error loading data into {table_name}: {e}")
-
-    upload_to_database(extracted_df, f"{source}_raw")
     upload_to_database(transformed_df, f"{source}_transformed")
 
 if __name__ == "__main__":
