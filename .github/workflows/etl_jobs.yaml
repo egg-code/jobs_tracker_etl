@@ -66,20 +66,15 @@ jobs:
       - name: Move artifacts to proper dir
         run: |
           mkdir -p logs/extract logs/transform
-          # Move logs to extract or transform based on their names
-          find artifacts -name "*.log" -exec sh -c 'for f; do
-            if [[ "$f" == *"_extract_"* ]]; then
-              mv "$f" logs/extract/
-            elif [[ "$f" == *"_transform_"* ]]; then
-              mv "$f" logs/transform/
-            fi
-          done' _ {} +
+          # Move logs to extract or transform based on their source directories
+          find artifacts -path "*/logs/extract/*.log" -exec cp {} logs/extract/ \;
+          find artifacts -path "*/logs/transform/*.log" -exec cp {} logs/transform/ \;
 
       - name: Commit and push logs
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add logs/extract logs/transform
+          git add logs/
           git commit -m "Update ETL logs" || echo "No changes to commit"
           git push
 

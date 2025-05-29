@@ -43,7 +43,7 @@ def extract_jobstreetmalay():
     df = JobDataNormalizer().jobstreetmalay(raw)
     return df
 
-def main(source):
+def main(source, log_dir="logs"):
     # Map the source to the corresponding extraction function
     extract_dispatch = {
         "jobnetmm": extract_jobnetmm,
@@ -94,5 +94,6 @@ def main(source):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", required=True)
+    parser.add_argument("--log_dir", default="logs")
     args = parser.parse_args()
-    main(args.source)
+    main(args.source, log_dir=args.log_dir)
