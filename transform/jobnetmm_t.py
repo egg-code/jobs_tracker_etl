@@ -13,7 +13,8 @@ class JobNetTransform:
     def __init__(self, df:pd.DataFrame, categories_path: str = 'categories.json'):
         self.df = df
         with open(categories_path, 'r') as f:
-            self.categories = json.load(f)
+            categories_data = json.load(f)
+            self.categories = categories_data['categories']
 
     def _extract_job_level(self, title):
         title_lower = title.lower()

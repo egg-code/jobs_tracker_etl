@@ -23,10 +23,10 @@ def extract_jobnetmm():
     df = JobDataNormalizer().jobnetmm(raw)
     return df
 
-def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=3, headless=True).run()
-    df = JobDataNormalizer().jobsdbsg(raw)
-    return df
+# def extract_jobsdbsg():
+#     raw = JobsDBScraper(max_pages=3, headless=True).run()
+#     df = JobDataNormalizer().jobsdbsg(raw)
+#     return df
 
 def extract_jobsdbth():
     raw = JobsDBThScraper(classification_id='6281').scrape_jobs()
@@ -47,7 +47,7 @@ def main(source):
     # Map the source to the corresponding extraction function
     extract_dispatch = {
         "jobnetmm": extract_jobnetmm,
-        "jobsdbsg": extract_jobsdbsg,
+        # "jobsdbsg": extract_jobsdbsg,
         "jobsdbth": extract_jobsdbth,
         "founditsg": extract_founditsg,
         "jobstreetmalay": extract_jobstreetmalay,
@@ -65,7 +65,6 @@ def main(source):
         raise ValueError(f"Unknown source: {source}")
     
     extracted_df = extract_dispatch[source]()
-    # extracted_df.to_csv(f"output/{source}_raw.csv", index=False)
     print(f"Data extraction for {source} completed.")
     print(extracted_df.head())
 
@@ -73,9 +72,10 @@ def main(source):
     if source in transform_dispatch:
         transformer = transform_dispatch[source](extracted_df)
         transformed_df = transformer.transform()
-        # transformed_df.to_csv(f"output/{source}_transform.csv", index=False)
+
         print(f"Data transformation for {source} completed.")
         print(transformed_df.head())
+
 
     ## Load the data
     database_url = os.getenv("DATABASE_URL")
@@ -87,6 +87,7 @@ def main(source):
                 print(f"Data loaded into {table_name} table.")
         except Exception as e:
             print(f"Error loading data into {table_name}: {e}")
+
 
     upload_to_database(extracted_df, f"{source}_raw")
     upload_to_database(transformed_df, f"{source}_transformed")

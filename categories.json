@@ -1,5 +1,6 @@
 {
-    "Data & Analytics": {
+    "categories": {
+        "Data & Analytics": {
         "data": 2,
         "analytics": 2,
         "analyst": 2,
@@ -13,12 +14,13 @@
         "etl": 2,
         "pipeline": 1.5,
         "scientist": 2,
-        "database": 1.5,
+        "database": 1,
         "warehouse": 1.5,
         "reporting": 1.5,
         "dashboard": 1.5,
         "insight": 1.5,
-        "engineer": 0.5
+        "engineer": 0.5,
+        "insights": 1.5
     },
     "Network": {
         "network": 2,
@@ -46,11 +48,11 @@
         "access control": 1.5,
         "penetration testing": 2,
         "firewall": 1.5,
-        "engineer": 0.5
+        "engineer": 0.5,
+        "infosec": 1.5, "pentest": 1.5
     },
     "Infra & System": {
         "infrastructure": 2,
-        "database administrator": 1.5,
         "infra": 1.7,
         "server": 1.5,
         "data center": 1.5,
@@ -66,16 +68,14 @@
         "system engineer": 1.5,
         "system analyst": 1.5,
         "solution architect": 2,
-        "it support": 1.5,
-        "helpdesk": 1.5,
-        "desktop support": 1.5,
         "linux": 1.5,
         "unix": 1.5,
         "windows server": 1.5,
         "operations": 1,
         "technician": 1,
         "technical": 1,
-        "engineer": 0.5
+        "engineer": 0.5,
+        "vmware": 1.5
     },
     "Cloud & Devops": {
         "cloud": 2,
@@ -112,8 +112,6 @@
         "software": 2,
         "java": 1.5,
         "python": 1.5,
-        "ui": 1.5,
-        "ux": 1.5,
         "backend": 1.5,
         "frontend": 1.5,
         "full stack": 2,
@@ -128,10 +126,6 @@
         "vue": 1,
         "dotnet": 1.2,
         "c#": 1.2,
-        "android": 1.5,
-        "ios": 1.5,
-        "mobile": 1.2,
-        "flutter": 1,
         "application": 1
     },
     "Project & Product Management": {
@@ -144,7 +138,9 @@
         "delivery": 1,
         "agile": 1.5,
         "jira": 1,
-        "kanban": 1
+        "kanban": 1,
+        "scrum": 1.5,
+        "program manager": 2, "pmo": 1.5
     },
     "Quality Assurance & Testing": {
         "qa": 2,
@@ -158,7 +154,7 @@
         "test analyst": 1.5,
         "sdet": 2
     },
-    "SAP / ERP": {
+    "SAP / ERP / CRM": {
         "sap": 2,
         "erp": 2,
         "abap": 2,
@@ -169,7 +165,9 @@
         "basis": 1.2,
         "sap consultant": 2,
         "oracle ebs": 1.5,
-        "ms dynamics": 1.5
+        "ms dynamics": 1.5,
+        "functional consultant": 2,
+        "technical consultant": 2
     },
     "IT Consulting & Solutions": {
         "consultant": 2,
@@ -199,5 +197,43 @@
         "solution sales": 1.5,
         "technical sales": 1.5,
         "business development": 1.5
+    },
+    "UI/UX": {
+            "ui": 2, "ux": 2, "ui/ux": 2, "user experience": 2, "user interface": 2,
+            "interface": 1.5, "interaction design": 1.5, "visual design": 1.5,
+            "product design": 1.5, "ux researcher": 1.5
+        },
+    "Database": {
+            "dba": 2, "database": 2, "sql": 1.5, "oracle": 1.5,
+            "mysql": 1.5, "postgresql": 1.5, "mongodb": 1.5,
+            "datawarehousing": 2, "data warehouse": 2, "database administrator": 1.5
+        },
+    "Mobile Development": {
+            "android": 2, "ios": 2, "mobile": 2, "mobile developer": 2,
+            "flutter": 1.5, "react native": 1.5, "kotlin": 1.5, "swift": 1.5
+        },
+    "Technical Support": {
+            "tech support": 2, "technical support": 2, "support engineer": 2,
+            "helpdesk": 1.5, "it support": 1.5, "desktop support": 1.5
+        }
+    },
+
+    "manual_role_lookup" : {
+        "UI/UX": ["ui", "ux", "designer", "ui/ux", "user experience", "user interface"],
+        "Database": ["dba", "database", "datawarehousing", "data warehouse"],
+        "Mobile Development": ["android", "ios", "mobile developer", "mobile engineer"],
+        "Technical Support": ["tech support", "support engineer", "technical support"],
+        "Data & Analytics": ["data analyst", "data scientist", "business intelligence"],
+        "Network": ["network administrator", "network engineer", "system admin"],
+        "Cybersecurity": ["security analyst", "security engineer", "system security"],
+        "Software/Web Development": ["developer", "programmer", "software", "web", "front-end", "backend"],
+        "Project & Product Management": ["project manager", "product manager", "program manager", "scrum master"],
+        "Quality Assurance & Testing": ["qa", "qc", "tester", "sdet"],
+        "Infra & System": ["systems engineer", "system integrator", "infrastructure"],
+        "SAP / ERP / CRM": ["sap", "erp", "crm", "abap", "fico", "functional consultant"],
+        "Cloud & Devops": ["devops", "ci/cd", "automation","aws", "azure", "cloud", "gcp"],
+        "IT Consulting & Solutions": ["consultant", "solutions", "solution architect", "presales"],
+        "AI / Data Science": ["ai", "artificial intelligence", "machine learning", "ml", "nlp", "computer vision"]
     }
+    
 }

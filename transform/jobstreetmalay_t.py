@@ -15,7 +15,8 @@ class JobStreetMalayTransform:
 
         # Load category scoring keywords
         with open(categories_path, 'r') as f:
-            self.categories = json.load(f)
+            categories_data = json.load(f)
+            self.categories = categories_data['categories']
 
     def parse_salary(self, s):
         if not isinstance(s, str) or not s.strip() or 'N/A' in s:

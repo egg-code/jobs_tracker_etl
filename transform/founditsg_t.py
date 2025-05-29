@@ -17,7 +17,7 @@ expected_columns = ['title', 'category', 'company', 'location', 'country', 'min_
 
 # Dynamically locate the JSON config file
 BASE_DIR = Path(__file__).resolve().parent.parent  # goes one level up from 'transform'
-CATEGORY_FILE = BASE_DIR / "foundit_categories.json"
+CATEGORY_FILE = BASE_DIR / "categories.json"
 
 # Load categories and manual role mappings
 with open(CATEGORY_FILE, "r", encoding="utf-8") as f:
@@ -99,6 +99,7 @@ class FounditTransform:
     def _fill_missing(self):
         self.df.replace('', pd.NA, inplace=True)
         self.df.fillna(pd.NA, inplace=True)
+        self.df.dropna(subset=['title', 'job_link'], how='all', inplace=True)
    
 
     def _extract_salary_columns(self):
