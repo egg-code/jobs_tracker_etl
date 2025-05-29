@@ -37,14 +37,14 @@ class JobsDBScraper:
     def extract_jobs(self):
         roles = [
             "Software-Developer",
-            "Web-Developer",            
-            "Data-Scientist",
-            "Data-Analyst",
-            "AI-Engineer",
-            "Machine-Learning-Engineer",
-            "DevOps-Engineer",
-            "Cloud-Engineer",
-            "Cybersecurity"
+            # "Web-Developer",            
+            # "Data-Scientist",
+            # "Data-Analyst",
+            # "AI-Engineer",
+            # "Machine-Learning-Engineer",
+            # "DevOps-Engineer",
+            # "Cloud-Engineer",
+            # "Cybersecurity"
         ]
 
         for role in roles:
