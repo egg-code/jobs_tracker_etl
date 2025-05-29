@@ -67,7 +67,7 @@ class FounditScraper:
         desired_fields = [
 
             "title", "companyName", "locations", "salary",
-            "jobTypes", "updatedAt", "seoJdUrl", 'roles'
+            "employmentTypes", "updatedAt", "seoJdUrl", 'roles'
 
             # 'exp', "qualifications","jobId"
 

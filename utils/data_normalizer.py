@@ -53,13 +53,11 @@ class JobDataNormalizer:
         df['source'] = 'jobsdbsg'
 
         # Fill missing salary and job_type
-        df['salary'] = df['salary'].replace('', pd.NA).fillna('N/A')
-        df['job_type'] = df['job_type'].replace('', pd.NA).fillna('N/A')
-        df['company'] = df['job_type'].replace('', pd.NA).fillna('N/A')
+        df['salary'] = df['salary'].replace('', pd.NA)
+        df['job_type'] = df['job_type'].replace('', pd.NA)
+        df['company'] = df['company'].replace('', pd.NA)
         # Fill missing or empty work_arrangement
         df['work_arrangement'] = df['work_arrangement'].replace('', pd.NA)
-        # df.loc[(df['work_arrangement'].isna()) & (df['job_type'] == 'Full time'), 'work_arrangement'] = 'On-site'
-        df['work_arrangement'] = df['work_arrangement'].fillna('N/A')
 
         # Parse 'date_posted' and convert to full UTC datetime
         def parse_date_posted(text):
@@ -118,7 +116,7 @@ class JobDataNormalizer:
             'companyName': 'company',
             'locations': 'location',
             'salary': 'salary',
-            'jobTypes': 'job_type',
+            'employmentTypes': 'job_type',
             'updatedAt': 'date_posted',
             'seoJdUrl': 'job_link',
             'roles': 'category'

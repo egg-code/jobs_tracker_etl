@@ -1,32 +1,30 @@
-name: Job Tracker
+name: Parallel ETL Jobs Workflow
 
 on:
-  push:
-    branches:
-      - jobnetmm
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  extract:
-    runs-on: ubuntu-latest
+  etl:
     strategy:
       matrix:
-        source: [jobnetmm, jobsdbsg, jobsdbth, jobstreetmalay, founditsg]
+        source: [jobnetmm, jobsdbsg, jobsdbth, founditsg, jobstreetmalay]
+    runs-on: ubuntu-latest
+    name: ETL Job for ${{ matrix.source }}
 
     env:
-      TZ: "Asia/Bangkok"
-      JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
-      JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
+        TZ: "Asia/Bangkok"
+        JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
+        JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -35,41 +33,56 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run extractor for ${{ matrix.source }}
+      - name: Run ETL script
         run: |
-          python3 main.py --source ${{ matrix.source }}
+          python main.py --source ${{ matrix.source }} --output_dir output --log_dir logs
 
-      - name: Upload output CSVs and logs
+      - name: Upload output files
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.source }}-artifact
+          name: ETL-${{ matrix.source }}
           path: |
-            output/*.csv
-            logs/*.log
+             logs/extract/*.log
+             logs/transform/*.log
 
-  commit:
+  combine:
+    needs: etl
     runs-on: ubuntu-latest
-    needs: extract
+    name: Combine ETL Results
+
+    env:
+        TZ: "Asia/Bangkok"
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Download artifacts
+      - name: Download ETL artifacts
         uses: actions/download-artifact@v4
         with:
-          path: ./artifacts
+          path: artifacts
 
-      - name: Move files into proper folders
+      - name: Move artifacts to proper dir
         run: |
-          mkdir -p output logs
-          find ./artifacts -name "*.csv" -exec mv {} output/ \;
-          find ./artifacts -name "*.log" -exec mv {} logs/ \;
+          mkdir -p logs/extract logs/transform
+          # Move logs to extract or transform based on their names
+          find artifacts -name "*.log" -exec sh -c 'for f; do
+            if [[ "$f" == *"_extract_"* ]]; then
+              mv "$f" logs/extract/
+            elif [[ "$f" == *"_transform_"* ]]; then
+              mv "$f" logs/transform/
+            fi
+          done' _ {} +
 
-      - name: Commit and push changes
+      - name: Commit and push logs
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/*.csv logs/*.log
-          git commit -m "Update all logs and CSVs" || echo "No changes to commit"
+          git add logs/extract logs/transform
+          git commit -m "Update ETL logs" || echo "No changes to commit"
           git push
+
+      - name: Run combine script
+        run: |
+           python combine_load.py

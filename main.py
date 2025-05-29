@@ -5,7 +5,7 @@ from extract.jobdbsg import JobsDBScraper
 from extract.jobsdbth import JobsDBThScraper
 from extract.jobstreetmalay import JobStreetMalaysia
 from extract.founditSG import FounditScraper
-from data_normalizer import JobDataNormalizer
+from utils.data_normalizer import JobDataNormalizer
 
 from transform.founditsg_t import FounditTransform
 from transform.jobnetmm_t import JobNetTransform
@@ -23,10 +23,10 @@ def extract_jobnetmm():
     df = JobDataNormalizer().jobnetmm(raw)
     return df
 
-# def extract_jobsdbsg():
-#     raw = JobsDBScraper(max_pages=3, headless=True).run()
-#     df = JobDataNormalizer().jobsdbsg(raw)
-#     return df
+def extract_jobsdbsg():
+    raw = JobsDBScraper(max_pages=50, headless=True).run()
+    df = JobDataNormalizer().jobsdbsg(raw)
+    return df
 
 def extract_jobsdbth():
     raw = JobsDBThScraper(classification_id='6281').scrape_jobs()
@@ -47,7 +47,7 @@ def main(source):
     # Map the source to the corresponding extraction function
     extract_dispatch = {
         "jobnetmm": extract_jobnetmm,
-        # "jobsdbsg": extract_jobsdbsg,
+        "jobsdbsg": extract_jobsdbsg,
         "jobsdbth": extract_jobsdbth,
         "founditsg": extract_founditsg,
         "jobstreetmalay": extract_jobstreetmalay,
@@ -75,7 +75,6 @@ def main(source):
 
         print(f"Data transformation for {source} completed.")
         print(transformed_df.head())
-
 
     ## Load the data
     database_url = os.getenv("DATABASE_URL")

@@ -154,7 +154,7 @@
         "test analyst": 1.5,
         "sdet": 2
     },
-    "SAP / ERP / CRM": {
+    "SAP/ERP/CRM": {
         "sap": 2,
         "erp": 2,
         "abap": 2,
@@ -230,7 +230,7 @@
         "Project & Product Management": ["project manager", "product manager", "program manager", "scrum master"],
         "Quality Assurance & Testing": ["qa", "qc", "tester", "sdet"],
         "Infra & System": ["systems engineer", "system integrator", "infrastructure"],
-        "SAP / ERP / CRM": ["sap", "erp", "crm", "abap", "fico", "functional consultant"],
+        "SAP/ERP/CRM": ["sap", "erp", "crm", "abap", "fico", "functional consultant"],
         "Cloud & Devops": ["devops", "ci/cd", "automation","aws", "azure", "cloud", "gcp"],
         "IT Consulting & Solutions": ["consultant", "solutions", "solution architect", "presales"],
         "AI / Data Science": ["ai", "artificial intelligence", "machine learning", "ml", "nlp", "computer vision"]

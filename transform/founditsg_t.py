@@ -1,10 +1,7 @@
 import pandas as pd
 import json, re
 from datetime import datetime, timedelta
-# from foundit_job_categorizer import categorize_founditJob_role
 import pytz
-import logging
-import os
 from pathlib import Path
 from collections import defaultdict
 
@@ -87,8 +84,16 @@ class FounditTransform:
             lambda x: ', '.join(x) if isinstance(x, list) else x
         )
 
+
+    def _convert_category_type(self):
+        self.df['category'] = self.df['category'].apply(
+            lambda x: ', '.join(x) if isinstance(x, list) else x
+        )
+
+
     def _convert_date_posted(self):
         self.df['date_posted'] = self.df['date_posted'].apply(self._convert_to_utc_plus_630)
+
 
     def _add_full_url(self):
         self.df['job_link'] = self.df['job_link'].apply(
@@ -99,13 +104,12 @@ class FounditTransform:
     def _fill_missing(self):
         self.df.replace('', pd.NA, inplace=True)
         self.df.fillna(pd.NA, inplace=True)
-        self.df.dropna(subset=['title', 'job_link'], how='all', inplace=True)
-   
+        required_fields = ['title', 'category', 'company', 'location', 'date_posted', 'job_link']
+        self.df = self.df.dropna(subset=required_fields)
 
     def _extract_salary_columns(self):
         salary_cols = self.df['salary'].apply(self.parse_salary_founditSG)
         self.df[['avg_salary', 'min_salary', 'max_salary', 'currency']] = pd.DataFrame(salary_cols.tolist(), index=self.df.index)
-
 
     def _tokenize_ngrams(self, text):
         text = text.lower()
@@ -122,32 +126,42 @@ class FounditTransform:
                 return category
         return None
 
-    def _categorize_title_score(self, title, threshold=1.5):
-        tokens = self._tokenize_ngrams(title)
+    def _categorize_category_score(self, category, threshold=1.5):
+        tokens = self._tokenize_ngrams(category)
         scores = defaultdict(float)
         for category, keywords in categories.items():
             for token in tokens:
                 scores[category] += keywords.get(token, 0)
-        best_category = max(scores, key=scores.get, default=None)
-        return best_category if scores[best_category] >= threshold else "Other"
 
-    def _categorize_foundit_job_role(self, role):
-        if not isinstance(role, str):
+        best_category = max(scores, key=scores.get, default=None)
+        if best_category and scores[best_category] >= threshold:
+            return best_category
+        else:
             return "Other"
-        manual_result = self._match_manual_lookup(role)
+
+
+    def _categorize_foundit_job_role(self, category):
+        if not isinstance(category, str):
+            return "Other"
+                
+        manual_result = self._match_manual_lookup(category)
         if manual_result:
             return manual_result
-        return self._categorize_title_score(role)
+
+        category_score = self._categorize_category_score(category)
+        return category_score
+
 
     def _categorize_job_type(self):
         logger.info("Categorizing job roles into categories")
-        self.df["category"] = self.df["title"].apply(self._categorize_foundit_job_role)
+        self.df["category"] = self.df["category"].apply(self._categorize_foundit_job_role)
+
 
     def transform(self):
         logger.info("Transforming Foundit DataFrame")
         self._convert_job_type()
+        self._convert_category_type()
         self._convert_date_posted()
-        # self._drop_missing()
         self._add_full_url()
         self._extract_salary_columns()
         self._fill_missing()

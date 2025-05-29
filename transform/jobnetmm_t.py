@@ -1,7 +1,6 @@
 import pandas as pd
 import json, re
 from datetime import datetime
-import logging
 
 ## Set up logging
 from utils.logger import get_module_logger

@@ -5,7 +5,7 @@ import os
 import pandas as pd
 from pkey_gen import custom_job_id
 
-sources = ["jobnetmm", "jobsdbth", "founditsg", "jobstreetmalay"]
+sources = ["jobnetmm", "jobsdbth", "jobsdbsg", "founditsg", "jobstreetmalay"]
 procs = []
 
 for source in sources:
@@ -22,7 +22,7 @@ for proc in procs:
 print("Combining data from all sources...")
 
 dfs = []
-url = "postgresql://IT_DB_owner:npg_5GjHBhRFILX3@ep-rough-dew-a1f6iq1c-pooler.ap-southeast-1.aws.neon.tech/IT_DB?sslmode=require"
+url = os.getenv("DATABASE_URL", "postgresql://IT_DB_owner:")
 engine = create_engine(url)
 
 for source in sources:
