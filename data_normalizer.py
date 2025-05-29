@@ -77,7 +77,7 @@ class JobDataNormalizer:
             'companyName': 'company',
             'locations': 'location',
             'salary': 'salary',
-            'jobTypes': 'job_type',
+            'employmentTypes': 'job_type',
             'updatedAt': 'date_posted',
             'seoJdUrl': 'job_link',
             'roles': 'category'
