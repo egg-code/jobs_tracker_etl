@@ -1,6 +1,7 @@
 import logging
 from datetime import datetime
 import os
+import sys
 
 def get_module_logger(module_name: str, group: str = None):
     """Create a logger for the specified module and group."""
