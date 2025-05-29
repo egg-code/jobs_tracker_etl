@@ -18,6 +18,7 @@ jobs:
         TZ: "Asia/Bangkok"
         JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
         JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Checkout repo
