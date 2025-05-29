@@ -86,41 +86,30 @@ class FounditTransform:
             lambda x: ', '.join(x) if isinstance(x, list) else x
         )
 
-        df['job_type'] = df['job_type'].apply
-        (lambda x: ', '.join(x) if isinstance(x, list) else x)
 
-        print("[INFO] _convert_job_type executed")
-        print(self.df[['job_type']].head())
+    def _convert_category_type(self):
+        self.df['category'] = self.df['category'].apply(
+            lambda x: ', '.join(x) if isinstance(x, list) else x
+        )
 
 
     def _convert_date_posted(self):
         self.df['date_posted'] = self.df['date_posted'].apply(self._convert_to_utc_plus_630)
-        print("[INFO] _convert_date_posted executed")
-        print(self.df[['date_posted']].head())
 
 
     def _add_full_url(self):
         self.df['job_link'] = self.df['job_link'].apply(
             lambda x: f"https://www.foundit.sg{x}" if isinstance(x, str) and not x.startswith("http") else x
         )
-        print("[INFO] _add_full_url executed")
-        print(self.df[['job_link']].head())
-
 
 
     def _fill_missing(self):
         self.df.replace('', pd.NA, inplace=True)
         self.df.fillna(pd.NA, inplace=True)
-        print("[INFO] _fill_missing executed")
-        print(self.df.head())
-   
 
     def _extract_salary_columns(self):
         salary_cols = self.df['salary'].apply(self.parse_salary_founditSG)
         self.df[['avg_salary', 'min_salary', 'max_salary', 'currency']] = pd.DataFrame(salary_cols.tolist(), index=self.df.index)
-        print("[INFO] _extract_salary_columns executed")
-        print(self.df[['salary', 'avg_salary', 'min_salary', 'max_salary', 'currency']].head())
-
 
     def _tokenize_ngrams(self, text):
         text = text.lower()
@@ -137,39 +126,45 @@ class FounditTransform:
                 return category
         return None
 
-    def _categorize_title_score(self, title, threshold=1.5):
-        tokens = self._tokenize_ngrams(title)
+    def _categorize_category_score(self, category, threshold=1.5):
+        tokens = self._tokenize_ngrams(category)
         scores = defaultdict(float)
         for category, keywords in categories.items():
             for token in tokens:
                 scores[category] += keywords.get(token, 0)
-        best_category = max(scores, key=scores.get, default=None)
-        return best_category if scores[best_category] >= threshold else "Other"
 
-    def _categorize_foundit_job_role(self, role):
-        if not isinstance(role, str):
+        best_category = max(scores, key=scores.get, default=None)
+        if best_category and scores[best_category] >= threshold:
+            return best_category
+        else:
             return "Other"
-        manual_result = self._match_manual_lookup(role)
+
+
+    def _categorize_foundit_job_role(self, category):
+        if not isinstance(category, str):
+            return "Other"
+                
+        manual_result = self._match_manual_lookup(category)
         if manual_result:
             return manual_result
-        return self._categorize_title_score(role)
+
+        category_score = self._categorize_category_score(category)
+        return category_score
+
 
     def _categorize_job_type(self):
         logger.info("Categorizing job roles into categories")
         self.df["category"] = self.df["category"].apply(self._categorize_foundit_job_role)
-        print("[INFO] _categorize_job_type executed")
-        print(self.df[['category', 'category']].head())
 
 
     def transform(self):
         logger.info("Transforming Foundit DataFrame")
         self._convert_job_type()
+        self._convert_category_type()
         self._convert_date_posted()
         self._add_full_url()
         self._extract_salary_columns()
         self._fill_missing()
         self._categorize_job_type()
         logger.info("Transformation Foundit complete")
-        print("[INFO] Final transformed DataFrame:")
-        print(self.df.head())
         return self.df.reindex(columns=expected_columns)

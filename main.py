@@ -73,8 +73,13 @@ def main(source):
         transformer = transform_dispatch[source](extracted_df)
         transformed_df = transformer.transform()
         print(f"Data transformation for {source} completed.")
+
+        required_fields = ['title', 'category', 'company', 'location', 'date_posted', 'job_link']
+        transformed_df = transformed_df.dropna(subset=required_fields)
+        
         transformed_df.to_csv("output/foundit.csv", index=False, encoding='utf-8-sig')
         print(transformed_df.head())
+
 
     ## Load the data
     database_url = os.getenv("DATABASE_URL")

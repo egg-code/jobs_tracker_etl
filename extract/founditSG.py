@@ -121,7 +121,7 @@ class FounditScraper:
                 time.sleep(1) #Sleep between requests
                 start += 15
 
-                if start >= 100: #Hard limit to break early for safety
+                if start >= 600: #Hard limit to break early for safety
                     logger.info(" Reached start=600. Stopping to avoid scraping too much.")
                     break
 
