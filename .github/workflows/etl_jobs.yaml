@@ -35,7 +35,7 @@ jobs:
 
       - name: Run ETL script
         run: |
-          python main.py --source ${{ matrix.source }} --output_dir output --log_dir logs
+          python main.py --source ${{ matrix.source }} --log_dir logs
 
       - name: Upload output files
         uses: actions/upload-artifact@v4
