@@ -81,7 +81,6 @@ class JobNetScraper:
                                 title += f" ({secondary_title})"
 
                         # Try to get the company name
-                        
                         if job.find_elements(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile"):
                             company = job.find_element(By.CSS_SELECTOR, "a.ClickTrack-EmpProfile").text.strip()
                         else:
@@ -93,8 +92,11 @@ class JobNetScraper:
                         location = location_element.text.strip() if location_element else None
                         
                         # Try to get salary
-                        salary_element = job.find_element(By.CSS_SELECTOR, "a.search__job-sign.ClickTrack-JobDetail span")
-                        salary = salary_element.text.strip() if salary_element else None
+                        salary_elements = job.find_elements(By.CSS_SELECTOR, "a.search__job-sign.ClickTrack-JobDetail span")
+                        if salary_elements:
+                            salary = salary_elements[0].text.strip() if salary_elements else None
+                            if not salary:
+                                logger.warning("Salary found but empty.")
 
                         # Try to get the date posted
                         date_element = job.find_element(By.CSS_SELECTOR, "p.search__job-posted u")

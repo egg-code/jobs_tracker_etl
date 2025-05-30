@@ -9,9 +9,8 @@ logger = get_module_logger(__name__, group='extract')
 
 #1. Class Initialization
 class FounditScraper:
-    def __init__(self, headless=True):
+    def __init__(self, base_params=None, headless=True):
         self.headless = headless #headless: Reserved for future browser-based automation. Not used here, but shows potential for using Selenium or Puppeteer later.
-        
         # to seem more like a real user.
         self.headers = {
             "User-Agent": "Mozilla/5.0",
@@ -21,32 +20,11 @@ class FounditScraper:
 
         #The main API endpoint    
         self.base_endpoint = "https://www.foundit.sg/middleware/jobsearch"
-        self.query_params = {
-            "sort": 1,
-            "limit": 15,
-            "query": '""',
-            "quickApplyJobs": "true",
-            "industries": [
-                "software",
-                "information technology",
-                "software engineering",
-                "it management",
-                "it infrastructure",
-                "cyber security",
-                "cloud computing",
-                "enterprise software",
-                "data center",
-                "cloud data services"
-            ],
-
-      }
-
-
-      
+        self.base_params = base_params.copy() if base_params else {}
 
 #2. Building the API URL
     def build_url(self, start):
-        params = self.query_params.copy()
+        params = self.base_params.copy()  # Copy base params to avoid modifying the original
         params["start"] = start
 
         industries = params.pop("industries", [])

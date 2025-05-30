@@ -1,0 +1,41 @@
+name: Daily Job Scraper
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Runs every day at 08:00 UTC
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  scrape_jobs:
+    runs-on: ubuntu-latest
+
+    env:
+      TZ: "Asia/Yangon"
+      JOBNET_EMAIL: ${{ secrets.JOBNET_EMAIL }}
+      JOBNET_PASSWORD: ${{ secrets.JOBNET_PASSWORD }}
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Daily Job Scraper
+      run: |
+        python daily_scraper.py
+
+    - name: Commit and push results (optional)
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff --staged --quiet || git commit -m "Daily scraper results - $(date)"
+        git push

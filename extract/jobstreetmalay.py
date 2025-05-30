@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 import time
-import logging
 import random
 from datetime import datetime
 
@@ -12,7 +11,7 @@ from utils.logger import get_module_logger
 logger = get_module_logger(__name__, group='extract')
 
 class JobStreetMalaysia:
-    def __init__(self):
+    def __init__(self, classification_id: str, base_params, page_size: int = 100):
         self.base_url = "https://my.jobstreet.com/api/jobsearch/v5/search"
         self.headers = {
             "User-Agent": "Mozilla/5.0",
@@ -21,20 +20,19 @@ class JobStreetMalaysia:
             "Accept-Language": "en-US,en;q=0.9",
             "Origin": "https://my.jobstreet.com"
         }
+        self.classification_id = '6281'  # IT Jobs
+        self.page_size = page_size
+        self.base_params = base_params
+        self.base_params['classification'] = self.classification_id
+        self.base_params['pageSize'] = self.page_size
 
-    def fetch_jobs(self, classification_id: str, page_size: int = 100):
+    def fetch_jobs(self):
         all_jobs = []
         page = 1
 
         while True:
-            params = {
-                'siteKey': 'MY-Main',
-                'page': page,
-                'classification': classification_id,
-                'pageSize': page_size,
-                'locale': 'en-MY'
-            }
-
+            params = self.base_params.copy()
+            params['page'] = page
             try:
                 response = requests.get(self.base_url, headers=self.headers, params=params)
                 response.raise_for_status()

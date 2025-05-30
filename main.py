@@ -24,22 +24,52 @@ def extract_jobnetmm():
     return df
 
 def extract_jobsdbsg():
-    raw = JobsDBScraper(max_pages=50, headless=True).run()
+    url_pattern = "https://sg.jobsdb.com/{role}-jobs?page={page}"
+    raw = JobsDBScraper(max_pages_override=50, headless=True).run(url_pattern=url_pattern)
     df = JobDataNormalizer().jobsdbsg(raw)
     return df
 
 def extract_jobsdbth():
-    raw = JobsDBThScraper(classification_id='6281').scrape_jobs()
+    params = {
+                'siteKey': 'TH-Main',
+                'classification': '6281',  # IT Jobs
+                'pageSize': 100,
+                'locale': 'en-TH'
+            }
+    raw = JobsDBThScraper(classification_id='6281', base_params=params).scrape_jobs()
     df = JobDataNormalizer().jobsdbth(raw)
     return df
 
 def extract_founditsg():
-    raw = FounditScraper(headless=True).extract_jobs()
+    base_params = {
+            "sort": 1,
+            "limit": 15,
+            "query": '""',
+            "quickApplyJobs": "true",
+            "industries": [
+                "software",
+                "information technology",
+                "software engineering",
+                "it management",
+                "it infrastructure",
+                "cyber security",
+                "cloud computing",
+                "enterprise software",
+                "data center",
+                "cloud data services"
+            ],
+
+      }
+    raw = FounditScraper(base_params=base_params    ).extract_jobs()
     df = JobDataNormalizer().founditsg(raw)
     return df
 
 def extract_jobstreetmalay():
-    raw = JobStreetMalaysia().fetch_jobs(classification_id='6281')
+    base_params = {
+                'siteKey': 'MY-Main',
+                'locale': 'en-MY',
+            }
+    raw = JobStreetMalaysia(classification_id="6281", base_params=base_params).fetch_jobs()
     df = JobDataNormalizer().jobstreetmalay(raw)
     return df
 
@@ -88,8 +118,8 @@ def main(source, log_dir="logs"):
             print(f"Error loading data into {table_name}: {e}")
 
 
-    upload_to_database(extracted_df, f"{source}_raw")
-    upload_to_database(transformed_df, f"{source}_transformed")
+    # upload_to_database(extracted_df, f"{source}_raw")
+    # upload_to_database(transformed_df, f"{source}_transformed")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

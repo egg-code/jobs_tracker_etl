@@ -6,6 +6,8 @@ from selenium.common.exceptions import NoSuchElementException, WebDriverExceptio
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 import pandas as pd
+import re
+import random
 
 # Setup logging
 from utils.logger import get_module_logger
@@ -13,8 +15,9 @@ logger = get_module_logger(__name__, group='extract')
 
 
 class JobsDBScraper:
-    def __init__(self, max_pages=2, headless=True):
-        self.max_pages = max_pages
+    def __init__(self, max_pages_override=None, dynamic_pages=False, headless=True):
+        self.max_pages_override = max_pages_override
+        self.dynamic_pages = dynamic_pages
         self.headless = headless
         self.driver = None
         self.jobs = []
@@ -30,9 +33,25 @@ class JobsDBScraper:
 
         service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=service, options=options)
-        # self.driver.set_page_load_timeout(20)
 
-    def extract_jobs(self):
+    def get_url_for_role(self, role, page, url_pattern):
+        return url_pattern.format(role=role, page=page)
+    
+    def get_max_pages(self, role):
+        try:
+            pagination_text = self.driver.find_element(By.CSS_SELECTOR, "div.search-results-page-number"
+            ).text
+            match = re.search(r"Page \d+ of (\d+)", pagination_text)
+            if match:
+                max_pages = int(match.group(1))
+                logger.info(f"Max pages for {role}: {max_pages}")
+                return max_pages
+        except NoSuchElementException:
+            logger.warning(f"Pagination element not found for {role}. Defaulting to 1 page.")
+        
+        return 1
+
+    def extract_jobs(self, url_pattern):
         roles = [
             "Software-Developer",
             "Web-Developer",            
@@ -47,14 +66,27 @@ class JobsDBScraper:
 
         for role in roles:
             print(f"Role {role}")
-            for page in range(1, self.max_pages + 1):
+            page = 1
+            # Determin max pages
+            if self.max_pages_override:
+                max_pages = self.max_pages_override
+            else:
+                max_pages = 1
+
+            while page <= max_pages:
                 try:
-                    url = f"https://sg.jobsdb.com/{role}-jobs?page={page}"
-                    print(f"URL {url}")
-                    
+                    url = self.get_url_for_role(role, page, url_pattern)
                     logger.info(f"Scraping role: {role}, page: {page}, URL: {url}")
                     self.driver.get(url)
-                    time.sleep(5)
+                    time.sleep(random.uniform(1, 4))  # Random sleep to avoid being blocked
+
+                    if page == 1 and self.dynamic_pages:
+                        dynamic_max_pages = self.get_max_pages(role)
+                        if self.max_pages_override:
+                            max_pages = min(self.max_pages_override, dynamic_max_pages)
+                        else:
+                            max_pages = dynamic_max_pages
+                        logger.info(f"Dynamic max pages for {role}: {max_pages}")
 
                     job_cards = self.driver.find_elements(By.CSS_SELECTOR, "div.job-card")
                     if not job_cards:
@@ -110,15 +142,21 @@ class JobsDBScraper:
                             "Job_Link": link,
                             "Date_Posted": date_posted
                         })
+                    page += 1
 
                 except NoSuchElementException as e:
                     logger.warning(f"Missing element in card for {role} on page {page}: {e}")
                     continue
+                
+                except WebDriverException as e:
+                    logger.error(f"WebDriver error while scraping {role} on page {page}: {e}")
+                    break
 
-    def run(self):
+    def run(self, url_pattern):
+        logger.info("Starting scraping process...")
         self.start_driver()
         try:
-            self.extract_jobs()
+            self.extract_jobs(url_pattern)
         finally:
             self.driver.quit()
             logger.info("WebDriver closed.")

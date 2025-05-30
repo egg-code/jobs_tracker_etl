@@ -1,4 +1,5 @@
 import pandas as pd
+import hashlib
 
 ## Map dicts
 category_map = {
@@ -30,15 +31,27 @@ source_map = {
 }
 
 def custom_job_id(df):
-    df = df.sort_values("job_link").copy()
-    df.reset_index(drop=True, inplace=True)
-    df['uid'] = df.index + 1
-    df['uid'] = df['uid'].astype(str).str.zfill(5)
+    df = df.copy()
+    # Create short hash from job_link + source
+    def generate_hash(row):
+        base = (str(row['job_link']) + str(row['source'])).strip().lower()
+        return hashlib.md5(base.encode()).hexdigest()[:6]
+    
+    df['hash'] = df.apply(generate_hash, axis=1)
+
+    # Map codes
     df['cat_code'] = df['category'].map(category_map).fillna("xx")
     df['src_code'] = df['source'].map(source_map).fillna("xxx")
     df['c_code'] = df['country'].str.lower()
     df['ym'] = pd.to_datetime(df['date_posted']).dt.strftime("%Y%m")
-    df['job_id'] = df['uid'] + "_" + df['cat_code'] + "_" + df['src_code'] + "_" + df['c_code'] + "_" + df['ym']
-    df.drop(columns=['uid', 'cat_code', 'src_code', 'c_code', 'ym'], inplace=True)
+    
+    # Final job_id
+    df['job_id'] = (
+        df['hash'] + "_" + df['cat_code'] + "_" +
+        df['src_code'] + "_" + df['c_code'] + "_" + df['ym']
+    )
+
+    # Drop helper columns
+    df.drop(columns=['hash', 'cat_code', 'src_code', 'c_code', 'ym'], inplace=True)
 
     return df[['job_id'] + [col for col in df.columns if col != 'job_id']]

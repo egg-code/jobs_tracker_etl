@@ -4,15 +4,16 @@ import time
 import random
 from datetime import datetime
 
-import logging
 
 ## Set up logging
 from utils.logger import get_module_logger
 logger = get_module_logger(__name__, group='extract')
 
 class JobsDBThScraper:
-    def __init__(self, classification_id, page_size=100):
+    def __init__(self, classification_id, base_params, page_size=100):
         self.url = "https://th.jobsdb.com/api/jobsearch/v5/search"
+        self.params = base_params
+        # Default headers for the request
         self.headers = {
             "User-Agent": "Mozilla/5.0",
             "Accept": "application/json",
@@ -21,22 +22,18 @@ class JobsDBThScraper:
         }
         self.classification_id = classification_id
         self.page_size = page_size
-
+        self.params['classification'] = self.classification_id
+        self.params['pageSize'] = self.page_size
 
     def scrape_jobs(self):
         all_jobs = []
         page = 1
 
         while True:
-            params = {
-                'siteKey': 'TH-Main',
-                'page': page,
-                'classification': self.classification_id,
-                'pageSize': self.page_size,
-                'locale': 'en-TH'
-            }
+            self.params['page'] = page
+
             try:
-                response = requests.get(self.url, headers=self.headers, params=params)
+                response = requests.get(self.url, headers=self.headers, params=self.params)
                 data = response.json()
                 jobs = data.get('data', [])
                 total_jobs = data.get('totalCount', 0)
