@@ -1,4 +1,5 @@
 name: Daily Job Scraper
+
 on:
   schedule:
     - cron: '30 9 * * *'  # Runs daily at 09:30 UTC = 16:00 MMT (Myanmar Time)
@@ -32,22 +33,37 @@ jobs:
       run: |
         python daily_scraper.py
 
-    - name: Download ETL artifacts
-      uses: actions/download-artifact@v4
+    - name: Upload logs artifact
+      uses: actions/upload-artifact@v3
       with:
+        name: etl-logs
+        path: logs/
+
+  process_logs:
+    needs: scrape_jobs
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Download ETL logs artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: etl-logs
         path: artifacts
 
-    - name: Move artifacts to proper dir
+    - name: Organize logs into extract and transform directories
       run: |
         mkdir -p logs/extract logs/transform
-        # Move logs to extract or transform based on their source directories
-        find artifacts -path "*/logs/extract/*.log" -exec cp {} logs/extract/ \;
-        find artifacts -path "*/logs/transform/*.log" -exec cp {} logs/transform/ \;
+        # Copy extract logs
+        find artifacts/logs/extract -name "*.log" -exec cp {} logs/extract/ \; || echo "No extract logs found"
+        # Copy transform logs
+        find artifacts/logs/transform -name "*.log" -exec cp {} logs/transform/ \; || echo "No transform logs found"
 
     - name: Commit and push logs
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add logs/
-        git commit -m "Update ETL logs" || echo "No changes to commit"
-        git push
+        git diff --cached --quiet || (git commit -m "Update ETL logs" && git push)
