@@ -11,7 +11,7 @@ from extract.jobdbsg import JobsDBScraper
 from transform.jobsdbsg_t import JobsDBSGTransform
 
 from utils.data_normalizer import JobDataNormalizer
-from pkey_gen import custom_job_id  # Import your job ID generator
+from utils.pkey_gen import custom_job_id  # Import your job ID generator
 import pandas as pd
 from dotenv import load_dotenv
 import os

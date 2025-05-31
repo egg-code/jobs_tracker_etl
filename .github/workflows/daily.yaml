@@ -1,7 +1,7 @@
 name: Daily Job Scraper
 on:
   schedule:
-    - cron: '0 8 * * *'  # Runs every day at 08:00 UTC
+    - cron: '30 9 * * *'  # Runs daily at 09:30 UTC = 16:00 MMT (Myanmar Time)
   workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
@@ -31,11 +31,3 @@ jobs:
     - name: Run Daily Job Scraper
       run: |
         python daily_scraper.py
-
-    - name: Commit and push results (optional)
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add -A
-        git diff --staged --quiet || git commit -m "Daily scraper results - $(date)"
-        git push

@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 import os
 import pandas as pd
-from pkey_gen import custom_job_id
+from utils.pkey_gen import custom_job_id
 
 # List of source names (same as your main script)
 sources = ["jobnetmm", "jobsdbth", "jobsdbsg", "founditsg", "jobstreetmalay"]

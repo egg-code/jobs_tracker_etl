@@ -3,7 +3,7 @@ import subprocess
 import sys
 import os
 import pandas as pd
-from pkey_gen import custom_job_id
+from utils.pkey_gen import custom_job_id
 
 sources = ["jobnetmm", "jobsdbth", "jobsdbsg", "founditsg", "jobstreetmalay"]
 procs = []
