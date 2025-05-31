@@ -141,6 +141,27 @@ The `daily_scraper.py` and `combine_load.py` scripts load processed job data int
 
 Feel free to fork the repository, make improvements, and submit pull requests.
 
-## License
+## 📁 Project Structure
 
-This project is open-source and available under the [MIT License](https://www.google.com/search?q=LICENSE).
+```bash
+.
+jobs_tracker_etl/
+│
+├── extract/ # Source-specific scrapers
+├── transform/ # Job title cleaning, categorization, deduplication
+├── utils/ # Helper functions
+├── main.py # Main ETL script
+├── pkey_gen.py # Primary key generation logic
+├── daily_scraper.py # Script for daily scraping (parallelizable)
+├── combine_load.py # Loader for combining data and pushing to DB
+├── run_parallel.py # Multi-source concurrent runner
+└── requirements.txt # Project dependencies
+
+bash
+Copy
+Edit
+
+KaungMyatKyaw(egg)
+May Thazin Htun
+Sandi Sharoi
+
