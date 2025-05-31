@@ -34,7 +34,7 @@ jobs:
         python daily_scraper.py
 
     - name: Upload logs artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: etl-logs
         path: logs/
@@ -48,7 +48,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Download ETL logs artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: etl-logs
         path: artifacts
