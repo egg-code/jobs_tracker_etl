@@ -127,7 +127,7 @@ def daily_jobstreetmalay():
     return transformed_df
 
 def daily_jobsdbsg():
-    scraper = JobsDBScraper(dynamic_pages=True)
+    scraper = JobsDBScraper(max_pages_override=1 ,dynamic_pages=True)
     url_pattern = "https://sg.jobsdb.com/{role}-jobs?a=24h&p={page}"
     raw = scraper.run(url_pattern=url_pattern)
     raw_df = JobDataNormalizer().jobsdbsg(raw)
@@ -301,10 +301,6 @@ def run_daily_process():
         
         print(f"\n=== Daily Process Completed Successfully ===")
         print(f"Added {len(fresh_df_with_ids)} new jobs to the database.")
-        
-        # Show sample of what was added
-        print("\nSample of new jobs added:")
-        print(fresh_df_with_ids[['job_id', 'title', 'company', 'source']].head())
         
     except Exception as e:
         print(f"Error in daily process: {e}")

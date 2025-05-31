@@ -5,6 +5,9 @@ on:
     - cron: '30 9 * * *'  # Runs daily at 09:30 UTC = 16:00 MMT (Myanmar Time)
   workflow_dispatch:  # Allows manual triggering of the workflow
 
+permissions:
+  contents: write  # Allows the workflow to push changes to the repository
+
 jobs:
   scrape_jobs:
     runs-on: ubuntu-latest
