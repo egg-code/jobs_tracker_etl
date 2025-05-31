@@ -95,8 +95,9 @@ class JobNetScraper:
                         salary_elements = job.find_elements(By.CSS_SELECTOR, "a.search__job-sign.ClickTrack-JobDetail span")
                         if salary_elements:
                             salary = salary_elements[0].text.strip() if salary_elements else None
-                            if not salary:
-                                logger.warning("Salary found but empty.")
+                        else:
+                            salary = None
+                            logger.warning("Salary not found.")
 
                         # Try to get the date posted
                         date_element = job.find_element(By.CSS_SELECTOR, "p.search__job-posted u")

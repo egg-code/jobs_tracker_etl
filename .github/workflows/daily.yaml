@@ -31,3 +31,23 @@ jobs:
     - name: Run Daily Job Scraper
       run: |
         python daily_scraper.py
+
+    - name: Download ETL artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts
+
+    - name: Move artifacts to proper dir
+      run: |
+        mkdir -p logs/extract logs/transform
+        # Move logs to extract or transform based on their source directories
+        find artifacts -path "*/logs/extract/*.log" -exec cp {} logs/extract/ \;
+        find artifacts -path "*/logs/transform/*.log" -exec cp {} logs/transform/ \;
+
+    - name: Commit and push logs
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git add logs/
+        git commit -m "Update ETL logs" || echo "No changes to commit"
+        git push
