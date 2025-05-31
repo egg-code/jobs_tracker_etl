@@ -1,5 +1,3 @@
-Here's a `README.md` file for your Job Tracker ETL project.
-
 # Job Tracker ETL Project
 
 This project implements an ETL (Extract, Transform, Load) pipeline for tracking job listings from various online job portals. It's designed to extract raw job data, normalize and transform it into a consistent format, and then load it into a database.
@@ -103,7 +101,7 @@ To run the combined load:
 python combine_load.py
 ```
 
-## Project Structure
+## Project Structure Details
 
   * `main.py`: The main entry point for one-time ETL operations for specific sources.
   * `daily_scraper.py`: Automates the daily extraction, deduplication, and incremental loading of new jobs from all sources into a combined table.
@@ -161,7 +159,8 @@ bash
 Copy
 Edit
 
-KaungMyatKyaw(egg)
-May Thazin Htun
-Sandi Sharoi
+KaungMyatKyaw(egg) - kaungmyatkyaw.gg@gmail.com
+May Thazin Htun    - maythazinhtunn@gmail.com
+Sandi Sharoi       - sandisharoi18@gmail.com
 
+Made for Myanmar IT professionals <3
